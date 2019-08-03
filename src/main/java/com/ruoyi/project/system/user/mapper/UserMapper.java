@@ -35,6 +35,8 @@ public interface UserMapper
      */
     public User selectUserByPhoneNumber(String phoneNumber);
 
+    User selectByUserByOpenId(String openId);
+
     /**
      * 通过邮箱查询用户
      * 

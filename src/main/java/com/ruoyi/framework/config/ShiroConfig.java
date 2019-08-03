@@ -3,6 +3,10 @@ package com.ruoyi.framework.config;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.Filter;
+
+import com.ruoyi.framework.shiro.realm.WxOpenRealm;
+import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
+import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
@@ -98,7 +102,7 @@ public class ShiroConfig
     }
 
     /**
-     * 自定义Realm
+     * 自定义Realm,账户密码登录
      */
     @Bean
     public UserRealm userRealm(EhCacheManager cacheManager)
@@ -106,6 +110,12 @@ public class ShiroConfig
         UserRealm userRealm = new UserRealm();
         userRealm.setCacheManager(cacheManager);
         return userRealm;
+    }
+
+    @Bean
+    public WxOpenRealm wxOpenRealm(){
+        WxOpenRealm wxOpenRealm = new WxOpenRealm();
+        return wxOpenRealm;
     }
 
     /**
@@ -345,5 +355,13 @@ public class ShiroConfig
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
+    }
+
+    @Bean
+    public ModularRealmAuthenticator modularRealmAuthenticator() {
+        ModularRealmAuthenticator modularRealmAuthenticator = new ModularRealmAuthenticator();
+        //只要有一个成功就视为登录成功
+        modularRealmAuthenticator.setAuthenticationStrategy(new AtLeastOneSuccessfulStrategy());
+        return modularRealmAuthenticator;
     }
 }

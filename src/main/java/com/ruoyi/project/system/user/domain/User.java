@@ -3,6 +3,8 @@ package com.ruoyi.project.system.user.domain;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
+import lombok.Data;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import com.ruoyi.framework.aspectj.lang.annotation.Excel;
 import com.ruoyi.framework.web.domain.BaseEntity;
@@ -21,6 +23,19 @@ public class User extends BaseEntity
     /** 用户ID */
     @Excel(name = "用户序号")
     private Long userId;
+
+    /**
+     * 用户微信分配的id
+     */
+    private String openId;
+
+    private String city;
+
+    private String country;
+
+    private String language;
+
+    private String province;
 
     /** 部门ID */
     private Long deptId;
@@ -293,6 +308,46 @@ public class User extends BaseEntity
     public void setPostIds(Long[] postIds)
     {
         this.postIds = postIds;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     @Override

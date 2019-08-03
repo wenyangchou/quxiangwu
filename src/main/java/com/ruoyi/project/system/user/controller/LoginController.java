@@ -2,10 +2,15 @@ package com.ruoyi.project.system.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.framework.shiro.token.WxOpenIdToken;
+import com.ruoyi.project.system.user.domain.WechatSession;
+import com.ruoyi.project.system.user.service.IUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +28,9 @@ import com.ruoyi.framework.web.domain.AjaxResult;
 @Controller
 public class LoginController extends BaseController
 {
+
+    @Autowired
+    private IUserService userService;
 
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response)
@@ -54,6 +62,21 @@ public class LoginController extends BaseController
             {
                 msg = e.getMessage();
             }
+            return error(msg);
+        }
+    }
+
+    @PostMapping("/wxLogin")
+    @ResponseBody
+    public AjaxResult wxLoginOrRegister(String code){
+        WechatSession wechatSession = userService.getWechatSessionByCode(code);
+        if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
+            WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(token);
+            return success();
+        }else {
+            String msg = "请求非法";
             return error(msg);
         }
     }

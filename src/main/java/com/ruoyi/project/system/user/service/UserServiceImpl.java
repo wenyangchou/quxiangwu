@@ -2,7 +2,11 @@ package com.ruoyi.project.system.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.alibaba.fastjson.JSON;
+import com.ruoyi.project.system.user.domain.WechatSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.support.Convert;
@@ -20,6 +24,7 @@ import com.ruoyi.project.system.user.domain.UserRole;
 import com.ruoyi.project.system.user.mapper.UserMapper;
 import com.ruoyi.project.system.user.mapper.UserPostMapper;
 import com.ruoyi.project.system.user.mapper.UserRoleMapper;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * 用户 业务层处理
@@ -46,6 +51,15 @@ public class UserServiceImpl implements IUserService
 
     @Autowired
     private PasswordService passwordService;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Value("${wechat.appid}")
+    private String appId;
+
+    @Value("${wechat.secret}")
+    private String secret;
 
     /**
      * 根据条件分页查询用户对象
@@ -354,5 +368,18 @@ public class UserServiceImpl implements IUserService
             return idsStr.substring(0, idsStr.length() - 1);
         }
         return idsStr.toString();
+    }
+
+    @Override
+    public WechatSession getWechatSessionByCode(String code) {
+        String url = "https://api.weixin.qq.com/sns/jscode2session?appid="+appId+"&secret="+secret+"&js_code="+code+"&grant_type=authorization_code";
+        String result  = restTemplate.getForObject(url,String.class);
+        WechatSession wechatSession = JSON.parseObject(result,WechatSession.class);
+        return wechatSession;
+    }
+
+    @Override
+    public User selectUserByOpenId(String openId) {
+        return userMapper.selectByUserByOpenId(openId);
     }
 }

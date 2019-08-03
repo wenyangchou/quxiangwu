@@ -1,6 +1,8 @@
 package com.ruoyi.project.system.user.service;
 
 import com.ruoyi.project.system.user.domain.User;
+import com.ruoyi.project.system.user.domain.WechatSession;
+
 import java.util.List;
 
 /**
@@ -18,6 +20,8 @@ public interface IUserService
      * @return 用户信息集合信息
      */
     public List<User> selectUserList(User user);
+
+    User selectUserByOpenId(String openId);
 
     /**
      * 通过用户名查询用户
@@ -139,4 +143,8 @@ public interface IUserService
      * @return 结果
      */
     public String selectUserPostGroup(Long userId);
+
+    WechatSession getWechatSessionByCode(String code);
+
+
 }
