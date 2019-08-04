@@ -72,7 +72,7 @@ public class UserServiceImpl implements IUserService
     public List<User> selectUserList(User user)
     {
         // 生成数据权限过滤条件
-        user.getParams().put("dataScope", DataScopeUtils.dataScopeFilter());
+//        user.getParams().put("dataScope", DataScopeUtils.dataScopeFilter());
         return userMapper.selectUserList(user);
     }
 

@@ -51,16 +51,17 @@ public class DataScopeUtils
 
         for (Role role : user.getRoles())
         {
-            String dataScope = role.getDataScope();
-            if (DATA_SCOPE_ALL.equals(dataScope))
-            {
-                sqlString = new StringBuilder();
-                break;
-            }
-            else if (DATA_SCOPE_CUSTOM.equals(dataScope))
-            {
-                sqlString.append(StringUtils.format(" OR {}.dept_id IN ( SELECT dept_id FROM sys_role_dept WHERE role_id = {} ) ", da, role.getRoleId()));
-            }
+//            String dataScope = role.getDataScope();
+//            if (DATA_SCOPE_ALL.equals(dataScope))
+//            {
+//                sqlString = new StringBuilder();
+//                break;
+//            }
+//            else if (DATA_SCOPE_CUSTOM.equals(dataScope))
+//            {
+//                sqlString.append(StringUtils.format(" OR {}.dept_id IN ( SELECT dept_id FROM sys_role_dept WHERE role_id = {} ) ", da, role.getRoleId()));
+//            }
+            sqlString = new StringBuilder();
         }
 
         if (StringUtils.isNotBlank(sqlString.toString()))
