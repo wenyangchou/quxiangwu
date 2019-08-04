@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.thing.mapper.ThingMapper">
+
+    <resultMap id="thingResult" type="com.ruoyi.project.system.thing.domain.Thing">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="top_img_id" property="topImgId"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="price_type" property="priceType"/>
+        <result column="type_id" property="typeId"/>
+        <result column="district_id" property="districtId"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+        <association property="topImage" resultMap="imageResult"/>
+    </resultMap>
+
+    <resultMap id="imageResult" type="com.ruoyi.project.system.thing.domain.Image">
+        <id column="image_id" property="id"/>
+        <result column="image_create_time" property="createTime"/>
+        <result column="image_modify_time" property="modifyTime"/>
+        <result column="img_url"  property="imgUrl"/>
+        <result column="img_path" property="imgPath"/>
+    </resultMap>
+
+    <select id="getLatest" resultMap="thingResult">
+       SELECT
+        st.id,
+        st.create_time,
+        st.modify_time,
+        st.top_img_id,
+        st.name,
+        st.price,
+        st.price_type,
+        st.user_id,
+        st.type_id,
+        st.district_id,
+        st.description,
+        st.status,
+        si.id image_id,
+        si.create_time image_create_time,
+        si.modify_time image_modify_time,
+        si.img_path,
+        si.img_url
+    FROM
+        service_thing st LEFT JOIN
+        service_image si on st.top_img_id = si.id
+    ORDER BY
+        st.modify_time DESC
+    </select>
+
+    <select id="getLatestAndByTypeId" resultMap="thingResult" parameterType="java.lang.Long">
+        SELECT
+        st.id,
+        st.create_time,
+        st.modify_time,
+        st.top_img_id,
+        st.name,
+        st.price,
+        st.price_type,
+        st.user_id,
+        st.type_id,
+        st.district_id,
+        st.description,
+        st.status,
+        si.id image_id,
+        si.create_time image_create_time,
+        si.modify_time image_modify_time,
+        si.img_path,
+        si.img_url
+    FROM
+        service_thing st LEFT JOIN
+        service_image si on st.top_img_id = si.id
+    WHERE
+        st.type_id = #{typeId}
+    ORDER BY
+        st.modify_time DESC
+    </select>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="thingResult">
+    SELECT
+        st.id,
+        st.create_time,
+        st.modify_time,
+        st.top_img_id,
+        st.name,
+        st.price,
+        st.price_type,
+        st.user_id,
+        st.type_id,
+        st.district_id,
+        st.description,
+        st.status,
+        si.id image_id,
+        si.create_time image_create_time,
+        si.modify_time image_modify_time,
+        si.img_path,
+        si.img_url
+    FROM
+        service_thing st LEFT JOIN
+        service_image si on st.top_img_id = si.id
+    WHERE
+        st.id = #{id}
+    </select>
+
+    <select id="getImagesByThingId" parameterType="java.lang.Long" resultMap="imageResult">
+        SELECT
+            id image_id,
+            create_time image_create_time,
+            modify_time image_modify_time,
+            img_path,
+            img_url
+        FROM
+            service_image
+        WHERE
+            thing_id = #{thingId}
+    </select>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.job.mapper.JobMapper">
+
+    <resultMap id="jobResult" type="com.ruoyi.project.system.job.domain.Job">
+        <id property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="name" column="name"/>
+        <result property="quxiangMoney" column="quxiang_money"/>
+        <result property="description" column="description"/>
+        <result property="type" column="type"/>
+        <result property="beginTime" column="begin_time"/>
+        <result property="endTime" column="end_time"/>
+        <association property="jobHistory" resultMap="jobHistoryResult"/>
+    </resultMap>
+
+    <resultMap id="jobHistoryResult" type="com.ruoyi.project.system.job.domain.JobHistory">
+        <id property="id" column="history_id"/>
+        <result property="createTime" column="history_create_time"/>
+        <result property="modifyTime" column="history_modify_time"/>
+        <result property="userId" column="user_id"/>
+        <result property="jobId" column="job_id"/>
+    </resultMap>
+
+    <select id="getByUserIdOnce" resultMap="jobResult" parameterType="java.lang.Long">
+        SELECT
+        sj.id,
+        sj.create_time,
+        sj.modify_time,
+        sj.name,
+        sj.quxiang_money,
+        sj.description,
+        sj.type,
+        sj.begin_time,
+        sj.end_time,
+        sjh.id history_id,
+        sjh.create_time history_create_time,
+        sjh.modify_time history_modify_time,
+        sjh.user_id
+        FROM
+        service_job sj
+        LEFT JOIN service_job_history sjh ON sj.id = sjh.job_id
+        WHERE
+        sj.type = 0
+        AND sjh.user_id = #{userId}
+        AND sj.begin_time &lt; now()
+        AND sj.end_time > now()
+    </select>
+
+    <select id="getByUserIdEveryDay" resultMap="jobResult" parameterType="java.lang.Long">
+        SELECT
+        sj.id,
+        sj.create_time,
+        sj.modify_time,
+        sj.name,
+        sj.quxiang_money,
+        sj.description,
+        sj.type,
+        sj.begin_time,
+        sj.end_time,
+        sjh.id history_id,
+        sjh.create_time history_create_time,
+        sjh.modify_time history_modify_time,
+        sjh.user_id
+        FROM
+        service_job sj
+        LEFT JOIN service_job_history sjh ON sj.id = sjh.job_id
+        WHERE
+        sj.type = 0
+        AND sjh.user_id = #{userId}
+        AND sj.begin_time &lt; now()
+        AND sj.end_time > now()
+    </select>
+
+</mapper>
