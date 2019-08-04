@@ -46,8 +46,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE
         sj.type = 0
         AND sjh.user_id = #{userId}
-        AND sj.begin_time &lt; now()
-        AND sj.end_time > now()
+        AND sj.begin_time &lt;= now()
+        AND sj.end_time &gt;= now()
     </select>
 
     <select id="getByUserIdEveryDay" resultMap="jobResult" parameterType="java.lang.Long">
@@ -69,10 +69,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         service_job sj
         LEFT JOIN service_job_history sjh ON sj.id = sjh.job_id
         WHERE
-        sj.type = 0
+        sj.type = 1
         AND sjh.user_id = #{userId}
-        AND sj.begin_time &lt; now()
-        AND sj.end_time > now()
+        AND sj.begin_time &lt;= now()
+        AND sj.end_time &gt;= now()
+        AND TO_DAYS(sjh.create_time) = TO_DAYS(NOW())
     </select>
 
 </mapper>

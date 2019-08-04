@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.message.mapper.MessageMapper">
+    
+    <resultMap id="messageResult" type="com.ruoyi.project.system.message.domain.Message">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="thing_id" property="thingId"/>
+        <result column="user_id" property="userId"/>
+        <result column="content" property="content"/>
+        <result column="parentId" property="parentId"/>
+        <association property="user" resultMap="userResult"/>
+    </resultMap>
+
+    <resultMap id="userResult" type="com.ruoyi.project.system.user.domain.User">
+        <id     property="userId"       column="user_id"      />
+        <result property="userName"     column="user_name"    />
+    </resultMap>
+
+    <select id="getByThingId" resultMap="messageResult" parameterType="java.lang.Long">
+        SELECT
+            sm.id,
+            sm.create_time,
+            sm.modify_time,
+            sm.thing_id,
+            sm.user_id,
+            sm.content,
+            sm.parent_id,
+            su.user_id,
+            su.user_name
+        FROM
+            service_message sm
+        LEFT JOIN sys_user su ON sm.user_id = su.user_id
+        WHERE sm.thing_id=#{messageId} AND sm.parent_id=0
+    </select>
+
+    <select id="getByParentId" parameterType="java.lang.Long" resultMap="messageResult">
+        SELECT
+            sm.id,
+            sm.create_time,
+            sm.modify_time,
+            sm.thing_id,
+            sm.user_id,
+            sm.content,
+            sm.parent_id,
+            su.user_id,
+            su.user_name
+        FROM
+            service_message sm
+        LEFT JOIN sys_user su ON sm.user_id = su.user_id
+        WHERE
+            sm.parent_id =#{messageId}
+        ORDER BY sm.create_time DESC
+    </select>
+
+    <insert id="insertMessage">
+        INSERT INTO service_message (create_time,modify_time,thing_id,user_id,content,parent_id) VALUES (now(),now(),#{thingId},#{userId},#{content},#{parentId})
+    </insert>
+
+</mapper>
