@@ -105,7 +105,7 @@ create table QRTZ_PAUSED_TRIGGER_GRPS (
 ) engine=innodb default charset=utf8;
 
 -- ----------------------------
--- 8、 存储与已触发的 Trigger 相关的状态信息，以及相联 Job 的执行信息
+-- 8、 存储与已触发的 Trigger 相关的状态信息，以及相联 ServiceJob 的执行信息
 -- ---------------------------- 
 drop table if exists QRTZ_FIRED_TRIGGERS;
 create table QRTZ_FIRED_TRIGGERS (

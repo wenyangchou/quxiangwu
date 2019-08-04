@@ -129,7 +129,7 @@ public class Job extends BaseEntity implements Serializable
     @Override
     public String toString()
     {
-        return "Job [jobId=" + jobId + ", jobName=" + jobName + ", jobGroup=" + jobGroup + ", methodName=" + methodName
+        return "ServiceJob [jobId=" + jobId + ", jobName=" + jobName + ", jobGroup=" + jobGroup + ", methodName=" + methodName
                 + ", methodParams=" + methodParams + ", cronExpression=" + cronExpression + ", status=" + status + "]";
     }
 

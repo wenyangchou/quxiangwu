@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-public class Job extends BaseEntity {
+public class ServiceJob extends BaseEntity {
 
     private Long id;
 
