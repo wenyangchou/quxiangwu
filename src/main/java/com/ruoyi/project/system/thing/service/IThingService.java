@@ -11,4 +11,11 @@ public interface IThingService {
     List<Thing> getLatestByTypeId(Long typeId);
 
     Thing getById(Long id);
+
+    int uploadFile(String filePath,Long thingId);
+
+    int addThing(Thing thing);
+
+    int updateThing(Long thingId,Long imageId);
+
 }

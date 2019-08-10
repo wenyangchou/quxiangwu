@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="district_id" property="districtId"/>
         <result column="description" property="description"/>
         <result column="status" property="status"/>
+        <result column="trade_type" property="tradeType"/>
         <association property="topImage" resultMap="imageResult"/>
     </resultMap>
 
@@ -45,7 +46,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         si.create_time image_create_time,
         si.modify_time image_modify_time,
         si.img_path,
-        si.img_url
+        si.img_url,
+        st.trade_type
     FROM
         service_thing st LEFT JOIN
         service_image si on st.top_img_id = si.id
@@ -71,7 +73,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         si.create_time image_create_time,
         si.modify_time image_modify_time,
         si.img_path,
-        si.img_url
+        si.img_url,
+        st.trade_type
     FROM
         service_thing st LEFT JOIN
         service_image si on st.top_img_id = si.id
@@ -99,7 +102,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         si.create_time image_create_time,
         si.modify_time image_modify_time,
         si.img_path,
-        si.img_url
+        si.img_url,
+        st.trade_type
     FROM
         service_thing st LEFT JOIN
         service_image si on st.top_img_id = si.id
@@ -119,4 +123,52 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE
             thing_id = #{thingId}
     </select>
+
+    <insert id="insertThing">
+        INSERT INTO service_thing
+        (create_time,modify_time,top_img_id,name,price,price_type,user_id,type_id,district_id,description,status,trade_type)
+        VALUES (NOW(),NOW(),#{topImgId},#{name},#{price},#{priceType},#{userId},#{typeId},#{districtId},#{description},#{status},#{tradeType})
+    </insert>
+
+    <update id="updateThing">
+        UPDATE service_thing
+        <set>
+            <if test="modifyTime != null">
+                modify_time=NOW(),
+            </if>
+            <if test="topImgId!=null">
+                top_img_id=#{topImgId},
+            </if>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="price!=null">
+                price=#{price},
+            </if>
+            <if test="priceType!=null">
+                price_type=#{priceType},
+            </if>
+            <if test="userId!=null">
+                user_id=#{userId},
+            </if>
+            <if test="typeId!=null">
+                type_id=#{typeId},
+            </if>
+            <if test="district_id!=null">
+                district_id=#{districtId},
+            </if>
+            <if test="description!=null">
+                description=#{description},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            <if test="tradeType!=null">
+                trade_type=#{tradeType},
+            </if>
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
 </mapper>

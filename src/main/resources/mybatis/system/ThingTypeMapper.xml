@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.thing.mapper.ThingTypeMapper">
+
+    <resultMap id="thingTypeResult" type="com.ruoyi.project.system.thing.domain.ThingType">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="type" property="type"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="thingTypeResult">
+        SELECT
+        id,create_time,modify_time,type
+        FROM service_type
+    </select>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="thingTypeResult">
+        SELECT
+        id,create_time,modify_time,type
+        FROM service_type
+        WHERE id=#{id}
+    </select>
+
+    <insert id="insertThingType">
+        INSERT INTO (create_time,modify_time,type)
+        VALUES (NOW(),NOW(),#{type})
+    </insert>
+
+</mapper>

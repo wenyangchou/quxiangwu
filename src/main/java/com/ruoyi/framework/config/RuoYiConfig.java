@@ -23,6 +23,8 @@ public class RuoYiConfig
     /** 获取地址开关 */
     private static boolean addressEnabled;
 
+    private static String imagePath;
+
     public String getName()
     {
         return name;
@@ -73,4 +75,11 @@ public class RuoYiConfig
         RuoYiConfig.addressEnabled = addressEnabled;
     }
 
+    public static String getImagePath() {
+        return imagePath;
+    }
+
+    public static void setImagePath(String imagePath) {
+        RuoYiConfig.imagePath = imagePath;
+    }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.thing.mapper.ImageMapper">
+
+    <resultMap id="ImageResult" type="com.ruoyi.project.system.thing.domain.Image">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="image_url" property="imageUrl"/>
+        <result column="img_path" property="imgPath"/>
+        <result column="thing_id" property="thingId"/>
+    </resultMap>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="ImageResult">
+        SELECT
+         id,create_time,modify_time,image_url,img_path,thing_id 
+        FROM service_imgae WHERE id = #{id}
+    </select>
+    
+    <select id="getByThingId" parameterType="java.lang.Long" resultMap="ImageResult">
+        SELECT
+         id,create_time,modify_time,image_url,img_path,thing_id
+        FROM service_imgae WHERE thing_id = #{thingId}
+    </select>
+
+    <insert id="insertImage">
+        INSERT INTO service_imgae (create_time,modify_time,image_url,img_path,thing_id)
+        VALUES (NOW(),NOW(),#{imageUrl},#{imgPath},#{thingId})
+    </insert>
+</mapper>

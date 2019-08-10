@@ -14,4 +14,8 @@ public interface ThingMapper {
     Thing getById(Long id);
 
     List<Image> getImagesByThingId(Long thingId);
+
+    int insertThing(Thing thing);
+
+    int updateThing(Thing thing);
 }

@@ -37,4 +37,6 @@ public class Thing extends BaseEntity {
     private Image topImage;
 
     private List<Image> images;
+
+    private Integer tradeType;
 }

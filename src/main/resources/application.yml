@@ -8,12 +8,13 @@ ruoyi:
   copyrightYear: 2018
   #头像上传路径
   profile: D:/profile/
+  imagePath: D:/imagePath/
   # 获取ip地址开关
   addressEnabled: false
 #开发环境配置
 server:
   #服务端口
-  port: 80
+  port: 8080
   servlet:
     # 项目contextPath
     context-path: /
