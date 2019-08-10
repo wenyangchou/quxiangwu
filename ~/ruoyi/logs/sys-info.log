@@ -439,3 +439,44 @@
 13:28:21.697 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564896496212 paused.
 13:28:21.698 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564896496212 shutdown complete.
 13:28:21.709 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+13:07:30.605 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 4389 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+13:07:30.628 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+13:10:26.652 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 4416 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+13:10:26.734 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+13:10:29.867 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+13:10:29.869 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+13:10:31.161 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+13:10:32.343 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-80"]
+13:10:32.360 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+13:10:32.360 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+13:10:32.366 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+13:10:32.502 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+13:10:33.024 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+13:10:34.018 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+13:10:34.043 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+13:10:34.044 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+13:10:34.055 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1565413834020'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+13:10:34.056 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+13:10:34.056 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+13:10:34.059 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3c9b610c
+13:10:35.547 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+13:10:36.736 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+13:10:36.767 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+13:10:37.029 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+13:10:37.378 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-80"]
+13:10:37.427 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Pausing ProtocolHandler ["http-nio-80"]
+13:10:37.427 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Stopping service [Tomcat]
+13:10:37.444 [restartedMain] INFO  o.a.c.u.LifecycleBase - [log,180] - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+13:10:37.445 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Stopping ProtocolHandler ["http-nio-80"]
+13:10:37.446 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Destroying ProtocolHandler ["http-nio-80"]
+13:10:37.487 [restartedMain] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1565413834020 shutting down.
+13:10:37.487 [restartedMain] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1565413834020 paused.
+13:10:37.489 [restartedMain] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1565413834020 shutdown complete.
+13:10:37.501 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed

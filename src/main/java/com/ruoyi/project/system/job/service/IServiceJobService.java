@@ -4,7 +4,7 @@ import com.ruoyi.project.system.job.domain.ServiceJob;
 
 import java.util.List;
 
-public interface IJobService {
+public interface IServiceJobService {
 
     List<ServiceJob> getOnceByUserId(Long userId);
 
