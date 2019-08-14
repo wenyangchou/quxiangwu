@@ -39,6 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="province" column="province"/>
 	</resultMap>
 
+	<select id="getById" parameterType="java.lang.Long" resultMap="qubaResult">
+		SELECT id,create_time,modify_time,name,owner_id FROM service_quba WHERE id=#{id}
+	</select>
+
 	<select id="getQubaMemberByQubaId" parameterType="java.lang.Long" resultMap="UserResult">
 		SELECT
 		su.user_id,
@@ -73,6 +77,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		id,create_time,modify_time,name,owner_id
 		FROM service_quba
 	</select>
+
+	<select id="getByUserId" parameterType="java.lang.Long" resultMap="qubaResult">
+		SELECT
+		sq.id,sq.create_time,sq.modify_time,sq.name,sq.owner_id
+		FROM service_quba sq,service_quba_user squ WHERE sq.id = squ.quba_id
+		AND squ.user_id=#{userId}
+	</select>
+
+
 
 	<insert id="insertQubaUser">
 		INSERT INTO service_quba_user

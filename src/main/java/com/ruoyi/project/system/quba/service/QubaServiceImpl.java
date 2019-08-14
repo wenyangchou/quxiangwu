@@ -1,8 +1,10 @@
 package com.ruoyi.project.system.quba.service;
 
+import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.quba.domain.Quba;
 import com.ruoyi.project.system.quba.mapper.QubaMapper;
 import com.ruoyi.project.system.user.domain.User;
+import com.ruoyi.project.system.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,9 @@ public class QubaServiceImpl implements IQubaService {
 
     @Autowired
     private QubaMapper qubaMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public List<Quba> getAll() {
@@ -43,5 +48,16 @@ public class QubaServiceImpl implements IQubaService {
     @Override
     public List<User> getQubaMemberByQubaId(Long qubaId) {
         return qubaMapper.getQubaMemberByQubaId(qubaId);
+    }
+
+    @Override
+    public List<Quba> getUserQuba() {
+        return qubaMapper.getByUserId(ShiroUtils.getUserId());
+    }
+
+    @Override
+    public User getQubaOwner(Long qubaId) {
+        Quba quba = qubaMapper.getById(qubaId);
+        return userMapper.selectUserById(quba.getOwnerId());
     }
 }

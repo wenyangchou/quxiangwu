@@ -23,4 +23,9 @@ public interface IQubaService {
     int getQubaSignInByUserId( Long userId,Long qubaId);
 
     List<User> getQubaMemberByQubaId(Long qubaId);
+
+    List<Quba> getUserQuba();
+
+    User getQubaOwner(Long qubaId);
+
 }

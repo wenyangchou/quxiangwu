@@ -16,6 +16,8 @@ public interface QubaMapper {
 
     List<Quba> getAll();
 
+    Quba getById(Long id);
+
     int insertQubaUser(@Param("userId") Long userId,@Param("qubaId") Long qubaId);
 
     int insertQubaSignIn(@Param("userId") Long userId,@Param("qubaId") Long qubaId);
@@ -23,4 +25,6 @@ public interface QubaMapper {
     int getQubaSignInByUserIdAndDate(@Param("userId") Long userId,@Param("qubaId") Long qubaId,@Param("date") Date date);
 
     List<User> getQubaMemberByQubaId(Long qubaId);
+
+    List<Quba> getByUserId(Long userId);
 }
