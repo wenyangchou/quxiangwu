@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.ruoyi.project.system.user.domain.WechatSession;
+import com.ruoyi.project.system.user.mapper.UserFollowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,9 @@ public class UserServiceImpl implements IUserService
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
+    @Autowired
+    private UserFollowMapper userFollowMapper;
 
     @Autowired
     private PasswordService passwordService;
@@ -293,7 +297,6 @@ public class UserServiceImpl implements IUserService
     /**
      * 校验用户名称是否唯一
      *
-     * @param phonenumber 用户名
      * @return
      */
     @Override
@@ -311,7 +314,6 @@ public class UserServiceImpl implements IUserService
     /**
      * 校验email是否唯一
      *
-     * @param email 用户名
      * @return
      */
     @Override
@@ -381,5 +383,28 @@ public class UserServiceImpl implements IUserService
     @Override
     public User selectUserByOpenId(String openId) {
         return userMapper.selectByUserByOpenId(openId);
+    }
+
+
+    @Override
+    public int isFollowed(Long followerId) {
+        Long userId = ShiroUtils.getUserId();
+        return userFollowMapper.getByUserIdAndFollowerId(userId,followerId)==null?0:1;
+    }
+
+    @Override
+    public int addFollow(Long followerId) {
+        Long userId = ShiroUtils.getUserId();
+        if (isFollowed(followerId)>0){
+            return 0;
+        }
+
+        return userFollowMapper.insertFollow(userId,followerId);
+    }
+
+    @Override
+    public int deleteFollow(Long followerId) {
+        Long userId = ShiroUtils.getUserId();
+        return userFollowMapper.deleteFollow(userId,followerId);
     }
 }

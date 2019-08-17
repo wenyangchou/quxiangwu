@@ -146,5 +146,11 @@ public interface IUserService
 
     WechatSession getWechatSessionByCode(String code);
 
+    int isFollowed(Long followerId);
+
+    int addFollow(Long followerId);
+
+    int deleteFollow(Long followerId);
+
 
 }

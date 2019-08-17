@@ -2,12 +2,14 @@ package com.ruoyi.project.system.user.mapper;
 
 import java.util.List;
 import com.ruoyi.project.system.user.domain.UserPost;
+import org.springframework.stereotype.Repository;
 
 /**
  * 用户与岗位 表 数据层
  * 
  * @author ruoyi
  */
+@Repository
 public interface UserPostMapper
 {
 

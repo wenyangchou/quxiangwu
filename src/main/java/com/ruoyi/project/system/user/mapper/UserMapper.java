@@ -1,6 +1,8 @@
 package com.ruoyi.project.system.user.mapper;
 
 import com.ruoyi.project.system.user.domain.User;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  * 
  * @author ruoyi
  */
+@Repository
 public interface UserMapper
 {
 

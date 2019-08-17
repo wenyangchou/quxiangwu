@@ -2,12 +2,14 @@ package com.ruoyi.project.system.role.mapper;
 
 import java.util.List;
 import com.ruoyi.project.system.role.domain.Role;
+import org.springframework.stereotype.Repository;
 
 /**
  * 角色表 数据层
  * 
  * @author ruoyi
  */
+@Repository
 public interface RoleMapper
 {
 
