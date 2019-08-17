@@ -13,17 +13,11 @@ import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.support.Convert;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.framework.datascope.DataScopeUtils;
 import com.ruoyi.framework.shiro.service.PasswordService;
-import com.ruoyi.project.system.post.domain.Post;
-import com.ruoyi.project.system.post.mapper.PostMapper;
-import com.ruoyi.project.system.role.domain.Role;
 import com.ruoyi.project.system.role.mapper.RoleMapper;
 import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.domain.UserPost;
 import com.ruoyi.project.system.user.domain.UserRole;
 import com.ruoyi.project.system.user.mapper.UserMapper;
-import com.ruoyi.project.system.user.mapper.UserPostMapper;
 import com.ruoyi.project.system.user.mapper.UserRoleMapper;
 import org.springframework.web.client.RestTemplate;
 
@@ -40,12 +34,6 @@ public class UserServiceImpl implements IUserService
 
     @Autowired
     private RoleMapper roleMapper;
-
-    @Autowired
-    private PostMapper postMapper;
-
-    @Autowired
-    private UserPostMapper userPostMapper;
 
     @Autowired
     private UserRoleMapper userRoleMapper;
@@ -95,7 +83,6 @@ public class UserServiceImpl implements IUserService
     /**
      * 通过手机号码查询用户
      * 
-     * @param userName 用户名
      * @return 用户对象信息
      */
     @Override
@@ -139,8 +126,6 @@ public class UserServiceImpl implements IUserService
     {
         // 删除用户与角色关联
         userRoleMapper.deleteUserRoleByUserId(userId);
-        // 删除用户与岗位表
-        userPostMapper.deleteUserPostByUserId(userId);
         return userMapper.deleteUserById(userId);
     }
 
@@ -178,8 +163,6 @@ public class UserServiceImpl implements IUserService
         user.setCreateBy(ShiroUtils.getLoginName());
         // 新增用户信息
         int rows = userMapper.insertUser(user);
-        // 新增用户岗位关联
-        insertUserPost(user);
         // 新增用户与角色管理
         insertUserRole(user);
         return rows;
@@ -200,10 +183,6 @@ public class UserServiceImpl implements IUserService
         userRoleMapper.deleteUserRoleByUserId(userId);
         // 新增用户与角色管理
         insertUserRole(user);
-        // 删除用户与岗位关联
-        userPostMapper.deleteUserPostByUserId(userId);
-        // 新增用户与岗位管理
-        insertUserPost(user);
         return userMapper.updateUser(user);
     }
 
@@ -255,27 +234,6 @@ public class UserServiceImpl implements IUserService
         }
     }
 
-    /**
-     * 新增用户岗位信息
-     * 
-     * @param user 用户对象
-     */
-    public void insertUserPost(User user)
-    {
-        // 新增用户与岗位管理
-        List<UserPost> list = new ArrayList<UserPost>();
-        for (Long postId : user.getPostIds())
-        {
-            UserPost up = new UserPost();
-            up.setUserId(user.getUserId());
-            up.setPostId(postId);
-            list.add(up);
-        }
-        if (list.size() > 0)
-        {
-            userPostMapper.batchUserPost(list);
-        }
-    }
 
     /**
      * 校验用户名称是否唯一
@@ -328,49 +286,7 @@ public class UserServiceImpl implements IUserService
         return UserConstants.USER_EMAIL_UNIQUE;
     }
 
-    /**
-     * 查询用户所属角色组
-     * 
-     * @param userId 用户ID
-     * @return 结果
-     */
-    @Override
-    public String selectUserRoleGroup(Long userId)
-    {
-        List<Role> list = roleMapper.selectRolesByUserId(userId);
-        StringBuffer idsStr = new StringBuffer();
-        for (Role role : list)
-        {
-            idsStr.append(role.getRoleName()).append(",");
-        }
-        if (StringUtils.isNotEmpty(idsStr.toString()))
-        {
-            return idsStr.substring(0, idsStr.length() - 1);
-        }
-        return idsStr.toString();
-    }
 
-    /**
-     * 查询用户所属岗位组
-     * 
-     * @param userId 用户ID
-     * @return 结果
-     */
-    @Override
-    public String selectUserPostGroup(Long userId)
-    {
-        List<Post> list = postMapper.selectPostsByUserId(userId);
-        StringBuffer idsStr = new StringBuffer();
-        for (Post post : list)
-        {
-            idsStr.append(post.getPostName()).append(",");
-        }
-        if (StringUtils.isNotEmpty(idsStr.toString()))
-        {
-            return idsStr.substring(0, idsStr.length() - 1);
-        }
-        return idsStr.toString();
-    }
 
     @Override
     public WechatSession getWechatSessionByCode(String code) {

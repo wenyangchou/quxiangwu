@@ -20,7 +20,7 @@ public interface UserMapper
      * @param user 用户信息
      * @return 用户信息集合信息
      */
-    public List<User> selectUserList(User user);
+     List<User> selectUserList(User user);
 
     /**
      * 通过用户名查询用户
@@ -28,7 +28,7 @@ public interface UserMapper
      * @param userName 用户名
      * @return 用户对象信息
      */
-    public User selectUserByLoginName(String userName);
+     User selectUserByLoginName(String userName);
 
     /**
      * 通过手机号码查询用户
@@ -36,7 +36,7 @@ public interface UserMapper
      * @param phoneNumber 手机号码
      * @return 用户对象信息
      */
-    public User selectUserByPhoneNumber(String phoneNumber);
+     User selectUserByPhoneNumber(String phoneNumber);
 
     User selectByUserByOpenId(String openId);
 
@@ -46,7 +46,7 @@ public interface UserMapper
      * @param email 邮箱
      * @return 用户对象信息
      */
-    public User selectUserByEmail(String email);
+     User selectUserByEmail(String email);
 
     /**
      * 通过用户ID查询用户
@@ -54,7 +54,7 @@ public interface UserMapper
      * @param userId 用户ID
      * @return 用户对象信息
      */
-    public User selectUserById(Long userId);
+     User selectUserById(Long userId);
 
     /**
      * 通过用户ID删除用户
@@ -62,15 +62,15 @@ public interface UserMapper
      * @param userId 用户ID
      * @return 结果
      */
-    public int deleteUserById(Long userId);
+      int deleteUserById(Long userId);
 
     /**
      * 批量删除用户信息
-     * 
+     *
      * @param ids 需要删除的数据ID
      * @return 结果
      */
-    public int deleteUserByIds(Long[] ids);
+      int deleteUserByIds(Long[] ids);
 
     /**
      * 修改用户信息
@@ -78,7 +78,7 @@ public interface UserMapper
      * @param user 用户信息
      * @return 结果
      */
-    public int updateUser(User user);
+      int updateUser(User user);
 
     /**
      * 新增用户信息
@@ -86,7 +86,7 @@ public interface UserMapper
      * @param user 用户信息
      * @return 结果
      */
-    public int insertUser(User user);
+      int insertUser(User user);
 
     /**
      * 校验用户名称是否唯一
@@ -94,7 +94,7 @@ public interface UserMapper
      * @param loginName 登录名称
      * @return 结果
      */
-    public int checkLoginNameUnique(String loginName);
+      int checkLoginNameUnique(String loginName);
 
     /**
      * 校验手机号码是否唯一
@@ -102,7 +102,7 @@ public interface UserMapper
      * @param phonenumber 手机号码
      * @return 结果
      */
-    public User checkPhoneUnique(String phonenumber);
+      User checkPhoneUnique(String phonenumber);
 
     /**
      * 校验email是否唯一
@@ -110,7 +110,7 @@ public interface UserMapper
      * @param email 用户邮箱
      * @return 结果
      */
-    public User checkEmailUnique(String email);
+      User checkEmailUnique(String email);
 
 
 }

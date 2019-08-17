@@ -13,9 +13,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.datascope.DataScopeUtils;
 import com.ruoyi.project.system.role.domain.Role;
-import com.ruoyi.project.system.role.domain.RoleDept;
 import com.ruoyi.project.system.role.domain.RoleMenu;
-import com.ruoyi.project.system.role.mapper.RoleDeptMapper;
 import com.ruoyi.project.system.role.mapper.RoleMapper;
 import com.ruoyi.project.system.role.mapper.RoleMenuMapper;
 import com.ruoyi.project.system.user.mapper.UserRoleMapper;
@@ -38,8 +36,6 @@ public class RoleServiceImpl implements IRoleService
     @Autowired
     private UserRoleMapper userRoleMapper;
 
-    @Autowired
-    private RoleDeptMapper roleDeptMapper;
 
     /**
      * 根据条件分页查询角色数据
@@ -200,12 +196,7 @@ public class RoleServiceImpl implements IRoleService
     public int updateRule(Role role)
     {
         role.setUpdateBy(ShiroUtils.getLoginName());
-        // 修改角色信息
-        roleMapper.updateRole(role);
-        // 删除角色与部门关联
-        roleDeptMapper.deleteRoleDeptByRoleId(role.getRoleId());
-        // 新增角色和部门信息（数据权限）
-        return insertRoleDept(role);
+        return roleMapper.updateRole(role);
     }
 
     /**
@@ -232,29 +223,6 @@ public class RoleServiceImpl implements IRoleService
         return rows;
     }
 
-    /**
-     * 新增角色部门信息(数据权限)
-     *
-     * @param role 角色对象
-     */
-    public int insertRoleDept(Role role)
-    {
-        int rows = 1;
-        // 新增角色与部门（数据权限）管理
-        List<RoleDept> list = new ArrayList<RoleDept>();
-        for (Long deptId : role.getDeptIds())
-        {
-            RoleDept rd = new RoleDept();
-            rd.setRoleId(role.getRoleId());
-            rd.setDeptId(deptId);
-            list.add(rd);
-        }
-        if (list.size() > 0)
-        {
-            rows = roleDeptMapper.batchRoleDept(list);
-        }
-        return rows;
-    }
 
     /**
      * 校验角色名称是否唯一

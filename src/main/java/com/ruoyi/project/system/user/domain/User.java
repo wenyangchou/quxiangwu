@@ -1,7 +1,6 @@
 package com.ruoyi.project.system.user.domain;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +8,6 @@ import lombok.Data;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import com.ruoyi.framework.aspectj.lang.annotation.Excel;
 import com.ruoyi.framework.web.domain.BaseEntity;
-import com.ruoyi.project.system.dept.domain.Dept;
 import com.ruoyi.project.system.role.domain.Role;
 
 /**
@@ -19,6 +17,7 @@ import com.ruoyi.project.system.role.domain.Role;
  */
 @Data
 public class User extends BaseEntity {
+  private static final long serialVersionUID = 1L;
 
   /** 用户ID */
   @Excel(name = "用户序号")
@@ -44,6 +43,9 @@ public class User extends BaseEntity {
   private String qulifyNegativeUrl;
 
   private BigDecimal xianquMoney;
+
+  /** 部门ID */
+  private Long deptId;
 
   /** 部门父ID */
   private Long parentId;
@@ -92,14 +94,23 @@ public class User extends BaseEntity {
   @Excel(name = "最后登陆时间")
   private Date loginDate;
 
+  /** 部门对象 */
+
   /** 角色集合 */
   private List<Role> roles;
 
   /** 角色组 */
   private Long[] roleIds;
 
-  /** 岗位组 */
-  private Long[] postIds;
+
+
+  public boolean isAdmin() {
+    return isAdmin(this.userId);
+  }
+
+  public static boolean isAdmin(Long userId) {
+    return userId != null && 1L == userId;
+  }
 
 
   /** 生成随机盐 */
@@ -109,5 +120,6 @@ public class User extends BaseEntity {
     String hex = secureRandom.nextBytes(3).toHex();
     setSalt(hex);
   }
+
 
 }
