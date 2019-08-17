@@ -41,6 +41,11 @@ public class ThingController  extends BaseController {
         return toAjax(thingService.updateThing(thingId,imageId));
     }
 
+    @PostMapping("/updateThingImage")
+    public AjaxResult updateThingImage(String filePath,Long thingId){
+        return toAjax(thingService.uploadFile(filePath,thingId));
+    }
+
     @PostMapping("/uploadFile")
     public AjaxResult uploadFile( @RequestParam("file") MultipartFile file) {
         try {
@@ -52,7 +57,6 @@ public class ThingController  extends BaseController {
         } catch (IOException e) {
             return AjaxResult.error(e.getMessage());
         }
-
     }
 
     @GetMapping("/getLatestThing")
@@ -65,6 +69,18 @@ public class ThingController  extends BaseController {
     public TableDataInfo getByTypeId(Long typeId){
         startPage();
         return getDataTable(thingService.getLatestByTypeId(typeId));
+    }
+
+    @GetMapping("/getUserThing")
+    public TableDataInfo getUserThing(Integer status){
+        startPage();
+        return getDataTable(thingService.getUserThingByStatus(status));
+    }
+
+    @GetMapping("/getUserBuy")
+    public TableDataInfo getUserBuy(){
+        startPage();
+        return getDataTable(thingService.getUserBuy());
     }
 
 }

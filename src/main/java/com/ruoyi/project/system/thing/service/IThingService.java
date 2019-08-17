@@ -18,4 +18,7 @@ public interface IThingService {
 
     int updateThing(Long thingId,Long imageId);
 
+    List<Thing> getUserThingByStatus(Integer status);
+
+    List<Thing> getUserBuy();
 }

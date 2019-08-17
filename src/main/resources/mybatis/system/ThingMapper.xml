@@ -55,6 +55,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         st.modify_time DESC
     </select>
 
+    <select id="getByUserIdAndStatus" resultMap="thingResult">
+        SELECT
+            st.id,
+            st.create_time,
+            st.modify_time,
+            st.top_img_id,
+            st.name,
+            st.price,
+            st.price_type,
+            st.user_id,
+            st.type_id,
+            st.district_id,
+            st.description,
+            st.status,
+            si.id image_id,
+            si.create_time image_create_time,
+            si.modify_time image_modify_time,
+            si.img_path,
+            si.img_url,
+            st.trade_type
+        FROM
+            service_thing st LEFT JOIN
+            service_image si on st.top_img_id = si.id
+        WHERE st.user_id=#{userId} AND st.status=#{status}
+        ORDER BY
+            st.modify_time DESC
+    </select>
+
     <select id="getLatestAndByTypeId" resultMap="thingResult" parameterType="java.lang.Long">
         SELECT
         st.id,
@@ -109,6 +137,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         service_image si on st.top_img_id = si.id
     WHERE
         st.id = #{id}
+    </select>
+
+    <select id="getByUserFromOrder" resultMap="thingResult">
+        SELECT
+            st.id ,
+            st.create_time ,
+            st.modify_time ,
+            st.top_img_id ,
+            st. NAME ,
+            st.price ,
+            st.price_type ,
+            st.user_id ,
+            st.type_id ,
+            st.district_id ,
+            st.description ,
+            st. STATUS ,
+            si.id image_id ,
+            si.create_time image_create_time ,
+            si.modify_time image_modify_time ,
+            si.img_path ,
+            si.img_url ,
+            st.trade_type
+        FROM
+            service_thing st ,
+            service_order so ,
+            service_image si
+        WHERE
+            st.id = so.thing_id
+        AND st.top_img_id = si.id
+        AND so.user_id = #{userId}
+        AND so. STATUS IN(4 , 5 , 6 , 7)
     </select>
 
     <select id="getImagesByThingId" parameterType="java.lang.Long" resultMap="imageResult">

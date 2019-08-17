@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.thing.service;
 
+import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.mapper.ImageMapper;
@@ -56,5 +57,17 @@ public class ThingServiceImpl implements IThingService {
         thing.setId(thingId);
         thing.setTopImgId(imageId);
         return thingMapper.updateThing(thing);
+    }
+
+    @Override
+    public List<Thing> getUserThingByStatus(Integer status) {
+        Long userId = ShiroUtils.getUserId();
+        return thingMapper.getByUserIdAndStatus(userId,status);
+    }
+
+    @Override
+    public List<Thing> getUserBuy() {
+        Long userId = ShiroUtils.getUserId();
+        return thingMapper.getByUserFromOrder(userId);
     }
 }
