@@ -6,7 +6,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<resultMap type="User" id="UserResult">
 		<id     property="userId"       column="user_id"      />
-		<result property="deptId"       column="dept_id"      />
 		<result property="loginName"    column="login_name"   />
 		<result property="userName"     column="user_name"    />
 		<result property="email"        column="email"        />
@@ -29,6 +28,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="country" column="country"/>
 		<result property="language" column="language"/>
 		<result property="province" column="province"/>
+		<result property="isQualified" column="is_qualified"/>
+		<result property="friendValue" column="friend_value"/>
+		<result property="qualifyPositiveUrl" column="qualify_positive_url"/>
+		<result property="qualifyNegativeUrl" column="qualify_negative_url"/>
+		<result property="xianquMoney" column="xianqu_money"/>
+		<result property="bornDate" column="born_date"/>
+		<result property="usualResidence" column="usual_residence"/>
+		<result property="industry" column="industry"/>
+		<result property="jobTitle" column="job_title"/>
+		<result property="educationExperience" column="educational_experience"/>
 		<collection  property="roles"   javaType="java.util.List"        resultMap="RoleResult" />
 	</resultMap>
 
@@ -42,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<sql id="selectUserVo">
-        select  u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,
+        select  u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience,
        		    r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
 		from sys_user u
 			 left join sys_user_role ur on u.user_id = ur.user_id
@@ -50,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </sql>
 	
 	<select id="selectUserList" parameterType="User" resultMap="UserResult">
-		select u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.password, u.sex, u.avatar, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, u.open_id,u.city,u.country,u.language,u.province from sys_user u
+		select u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.password, u.sex, u.avatar, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience from sys_user u
 		where u.del_flag = '0'
 		<if test="loginName != null and loginName != ''">
 			AND u.login_name like concat('%', #{loginName}, '%')
@@ -139,7 +148,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="country!=null and country!=''">country=#{country},</if>
  			<if test="language!=null and language!=''">language=#{language},</if>
  			<if test="province!=null and province!=''">province=#{province},</if>
- 			<if test="deptId != null and deptId != 0">dept_id = #{deptId},</if>
  			<if test="loginName != null and loginName != ''">login_name = #{loginName},</if>
  			<if test="userName != null and userName != ''">user_name = #{userName},</if>
  			<if test="email != null and email != ''">email = #{email},</if>
@@ -153,6 +161,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="loginDate != null">login_date = #{loginDate},</if>
  			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
  			<if test="remark != null and remark != ''">remark = #{remark},</if>
+ 			<if test="openId!=null and openId!=''">openId=#{openId},</if>
+ 			<if test="city!=null and city!=''">city=#{city},</if>
+ 			<if test="country!=null and country!=''">country=#{country},</if>
+ 			<if test="language!=null and language!=''">language=#{language},</if>
+ 			<if test="province!=null and province!=''">province=#{province},</if>
+ 			<if test="isQualified!=null">is_qualified=#{isQualified},</if>
+ 			<if test="friendValue!=null">friend_value=#{friendValue},</if>
+ 			<if test="qualifyPositiveUrl!=null and qualifyPositiveUrl!=''">qualify_positive_url=#{qualifyPositiveUrl},</if>
+ 			<if test="qualifyNegativeUrl!=null and qualifyNegativeUrl!=''">qualify_negative_url=#{qualifyNegativeUrl},</if>
+ 			<if test="xianquMoney!=null">xianqu_money=#{xianquMoney},</if>
+ 			<if test="bornDate!=null">born_date=#{bornDate},</if>
+ 			<if test="usualResidence!=null and usualResidence!=''">usual_residence=#{usualResidence},</if>
+ 			<if test="industry!=null and industry!=''">industry=#{industry},</if>
+ 			<if test="jobTitle!=null and jobTitle!=''">job_title=#{jobTitle},</if>
+ 			<if test="educationExperience!=null and educationExperience!=''">educational_experience=#{educationExperience},</if>
  			update_time = sysdate()
  		</set>
  		where user_id = #{userId}
@@ -177,6 +200,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="status != null and status != ''">status,</if>
  			<if test="createBy != null and createBy != ''">create_by,</if>
  			<if test="remark != null and remark != ''">remark,</if>
+			<if test="openId!=null and openId!=''">openId,</if>
+			<if test="city!=null and city!=''">city,</if>
+			<if test="country!=null and country!=''">country,</if>
+			<if test="language!=null and language!=''">language,</if>
+			<if test="province!=null and province!=''">province,</if>
+			<if test="isQualified!=null">is_qualified,</if>
+			<if test="friendValue!=null">friend_value,</if>
+			<if test="qualifyPositiveUrl!=null and qualifyPositiveUrl!=''">qualify_positive_url,</if>
+			<if test="qualifyNegativeUrl!=null and qualifyNegativeUrl!=''">qualify_negative_url,</if>
+			<if test="xianquMoney!=null">xianqu_money,</if>
+			<if test="bornDate!=null">born_date,</if>
+			<if test="usualResidence!=null and usualResidence!=''">usual_residence,</if>
+			<if test="industry!=null and industry!=''">industry,</if>
+			<if test="jobTitle!=null and jobTitle!=''">job_title,</if>
+			<if test="educationExperience!=null and educationExperience!=''">educational_experience,</if>
  			create_time
  		)values(
 			<if test="openId!=null and openId!=''">#{openId},</if>
@@ -196,6 +234,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="status != null and status != ''">#{status},</if>
  			<if test="createBy != null and createBy != ''">#{createBy},</if>
  			<if test="remark != null and remark != ''">#{remark},</if>
+			<if test="openId!=null and openId!=''">#{openId},</if>
+			<if test="city!=null and city!=''">#{city},</if>
+			<if test="country!=null and country!=''">#{country},</if>
+			<if test="language!=null and language!=''">#{language},</if>
+			<if test="province!=null and province!=''">#{province},</if>
+			<if test="isQualified!=null">#{isQualified},</if>
+			<if test="friendValue!=null">#{friendValue},</if>
+			<if test="qualifyPositiveUrl!=null and qualifyPositiveUrl!=''">#{qualifyPositiveUrl},</if>
+			<if test="qualifyNegativeUrl!=null and qualifyNegativeUrl!=''">#{qualifyNegativeUrl},</if>
+			<if test="xianquMoney!=null">#{xianquMoney},</if>
+			<if test="bornDate!=null">#{bornDate},</if>
+			<if test="usualResidence!=null and usualResidence!=''">#{usualResidence},</if>
+			<if test="industry!=null and industry!=''">#{industry},</if>
+			<if test="jobTitle!=null and jobTitle!=''">#{jobTitle},</if>
+			<if test="educationExperience!=null and educationExperience!=''">#{educationExperience},</if>
  			sysdate()
  		)
 	</insert>

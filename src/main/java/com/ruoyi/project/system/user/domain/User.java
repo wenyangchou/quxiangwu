@@ -38,17 +38,22 @@ public class User extends BaseEntity {
 
   private Integer friendValue;
 
-  private String qulifyPositiveUrl;
+  private String qualifyPositiveUrl;
 
-  private String qulifyNegativeUrl;
+  private String qualifyNegativeUrl;
 
   private BigDecimal xianquMoney;
 
-  /** 部门ID */
-  private Long deptId;
+  private Date bornDate;
 
-  /** 部门父ID */
-  private Long parentId;
+  private String usualResidence;
+
+  private String industry;
+
+  private String jobTitle;
+
+  private String educationExperience;
+
 
   /** 登录名称 */
   @Excel(name = "登录名称")
