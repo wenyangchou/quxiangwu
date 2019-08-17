@@ -12,4 +12,5 @@ public interface IServiceJobService {
 
     List<ServiceJob> getJobByUserId(Long userId);
 
+    int signJob(Long jobId,Integer jobType);
 }

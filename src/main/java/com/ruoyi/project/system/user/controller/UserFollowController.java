@@ -39,11 +39,13 @@ public class UserFollowController extends BaseController {
 
     @GetMapping("/getUserFollower")
     public TableDataInfo getUserFollower(){
+        startPage();
         return getDataTable(userService.getUserFollowers());
     }
 
     @GetMapping("/getUserFans")
     public TableDataInfo getUserFans(){
+        startPage();
         return getDataTable(userService.getUserFans());
     }
 

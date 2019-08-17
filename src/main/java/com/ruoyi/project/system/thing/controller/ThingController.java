@@ -5,6 +5,7 @@ import com.ruoyi.framework.aspectj.lang.annotation.Log;
 import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
+import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.service.IThingService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ import java.io.IOException;
  * Time:13:43
  */
 @RestController
-@RequestMapping("/thing")
+@RequestMapping("/service/thing")
 @Slf4j
 public class ThingController  extends BaseController {
 
@@ -52,6 +53,18 @@ public class ThingController  extends BaseController {
             return AjaxResult.error(e.getMessage());
         }
 
+    }
+
+    @GetMapping("/getLatestThing")
+    public TableDataInfo getByLatest(){
+        startPage();
+        return getDataTable(thingService.getLatest());
+    }
+
+    @GetMapping("/getLatestThingByTypeId")
+    public TableDataInfo getByTypeId(Long typeId){
+        startPage();
+        return getDataTable(thingService.getLatestByTypeId(typeId));
     }
 
 }

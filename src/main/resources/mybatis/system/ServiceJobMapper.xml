@@ -76,4 +76,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         AND TO_DAYS(sjh.create_time) = TO_DAYS(NOW())
     </select>
 
+    <select id="getById" parameterType="java.lang.Long" resultMap="jobResult">
+        SELECT
+            id,
+            create_time,
+            modify_time,
+            name,
+            quxiang_money,
+            description,
+            type,
+            begin_time,
+            end_time,
+        FROM service_job
+        WHERE id=#{jobId}
+    </select>
+
+
 </mapper>

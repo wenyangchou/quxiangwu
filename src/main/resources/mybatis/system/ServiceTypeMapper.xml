@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.type.mapper.ServiceTypeMapper">
+
+	<resultMap id="typeResult" type="com.ruoyi.project.system.type.domain.ServiceType">
+		<id property="id" column="id"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifyTime" column="modify_time"/>
+		<result property="type" column="type"/>
+	</resultMap>
+
+	<select id="getAll" resultMap="typeResult">
+		SELECT
+			id ,
+			create_time ,
+			modify_time ,
+			type
+		FROM
+			service_type
+	</select>
+
+	<select id="getById" resultMap="typeResult">
+		SELECT
+			id ,
+			create_time ,
+			modify_time ,
+			type
+		FROM
+			service_type
+		WHERE id=#{id}
+	</select>
+
+	<insert id="add" parameterType="ServiceType">
+		INSERT INTO service_type (create_time,modify_time,type) VALUES (NOW(),NOW(),#{type})
+	</insert>
+
+	<update id="update" parameterType="ServiceType">
+		UPDATE service_type
+		<set>
+			<if test="modify_time!=null">modify_time=#{modifyTime},</if>
+			<if test="type!=null and type!=''">type=#{type},</if>
+		</set>
+	</update>
+
+	<delete id="delete" parameterType="ServiceType">
+		DELETE FROM service_type WHERE id=#{id}
+	</delete>
+
+</mapper>

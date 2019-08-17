@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.job.mapper.ServiceJobHistoryMapper">
+
+    <insert id="insert">
+        INSERT INTO service_job_history
+        (create_time,modify_time,user_id,job_id)
+        VALUES
+        (NOW(),NOW(),#{userId},#{jobId})
+    </insert>
+
+    <select id="getByDateAndUserIdAndJobId" resultType="java.lang.Long">
+        SELECT id FROM service_job_history
+        WHERE TO_DAYS(create_time) = TO_DAYS(#{date})
+        AND user_id=#{userId}
+        AND job_id=#{jobId}
+    </select>
+
+    <select id="getByUserIdAndJobId" resultType="java.lang.Long">
+        SELECT id FROM service_job_history
+        WHERE user_id=#{userId}
+        AND job_id=#{jobId}
+    </select>
+</mapper>

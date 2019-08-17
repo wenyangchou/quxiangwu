@@ -26,11 +26,13 @@ public class QubaController extends BaseController {
 
     @GetMapping("/getMyQuba")
     public TableDataInfo getMyQuba(){
+        startPage();
         return getDataTable(qubaService.getUserQuba());
     }
 
     @GetMapping("/getAllQuba")
     public TableDataInfo getAllQuba(){
+        startPage();
         return getDataTable(qubaService.getAll());
     }
 
@@ -55,7 +57,8 @@ public class QubaController extends BaseController {
     }
 
     @GetMapping("/getQubaMember")
-    public TableDataInfo getQubaMember(Long qubaId){
+    public TableDataInfo getQubaMember(Long qubaId)
+    {   startPage();
         return getDataTable(qubaService.getQubaMemberByQubaId(qubaId));
     }
 
