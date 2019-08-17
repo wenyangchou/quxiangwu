@@ -136,5 +136,9 @@ public interface IUserService
 
     int deleteFollow(Long followerId);
 
+    List<User> getUserFollowers();
+
+    List<User> getUserFans();
+
 
 }

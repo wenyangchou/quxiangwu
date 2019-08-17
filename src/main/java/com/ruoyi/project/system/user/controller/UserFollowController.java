@@ -2,6 +2,7 @@ package com.ruoyi.project.system.user.controller;
 
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
+import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Time:19:58
  */
 @RestController
-@RequestMapping("/system/user")
+@RequestMapping("/service/user")
 public class UserFollowController extends BaseController {
 
     @Autowired
@@ -34,6 +35,16 @@ public class UserFollowController extends BaseController {
     @PostMapping("/deleteFollow")
     public AjaxResult deleteFollow(Long followerId){
         return toAjax(userService.deleteFollow(followerId));
+    }
+
+    @GetMapping("/getUserFollower")
+    public TableDataInfo getUserFollower(){
+        return getDataTable(userService.getUserFollowers());
+    }
+
+    @GetMapping("/getUserFans")
+    public TableDataInfo getUserFans(){
+        return getDataTable(userService.getUserFans());
     }
 
 }

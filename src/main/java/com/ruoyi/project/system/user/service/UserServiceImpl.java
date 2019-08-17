@@ -323,4 +323,16 @@ public class UserServiceImpl implements IUserService
         Long userId = ShiroUtils.getUserId();
         return userFollowMapper.deleteFollow(userId,followerId);
     }
+
+    @Override
+    public List<User> getUserFollowers() {
+        Long userId = ShiroUtils.getUserId();
+        return userFollowMapper.getUserFollower(userId);
+    }
+
+    @Override
+    public List<User> getUserFans() {
+        Long userId = ShiroUtils.getUserId();
+        return userFollowMapper.getUserFans(userId);
+    }
 }
