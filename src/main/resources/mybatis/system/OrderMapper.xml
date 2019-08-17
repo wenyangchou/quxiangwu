@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (NOW(),NOW(),#{userId},#{thingId},#{status},#{placeId},#{payType},#{actualQuxiangMoney},#{beginTime},#{endTime},#{comment},#{score})
     </insert>
 
-    <update id="updateOrderStatus">
+    <update id="updateOrder">
         UPDATE service_order
         <set>
             <if test="status!=null">

@@ -6,5 +6,5 @@ public interface OrderMapper {
 
     int insertOrder(Order order);
 
-    int updateOrderStatus(Order order);
+    int updateOrder(Order order);
 }

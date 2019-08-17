@@ -45,11 +45,21 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     @Override
+    public int addOrder(Order order) {
+        return orderMapper.insertOrder(order);
+    }
+
+    @Override
+    public int updateOrder(Order order) {
+        return orderMapper.updateOrder(order);
+    }
+
+    @Override
     public int updatePayType(Long orderId, Integer payType) {
         Order order = new Order();
         order.setId(orderId);
         order.setPayType(payType);
-        return orderMapper.updateOrderStatus(order);
+        return orderMapper.updateOrder(order);
     }
 
     @Override
@@ -57,7 +67,7 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setId(orderId);
         order.setActualQuxiangMoney(money);
-        return orderMapper.updateOrderStatus(order);
+        return orderMapper.updateOrder(order);
     }
 
     @Override
@@ -65,7 +75,7 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setId(orderId);
         order.setStatus(status);
-        return orderMapper.updateOrderStatus(order);
+        return orderMapper.updateOrder(order);
     }
 
     @Override
@@ -73,7 +83,7 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setId(orderId);
         order.setComment(comment);
-        return orderMapper.updateOrderStatus(order);
+        return orderMapper.updateOrder(order);
     }
 
     @Override
@@ -81,6 +91,6 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setId(orderId);
         order.setScore(score);
-        return orderMapper.updateOrderStatus(order);
+        return orderMapper.updateOrder(order);
     }
 }

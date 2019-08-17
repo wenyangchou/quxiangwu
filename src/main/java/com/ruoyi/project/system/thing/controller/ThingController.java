@@ -31,7 +31,7 @@ public class ThingController  extends BaseController {
 
 
     @PostMapping("/addThing")
-    public AjaxResult releaseThing(Thing thing){
+    public AjaxResult releaseThing(@RequestBody Thing thing){
        return toAjax(thingService.addThing(thing));
     }
 

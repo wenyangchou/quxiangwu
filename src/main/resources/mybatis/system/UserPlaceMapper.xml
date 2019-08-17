@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.place.mapper.UserPlaceMapper">
+
+    <resultMap id="placeResult" type="com.ruoyi.project.system.place.domain.UserPlace">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="place" property="place"/>
+        <result column="cellphone" property="cellphone"/>
+        <result column="user_id" property="userId"/>
+        <result column="detail" property="detail"/>
+        <result column="is_master" property="isMaster"/>
+    </resultMap>
+
+    <insert id="insertUserPlace">
+        INSERT INTO service_user_place
+        (create_time,modify_time,place,cellphone,user_id,detail,is_master)
+        VALUES (NOW(),NOW(),#{place},#{cellphone},#{userId},#{detail},#{isMaster})
+    </insert>
+
+    <select id="getMasterByUserId" resultMap="placeResult">
+        SELECT
+        id,create_time,modify_time,place,cellphone,user_id,detail,is_master
+        FROM service_user_place
+        WHERE user_id=#{userId} AND is_master=1
+    </select>
+
+    <select id="getUserPlace" resultMap="placeResult">
+        SELECT
+        id,create_time,modify_time,place,cellphone,user_id,detail,is_master
+        FROM service_user_place
+        WHERE user_id=#{userId}
+    </select>
+
+    <update id="updateIsMasterByUserId">
+        UPDATE service_user_place SET is_master=0 WHERE user_id=#{userId}
+    </update>
+
+    <update id="updateById">
+        UPDATE service_user_place SET is_master=1 WHERE id=#{id}
+    </update>
+
+</mapper>

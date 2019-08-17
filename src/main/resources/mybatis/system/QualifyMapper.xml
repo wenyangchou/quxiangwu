@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.qualify.mapper.QualifyMapper">
+
+    <insert id="insert">
+        INSERT INTO service_qualify
+        (create_time,modify_time,user_id,qualify_positive_url,qualify_negative_url,qualify_status,qualify_type)
+        VALUES
+        (NOW(),NOW(),#{userId},#{qualifyPositiveUrl},#{qualifyNegativeUrl},#{qualifyStatus},#{qualifyType})
+    </insert>
+
+    <update id="update">
+        UPDATE service_qualify
+        <set>
+            <if test="modifyTime!=null">modify_time=#{modifyTime},</if>
+            <if test="qualifyPositiveUrl!=null and qualifyPositiveUrl!=''">qualify_positive_url=#{qualifyPositiveUrl},</if>
+            <if test="qualifyNegativeUrl!=null and qualifyNegativeUrl!=''">qualify_negative_url=#{qualifyNegativeUrl},</if>
+            <if test="qualifyStatus!=null">qualify_status=#{qualifyStatus},</if>
+            <if test="qualifyType!=null">qualify_type=#{qualifyType}</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
+</mapper>
