@@ -80,6 +80,8 @@ public interface IUserService
      */
     public int insertUser(User user);
 
+    int insertWxUser(User user);
+
     /**
      * 保存用户信息
      * 

@@ -2,10 +2,12 @@ package com.ruoyi.framework.shiro.realm;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.shiro.service.LoginService;
+import com.ruoyi.framework.shiro.token.WxOpenIdToken;
 import com.ruoyi.project.system.menu.service.IMenuService;
 import com.ruoyi.project.system.role.service.IRoleService;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.service.IUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -25,6 +27,7 @@ import java.util.UUID;
  * Date:2019-06-30
  * Time:11:20
  */
+@Slf4j
 public class WxOpenRealm extends AuthorizingRealm  {
 
     @Autowired
@@ -32,9 +35,6 @@ public class WxOpenRealm extends AuthorizingRealm  {
 
     @Autowired
     private IRoleService roleService;
-
-    @Autowired
-    private LoginService loginService;
 
     @Autowired
     private IUserService userService;
@@ -67,18 +67,18 @@ public class WxOpenRealm extends AuthorizingRealm  {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        String openid = (String) authenticationToken.getPrincipal();
+        WxOpenIdToken wxOpenIdToken = (WxOpenIdToken)  authenticationToken;
+        String openid = wxOpenIdToken.getOpenId();
         User user = userService.selectUserByOpenId(openid);
         if (user!=null){
         }else {
             user = new User();
             user.setOpenId(openid);
             user.setLoginName(UUID.randomUUID().toString());
-            user.setUserName("");
-            userService.insertUser(user);
+            user.setUserName(user.getLoginName());
+            userService.insertWxUser(user);
         }
 
-        AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(openid,"ok",getName());
-        return authenticationInfo;
+        return new SimpleAuthenticationInfo(openid,"ok",getName());
     }
 }

@@ -168,6 +168,12 @@ public class UserServiceImpl implements IUserService
         return rows;
     }
 
+
+    @Override
+    public int insertWxUser(User user) {
+        return userMapper.insertUser(user);
+    }
+
     /**
      * 修改保存用户信息
      * 

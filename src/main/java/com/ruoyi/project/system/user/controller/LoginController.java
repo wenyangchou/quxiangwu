@@ -3,6 +3,7 @@ package com.ruoyi.project.system.user.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.shiro.token.WxOpenIdToken;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.service.IUserService;
@@ -74,7 +75,7 @@ public class LoginController extends BaseController
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
-            return success();
+            return success().put("userInfo", ShiroUtils.getUser());
         }else {
             String msg = "请求非法";
             return error(msg);

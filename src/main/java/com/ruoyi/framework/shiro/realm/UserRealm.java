@@ -3,6 +3,7 @@ package com.ruoyi.framework.shiro.realm;
 import java.util.HashSet;
 import java.util.Set;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -38,9 +39,9 @@ import com.ruoyi.project.system.user.domain.User;
  * 
  * @author ruoyi
  */
+@Slf4j
 public class UserRealm extends AuthorizingRealm
 {
-    private static final Logger log = LoggerFactory.getLogger(UserRealm.class);
 
     @Autowired
     private IMenuService menuService;
@@ -88,6 +89,9 @@ public class UserRealm extends AuthorizingRealm
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException
     {
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
+
+        log.info("用户认证");
+
         String username = upToken.getUsername();
         String password = "";
         if (upToken.getPassword() != null)

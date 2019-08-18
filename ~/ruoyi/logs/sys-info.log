@@ -1,43 +1,18 @@
-09:23:48.848 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:23:48.878 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:23:48.880 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:23:49.352 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:23:49.628 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:23:49.664 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@ea6147e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4d02f94e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1e683a3e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2053d869, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7a419da4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@14555e0a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4bb33f74, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@759d26fb, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3c73951, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3d5c822d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6f46426d]
-09:23:51.300 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 4336 (started by Administrator in F:\java\quxiangwu)
-09:23:51.326 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:23:55.649 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:23:55.650 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:23:57.096 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:23:58.262 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:24:38.252 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:24:38.267 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:24:38.269 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:24:38.637 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:24:38.919 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:24:38.948 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4de4b452, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50b5ac82, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@101952da, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6babf3bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3059cbc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ea9e1e2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@24fcf36f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@10feca44, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2b48a640]
-09:24:40.882 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 4744 (started by Administrator in F:\java\quxiangwu)
-09:24:40.887 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:24:44.602 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:24:44.604 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:24:45.977 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:24:46.996 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:26:14.786 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:26:14.795 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:26:14.796 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:26:15.008 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:26:15.260 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:26:15.294 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:26:16.606 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 5836 (started by Administrator in F:\java\quxiangwu)
-09:26:16.610 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:26:21.687 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:26:21.688 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:26:23.096 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:26:24.175 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:26:25.493 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:26:25.520 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:26:25.521 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:26:25.533 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564881985498'
+09:05:44.592 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 12275 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+09:05:44.616 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+09:05:47.535 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+09:05:47.537 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+09:05:49.004 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+09:05:50.264 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+09:05:50.281 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+09:05:50.282 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+09:05:50.288 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+09:05:50.416 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+09:05:50.952 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+09:05:51.759 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+09:05:51.808 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+09:05:51.808 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+09:05:51.820 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566090351785'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -45,29 +20,42 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:26:25.534 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:26:25.534 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:26:25.537 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@383cb5ce
-09:26:25.744 [main] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564881985498 shutting down.
-09:26:25.744 [main] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564881985498 paused.
-09:26:25.745 [main] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564881985498 shutdown complete.
-09:26:25.753 [main] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:35:43.698 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:35:43.707 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:35:43.708 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:35:43.927 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:35:44.200 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:35:44.228 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:35:45.843 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 2536 (started by Administrator in F:\java\quxiangwu)
-09:35:45.847 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:35:49.990 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:35:49.991 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:35:51.468 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:35:52.485 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:35:54.545 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:35:54.571 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:35:54.572 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:35:54.584 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564882554548'
+09:05:51.820 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+09:05:51.821 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+09:05:51.825 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@77be1a6d
+09:05:53.448 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+09:05:54.800 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+09:05:54.843 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+09:05:54.929 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+09:05:55.160 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+09:05:55.190 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+09:05:55.226 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 11.584 seconds (JVM running for 13.778)
+09:05:56.383 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566090351785 started.
+09:06:53.172 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+09:06:53.317 [http-nio-8080-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+09:06:53.362 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+09:06:53.369 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+09:06:54.320 [pool-2-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+09:07:11.023 [Thread-34] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566090351785 paused.
+09:07:11.033 [Thread-34] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566090351785 shutting down.
+09:07:11.034 [Thread-34] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566090351785 paused.
+09:07:11.037 [Thread-34] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566090351785 shutdown complete.
+09:07:11.055 [Thread-34] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+09:23:25.765 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 12693 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+09:23:25.795 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+09:23:29.018 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+09:23:29.020 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+09:23:30.816 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+09:23:32.382 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+09:23:32.398 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+09:23:32.398 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+09:23:32.403 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+09:23:32.520 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+09:23:33.185 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+09:23:35.748 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+09:23:35.772 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+09:23:35.773 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+09:23:35.783 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566091415751'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -75,39 +63,43 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:35:54.585 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:35:54.585 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:35:54.589 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@230a73f2
-09:35:56.683 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:35:58.667 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:35:58.709 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:35:58.819 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:35:59.106 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 14.6 seconds (JVM running for 16.562)
-09:35:59.556 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564882554548 shutting down.
-09:35:59.557 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564882554548 paused.
-09:35:59.558 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564882554548 shutdown complete.
-09:35:59.566 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:41:44.088 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:41:44.098 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:41:44.099 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:41:44.300 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:41:44.545 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:41:44.577 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4de4b452, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50b5ac82, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@101952da, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6babf3bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3059cbc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ea9e1e2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@24fcf36f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@10feca44, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2b48a640]
-09:41:46.032 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 4444 (started by Administrator in F:\java\quxiangwu)
-09:41:46.036 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:43:31.595 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:43:31.604 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:43:31.606 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:43:31.809 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:43:32.320 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:43:32.372 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:43:34.286 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 1088 (started by Administrator in F:\java\quxiangwu)
-09:43:34.290 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:43:39.509 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:43:40.487 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:43:40.510 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:43:40.511 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:43:40.519 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883020490'
+09:23:35.783 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+09:23:35.784 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+09:23:35.786 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@705ff330
+09:23:37.913 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+09:23:39.489 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+09:23:39.533 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+09:23:39.630 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+09:23:39.852 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+09:23:39.881 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+09:23:39.913 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 15.361 seconds (JVM running for 17.34)
+09:23:41.074 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566091415751 started.
+09:36:23.037 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+09:36:23.153 [http-nio-8080-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+09:36:23.207 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+09:36:23.211 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+09:36:24.080 [pool-3-thread-1] INFO  sys-user - [run,108] - [127.0.0.1]XX XX[][Error][验证码错误]
+09:36:24.160 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+09:38:34.657 [Thread-42] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566091415751 paused.
+09:38:34.707 [Thread-42] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566091415751 shutting down.
+09:38:34.709 [Thread-42] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566091415751 paused.
+09:38:34.714 [Thread-42] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566091415751 shutdown complete.
+09:38:34.801 [Thread-42] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+09:41:11.281 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 12919 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+09:41:11.296 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+09:41:15.380 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+09:41:15.382 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+09:41:17.694 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+09:41:19.131 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+09:41:19.147 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+09:41:19.147 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+09:41:19.152 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+09:41:19.265 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+09:41:19.819 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+09:41:21.296 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+09:41:21.319 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+09:41:21.320 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+09:41:21.331 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566092481299'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -115,26 +107,43 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:43:40.520 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:43:40.520 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:43:40.523 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3e05586b
-09:43:40.804 [main] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883020490 shutting down.
-09:43:40.804 [main] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883020490 paused.
-09:43:40.805 [main] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883020490 shutdown complete.
-09:43:40.811 [main] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:44:20.581 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:44:20.594 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:44:20.595 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:44:20.893 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:44:21.646 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:44:21.681 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:44:24.394 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 5572 (started by Administrator in F:\java\quxiangwu)
-09:44:24.399 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:44:29.225 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:44:30.199 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:44:30.226 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:44:30.227 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:44:30.241 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883070203'
+09:41:21.331 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+09:41:21.331 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+09:41:21.334 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@f438539
+09:41:23.114 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+09:41:24.375 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+09:41:24.405 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+09:41:24.490 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+09:41:24.748 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+09:41:24.779 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+09:41:24.816 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 14.838 seconds (JVM running for 18.457)
+09:41:26.496 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566092481299 started.
+09:41:28.742 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+09:41:28.813 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+09:41:28.818 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+09:41:28.823 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+09:41:29.815 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+09:47:43.996 [pool-2-thread-1] INFO  sys-user - [run,108] - [127.0.0.1]XX XX[][Error][验证码错误]
+09:51:38.642 [Thread-43] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566092481299 paused.
+09:51:38.660 [Thread-43] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566092481299 shutting down.
+09:51:38.660 [Thread-43] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566092481299 paused.
+09:51:38.664 [Thread-43] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566092481299 shutdown complete.
+09:51:38.693 [Thread-43] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+09:51:56.297 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13064 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+09:51:56.308 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+09:52:01.285 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+09:52:01.287 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+09:52:03.143 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+09:52:04.555 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+09:52:04.574 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+09:52:04.574 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+09:52:04.581 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+09:52:04.696 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+09:52:05.221 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+09:52:06.588 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+09:52:06.613 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+09:52:06.614 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+09:52:06.623 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566093126594'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -142,26 +151,51 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:44:30.242 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:44:30.242 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:44:30.246 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@79696332
-09:44:30.896 [main] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883070203 shutting down.
-09:44:30.896 [main] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883070203 paused.
-09:44:30.897 [main] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883070203 shutdown complete.
-09:44:30.904 [main] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:44:52.381 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:44:52.391 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:44:52.392 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:44:52.635 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:44:53.076 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:44:53.116 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:44:54.505 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 3664 (started by Administrator in F:\java\quxiangwu)
-09:44:54.509 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:45:00.030 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:45:01.023 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:45:01.062 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:45:01.063 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:45:01.077 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883101028'
+09:52:06.624 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+09:52:06.624 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+09:52:06.627 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@53e69763
+09:52:08.382 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache.1' does not yet exist.  Creating now.
+09:52:08.382 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache.1]
+09:52:08.453 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+09:52:09.653 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+09:52:09.690 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+09:52:09.778 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+09:52:10.072 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+09:52:10.105 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+09:52:10.148 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 15.67 seconds (JVM running for 18.365)
+09:52:11.825 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093126594 started.
+09:52:14.063 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+09:52:14.139 [http-nio-8080-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+09:52:14.144 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+09:52:14.148 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+09:52:14.859 [http-nio-8080-exec-1] INFO  c.r.f.s.r.UserRealm - [doGetAuthenticationInfo,93] - 用户认证
+09:52:14.886 [pool-2-thread-1] INFO  sys-user - [run,108] - [127.0.0.1]XX XX[][Error][验证码错误]
+09:52:15.574 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+09:52:15.657 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:02:15.156 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:02:15.254 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:05:28.916 [Thread-43] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093126594 paused.
+10:05:28.960 [Thread-43] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093126594 shutting down.
+10:05:28.961 [Thread-43] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093126594 paused.
+10:05:28.964 [Thread-43] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093126594 shutdown complete.
+10:05:28.996 [Thread-43] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:05:43.070 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13277 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:05:43.123 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:05:49.871 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+10:05:49.874 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+10:05:52.012 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:05:52.104 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:05:52.105 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache.1]
+10:05:53.062 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:05:53.079 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:05:53.080 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:05:53.086 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:05:53.317 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:05:54.352 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:05:58.353 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:05:58.446 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:05:58.448 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:05:58.506 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566093958363'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -169,29 +203,47 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:45:01.077 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:45:01.078 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:45:01.080 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@32bb0072
-09:45:01.737 [main] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883101028 shutting down.
-09:45:01.737 [main] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883101028 paused.
-09:45:01.738 [main] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883101028 shutdown complete.
-09:45:01.747 [main] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:45:55.352 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:45:55.361 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:45:55.363 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:45:55.651 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:45:55.948 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:45:56.017 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:45:57.452 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 3540 (started by Administrator in F:\java\quxiangwu)
-09:45:57.456 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:46:01.946 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:46:01.949 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:46:03.332 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:46:04.317 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:46:05.102 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:46:05.126 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:46:05.127 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:46:05.139 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883165105'
+10:05:58.507 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:05:58.507 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:05:58.525 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@5d2193f6
+10:06:01.107 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:06:02.713 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:06:02.748 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:06:02.839 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:06:03.097 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:06:03.129 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:06:03.159 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 21.229 seconds (JVM running for 23.879)
+10:06:04.944 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093958363 started.
+10:06:08.304 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:06:08.389 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:06:08.396 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:06:08.400 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:06:09.222 [http-nio-8080-exec-2] INFO  c.r.f.s.r.UserRealm - [doGetAuthenticationInfo,93] - 用户认证
+10:06:09.247 [pool-2-thread-1] INFO  sys-user - [run,108] - [127.0.0.1]XX XX[][Error][验证码错误]
+10:06:09.395 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:06:09.727 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:09:56.601 [Thread-55] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093958363 paused.
+10:09:56.630 [Thread-55] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093958363 shutting down.
+10:09:56.630 [Thread-55] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093958363 paused.
+10:09:56.632 [Thread-55] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566093958363 shutdown complete.
+10:09:56.664 [Thread-55] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:10:06.403 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13419 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:10:06.412 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:10:11.066 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
+10:10:11.068 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
+10:10:12.909 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:10:13.028 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:10:13.029 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache.1]
+10:10:13.978 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:10:13.991 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:10:13.991 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:10:13.997 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:10:14.089 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:10:14.717 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:10:16.217 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:10:16.263 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:10:16.279 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:10:16.316 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566094216223'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -199,34 +251,45 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:46:05.140 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:46:05.140 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:46:05.143 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@12d40609
-09:46:07.179 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:46:08.818 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:46:08.857 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:46:08.968 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:46:09.291 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 13.148 seconds (JVM running for 15.064)
-09:46:09.861 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883165105 shutting down.
-09:46:09.861 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883165105 paused.
-09:46:09.862 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883165105 shutdown complete.
-09:46:09.870 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:49:47.991 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:49:48.002 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:49:48.004 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:49:48.208 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:49:48.495 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:49:48.525 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:49:50.223 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 5100 (started by Administrator in F:\java\quxiangwu)
-09:49:50.228 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:49:54.850 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:49:54.852 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:49:56.234 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:49:57.253 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:49:58.070 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:49:58.102 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:49:58.103 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:49:58.117 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883398075'
+10:10:16.317 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:10:16.318 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:10:16.322 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@61e3e351
+10:10:20.115 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:10:21.642 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:10:21.666 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:10:21.811 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:10:22.018 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:10:22.104 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:10:22.167 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 16.644 seconds (JVM running for 18.371)
+10:10:23.719 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094216223 started.
+10:10:51.620 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:10:51.741 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:10:51.747 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:10:51.754 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:10:52.662 [http-nio-8080-exec-2] INFO  c.r.f.s.r.UserRealm - [doGetAuthenticationInfo,93] - 用户认证
+10:10:52.690 [pool-2-thread-1] INFO  sys-user - [run,108] - [127.0.0.1]XX XX[][Error][验证码错误]
+10:10:52.747 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:10:52.858 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:12:22.706 [Thread-45] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094216223 paused.
+10:12:22.757 [Thread-45] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094216223 shutting down.
+10:12:22.765 [Thread-45] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094216223 paused.
+10:12:22.781 [Thread-45] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094216223 shutdown complete.
+10:12:22.844 [Thread-45] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:12:37.846 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13450 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:12:37.865 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:12:41.028 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:12:41.030 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:12:42.122 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:12:42.845 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:12:42.857 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:12:42.857 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:12:42.862 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:12:42.949 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:12:43.397 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:12:44.716 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:12:44.731 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:12:44.732 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:12:44.743 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566094364717'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -234,34 +297,45 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:49:58.117 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:49:58.118 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:49:58.121 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@353f472a
-09:50:00.239 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:50:02.265 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:50:02.309 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:50:02.418 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:50:02.730 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 14.061 seconds (JVM running for 15.948)
-09:50:03.388 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883398075 shutting down.
-09:50:03.388 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883398075 paused.
-09:50:03.389 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883398075 shutdown complete.
-09:50:03.399 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:51:27.761 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:51:27.772 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:51:27.774 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:51:28.008 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:51:28.338 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:51:28.377 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:51:29.317 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 4308 (started by Administrator in F:\java\quxiangwu)
-09:51:29.336 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:51:34.505 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:51:34.506 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:51:35.962 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:51:36.944 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:51:37.793 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:51:37.823 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:51:37.824 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:51:37.838 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883497796'
+10:12:44.743 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:12:44.744 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:12:44.745 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@62271178
+10:12:46.310 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:12:46.311 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:12:46.428 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:12:47.506 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:12:47.536 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:12:47.641 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:12:47.885 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:12:47.915 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:12:48.012 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 11.404 seconds (JVM running for 13.222)
+10:12:49.709 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094364717 started.
+10:12:55.057 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:12:55.195 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:12:55.212 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:12:55.223 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:12:56.211 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:12:56.290 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:19:59.794 [Thread-35] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094364717 paused.
+10:19:59.812 [Thread-35] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094364717 shutting down.
+10:19:59.813 [Thread-35] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094364717 paused.
+10:19:59.816 [Thread-35] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094364717 shutdown complete.
+10:19:59.844 [Thread-35] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:22:26.964 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13608 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:22:26.972 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:22:30.321 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:22:30.323 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:22:31.712 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:22:32.548 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:22:32.567 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:22:32.567 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:22:32.573 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:22:32.706 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:22:33.298 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:22:34.607 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:22:34.661 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:22:34.662 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:22:34.676 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566094954609'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -269,34 +343,56 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:51:37.838 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:51:37.839 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:51:37.842 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@63bfdbcb
-09:51:39.994 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:51:41.916 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:51:41.958 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:51:42.052 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:51:42.327 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 13.775 seconds (JVM running for 15.842)
-09:51:43.111 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883497796 shutting down.
-09:51:43.112 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883497796 paused.
-09:51:43.114 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883497796 shutdown complete.
-09:51:43.126 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:52:55.435 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:52:55.448 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:52:55.450 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:52:55.698 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:52:56.098 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:52:56.149 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4de4b452, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50b5ac82, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@101952da, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6babf3bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3059cbc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ea9e1e2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@24fcf36f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@10feca44, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2b48a640]
-09:52:57.478 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 1364 (started by Administrator in F:\java\quxiangwu)
-09:52:57.482 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:53:01.547 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:53:01.549 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:53:02.984 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:53:03.973 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:53:04.757 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:53:04.785 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:53:04.785 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:53:04.796 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883584761'
+10:22:34.676 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:22:34.677 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:22:34.680 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@933564f
+10:22:36.319 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:22:36.319 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:22:36.390 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:22:37.741 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:22:37.772 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:22:37.855 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:22:38.081 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:22:38.110 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:22:38.146 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 11.878 seconds (JVM running for 13.124)
+10:22:40.025 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094954609 started.
+10:23:20.153 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:23:20.627 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:23:20.641 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:23:20.644 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:23:21.638 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:23:21.722 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:25:18.947 [Thread-36] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094954609 paused.
+10:25:18.982 [Thread-36] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094954609 shutting down.
+10:25:18.983 [Thread-36] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094954609 paused.
+10:25:18.990 [Thread-36] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566094954609 shutdown complete.
+10:25:19.033 [Thread-36] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:25:26.792 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13695 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:25:26.799 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:25:29.384 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:25:29.385 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:25:30.583 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:25:31.359 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:25:31.372 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:25:31.373 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:25:31.378 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:25:31.462 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:25:31.907 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:26:21.672 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13705 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:26:21.686 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:26:24.900 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:26:24.904 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:26:26.221 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:26:27.135 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:26:27.146 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:26:27.147 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:26:27.153 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:26:27.248 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:26:27.812 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:26:28.124 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:26:28.149 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:26:28.150 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:26:28.159 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566095188127'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -304,34 +400,45 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:53:04.796 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:53:04.797 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:53:04.799 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@71560f51
-09:53:06.860 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:53:08.863 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:53:08.901 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:53:08.996 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:53:09.308 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 13.004 seconds (JVM running for 15.3)
-09:53:09.953 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883584761 shutting down.
-09:53:09.953 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883584761 paused.
-09:53:09.954 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883584761 shutdown complete.
-09:53:09.963 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:53:58.440 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:53:58.449 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:53:58.450 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:53:58.668 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:53:58.997 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:53:59.026 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:54:00.530 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 1588 (started by Administrator in F:\java\quxiangwu)
-09:54:00.534 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:54:04.471 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:54:04.472 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:54:05.856 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:54:06.819 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:54:07.639 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:54:07.666 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:54:07.667 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:54:07.678 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883647641'
+10:26:28.160 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:26:28.160 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:26:28.163 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@1550cbc6
+10:26:29.546 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:26:29.547 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:26:29.616 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:26:31.009 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:26:31.025 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:26:31.095 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:26:31.305 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:26:31.336 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:26:31.373 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 10.539 seconds (JVM running for 12.154)
+10:26:32.361 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095188127 started.
+10:27:06.427 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:27:06.547 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:27:06.558 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:27:06.563 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:27:07.550 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:27:07.568 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:28:07.897 [Thread-33] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095188127 paused.
+10:28:07.937 [Thread-33] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095188127 shutting down.
+10:28:07.937 [Thread-33] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095188127 paused.
+10:28:07.944 [Thread-33] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095188127 shutdown complete.
+10:28:07.980 [Thread-33] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:28:15.600 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13751 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:28:15.608 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:28:18.310 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:28:18.311 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:28:19.547 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:28:20.257 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:28:20.268 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:28:20.269 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:28:20.273 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:28:20.362 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:28:20.981 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:28:21.240 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:28:21.255 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:28:21.256 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:28:21.263 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566095301241'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -339,34 +446,45 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:54:07.679 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:54:07.679 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:54:07.682 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@5b251fb9
-09:54:09.713 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:54:11.907 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:54:11.943 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:54:12.042 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:54:12.338 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 13.101 seconds (JVM running for 15.018)
-09:54:12.867 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883647641 shutting down.
-09:54:12.868 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883647641 paused.
-09:54:12.869 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883647641 shutdown complete.
-09:54:12.878 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-09:54:53.374 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-09:54:53.386 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-09:54:53.387 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:54:53.628 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-09:54:53.973 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-09:54:54.006 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-09:54:56.473 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 4636 (started by Administrator in F:\java\quxiangwu)
-09:54:56.477 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-09:54:59.816 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-09:54:59.818 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-09:55:01.253 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-09:55:02.154 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-09:55:02.881 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-09:55:02.903 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-09:55:02.903 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-09:55:02.917 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564883702883'
+10:28:21.263 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:28:21.263 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:28:21.265 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@793233e1
+10:28:22.601 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:28:22.601 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:28:22.695 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:28:23.903 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:28:23.939 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:28:24.014 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:28:24.188 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:28:24.216 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:28:24.245 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 9.371 seconds (JVM running for 10.864)
+10:28:25.222 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095301241 started.
+10:28:40.597 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:28:40.731 [http-nio-8080-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:28:40.737 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:28:40.742 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:28:41.738 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:28:41.751 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:30:05.756 [Thread-31] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095301241 paused.
+10:30:05.777 [Thread-31] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095301241 shutting down.
+10:30:05.779 [Thread-31] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095301241 paused.
+10:30:05.787 [Thread-31] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095301241 shutdown complete.
+10:30:05.882 [Thread-31] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:30:19.321 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13764 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:30:19.329 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:30:22.289 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:30:22.290 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:30:23.409 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:30:24.108 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:30:24.120 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:30:24.120 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:30:24.125 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:30:24.212 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:30:24.667 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:30:24.997 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:30:25.010 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:30:25.010 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:30:25.017 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566095424999'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -374,52 +492,45 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-09:55:02.918 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-09:55:02.918 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-09:55:02.921 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@63bfdbcb
-09:55:04.922 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-09:55:06.740 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-09:55:06.777 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-09:55:06.883 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-09:55:07.166 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 12.98 seconds (JVM running for 14.979)
-09:55:07.871 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883702883 shutting down.
-09:55:07.871 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883702883 paused.
-09:55:07.872 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564883702883 shutdown complete.
-09:55:07.881 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-13:24:13.229 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-13:24:13.244 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-13:24:13.245 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:24:13.658 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-13:24:13.957 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-13:24:13.994 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4de4b452, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50b5ac82, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@101952da, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6babf3bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3059cbc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ea9e1e2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@24fcf36f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@10feca44, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2b48a640]
-13:24:15.080 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 7008 (started by Administrator in F:\java\quxiangwu)
-13:24:15.085 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-13:26:49.949 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-13:26:49.962 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-13:26:49.963 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:26:50.276 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-13:26:50.574 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-13:26:50.600 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-13:26:52.865 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 5320 (started by Administrator in F:\java\quxiangwu)
-13:26:52.869 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-13:26:56.803 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-13:26:56.806 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-13:28:05.412 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ruoyi.system.user.UserTest], using SpringBootContextLoader
-13:28:05.422 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.ruoyi.system.user.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-13:28:05.423 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.ruoyi.system.user.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:28:05.672 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,247] - Found @SpringBootConfiguration com.ruoyi.RuoYiApplication for test class com.ruoyi.system.user.UserTest
-13:28:05.980 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-13:28:06.013 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50b5ac82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101952da, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6babf3bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3059cbc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7ea9e1e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24fcf36f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10feca44, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3fb1549b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ea6147e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d02f94e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b48a640, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e683a3e]
-13:28:07.867 [main] INFO  c.r.s.user.UserTest - [logStarting,50] - Starting UserTest on WIN-M4NLKV56O9Q with PID 912 (started by Administrator in F:\java\quxiangwu)
-13:28:07.967 [main] INFO  c.r.s.user.UserTest - [logStartupProfileInfo,666] - The following profiles are active: druid
-13:28:12.250 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-13:28:12.252 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-13:28:14.007 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-13:28:15.169 [main] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-13:28:16.209 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-13:28:16.233 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-13:28:16.234 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-13:28:16.247 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-M4NLKV56O9Q1564896496212'
+10:30:25.017 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:30:25.018 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:30:25.019 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@47f8d72e
+10:30:26.365 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:30:26.365 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:30:26.470 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:30:27.536 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:30:27.568 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:30:27.663 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:30:27.898 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:30:27.926 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:30:27.966 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 9.691 seconds (JVM running for 11.903)
+10:30:28.925 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095424999 started.
+10:30:33.560 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:30:33.612 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:30:33.615 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:30:33.618 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:30:34.617 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:30:34.626 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:35:09.154 [Thread-32] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095424999 paused.
+10:35:09.170 [Thread-32] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095424999 shutting down.
+10:35:09.171 [Thread-32] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095424999 paused.
+10:35:09.174 [Thread-32] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095424999 shutdown complete.
+10:35:09.192 [Thread-32] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:35:23.746 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 13838 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:35:23.760 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:35:26.472 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:35:26.474 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:35:27.574 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:35:28.487 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:35:28.527 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:35:28.528 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:35:28.534 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:35:28.653 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:35:29.128 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:35:29.480 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:35:29.495 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:35:29.497 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:35:29.504 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566095729481'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -427,56 +538,22 @@
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
   Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
 
-13:28:16.248 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-13:28:16.248 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-13:28:16.252 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@629e8212
-13:28:18.570 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-13:28:20.629 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-13:28:20.673 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-13:28:20.785 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-13:28:21.099 [main] INFO  c.r.s.user.UserTest - [logStarted,59] - Started UserTest in 14.929 seconds (JVM running for 16.852)
-13:28:21.696 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564896496212 shutting down.
-13:28:21.697 [Thread-6] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564896496212 paused.
-13:28:21.698 [Thread-6] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-M4NLKV56O9Q1564896496212 shutdown complete.
-13:28:21.709 [Thread-6] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
-13:07:30.605 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 4389 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
-13:07:30.628 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
-13:10:26.652 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 4416 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
-13:10:26.734 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
-13:10:29.867 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache' does not yet exist.  Creating now.
-13:10:29.869 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache]
-13:10:31.161 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
-13:10:32.343 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-80"]
-13:10:32.360 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
-13:10:32.360 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
-13:10:32.366 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
-13:10:32.502 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
-13:10:33.024 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
-13:10:34.018 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
-13:10:34.043 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-13:10:34.044 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
-13:10:34.055 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1565413834020'
-  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
-  NOT STARTED.
-  Currently in standby mode.
-  Number of jobs executed: 0
-  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
-  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
-
-13:10:34.056 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
-13:10:34.056 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
-13:10:34.059 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3c9b610c
-13:10:35.547 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-13:10:36.736 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
-13:10:36.767 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
-13:10:37.029 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
-13:10:37.378 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-80"]
-13:10:37.427 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Pausing ProtocolHandler ["http-nio-80"]
-13:10:37.427 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Stopping service [Tomcat]
-13:10:37.444 [restartedMain] INFO  o.a.c.u.LifecycleBase - [log,180] - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
-13:10:37.445 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Stopping ProtocolHandler ["http-nio-80"]
-13:10:37.446 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Destroying ProtocolHandler ["http-nio-80"]
-13:10:37.487 [restartedMain] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1565413834020 shutting down.
-13:10:37.487 [restartedMain] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1565413834020 paused.
-13:10:37.489 [restartedMain] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1565413834020 shutdown complete.
-13:10:37.501 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:35:29.505 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:35:29.505 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:35:29.507 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@edc4338
+10:35:30.798 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:35:30.799 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:35:30.882 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:35:31.971 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:35:32.014 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:35:32.140 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:35:32.377 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:35:32.413 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:35:32.461 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 9.772 seconds (JVM running for 11.758)
+10:35:33.401 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095729481 started.
+10:35:39.848 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:35:39.995 [http-nio-8080-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:35:40.022 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:35:40.025 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:35:41.001 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:35:41.012 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.

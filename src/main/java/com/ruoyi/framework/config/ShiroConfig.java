@@ -1,6 +1,8 @@
 package com.ruoyi.framework.config;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.Filter;
 
@@ -10,6 +12,7 @@ import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
@@ -105,16 +108,17 @@ public class ShiroConfig
      * 自定义Realm,账户密码登录
      */
     @Bean
-    public UserRealm userRealm(EhCacheManager cacheManager)
+    public UserRealm userRealm()
     {
         UserRealm userRealm = new UserRealm();
-        userRealm.setCacheManager(cacheManager);
+        userRealm.setCacheManager(getEhCacheManager());
         return userRealm;
     }
 
     @Bean
     public WxOpenRealm wxOpenRealm(){
         WxOpenRealm wxOpenRealm = new WxOpenRealm();
+        wxOpenRealm.setCacheManager(getEhCacheManager());
         return wxOpenRealm;
     }
 
@@ -206,11 +210,16 @@ public class ShiroConfig
      * 安全管理器
      */
     @Bean
-    public SecurityManager securityManager(UserRealm userRealm)
+    public SecurityManager securityManager()
     {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+
+        List<Realm> realms = new ArrayList<>();
+//        realms.add(userRealm());
+        realms.add(wxOpenRealm());
+
         // 设置realm.
-        securityManager.setRealm(userRealm);
+        securityManager.setRealms(realms);
         // 记住我
         securityManager.setRememberMeManager(rememberMeManager());
         // 注入缓存管理器;
@@ -261,6 +270,7 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/logout", "logout");
         // 不需要拦截的访问
         filterChainDefinitionMap.put("/login", "anon,captchaValidate");
+        filterChainDefinitionMap.put("/wxLogin", "anon,captchaValidate");
         // 系统权限列表
         // filterChainDefinitionMap.putAll(SpringUtils.getBean(IMenuService.class).selectPermsAll());
 
