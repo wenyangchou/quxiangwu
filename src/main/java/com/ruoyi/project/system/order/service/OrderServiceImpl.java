@@ -75,6 +75,18 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setId(orderId);
         order.setStatus(status);
+
+        Thing thing = thingMapper.getById(orderMapper.getById(orderId).getThingId());
+
+        if (status.equals(2) || status.equals(3)){
+            thing.setStatus(2);
+        }else if(status.equals(1)||status.equals(0)){
+            thing.setStatus(0);
+        }else{
+            thing.setStatus(3);
+        }
+
+        thingMapper.updateThing(thing);
         return orderMapper.updateOrder(order);
     }
 

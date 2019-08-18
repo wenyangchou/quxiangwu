@@ -51,7 +51,7 @@ public class ThingController  extends BaseController {
         try {
             if (!file.isEmpty()){
                 String filePath = FileUploadUtils.upload(file);
-                return AjaxResult.success(filePath);
+                return AjaxResult.success().put("filePath",filePath);
             }
             return AjaxResult.error("图片为空");
         } catch (IOException e) {

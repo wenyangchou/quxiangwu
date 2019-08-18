@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Time:22:52
  */
 @RestController
-@RequestMapping("quba")
+@RequestMapping("/service/quba")
 public class QubaController extends BaseController {
 
     @Autowired
@@ -63,7 +63,7 @@ public class QubaController extends BaseController {
     }
 
     @GetMapping("/getQubaOwner")
-    public User getQubaOwner(Long qubaId){
-        return qubaService.getQubaOwner(qubaId);
+    public AjaxResult getQubaOwner(Long qubaId){
+        return success().put("owner",qubaService.getQubaOwner(qubaId));
     }
 }

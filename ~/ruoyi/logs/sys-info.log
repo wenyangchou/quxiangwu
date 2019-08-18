@@ -557,3 +557,72 @@
 10:35:40.025 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
 10:35:41.001 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
 10:35:41.012 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:38:20.479 [Thread-32] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095729481 paused.
+10:38:20.498 [Thread-32] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095729481 shutting down.
+10:38:20.499 [Thread-32] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095729481 paused.
+10:38:20.501 [Thread-32] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566095729481 shutdown complete.
+10:38:20.525 [Thread-32] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed
+10:40:15.953 [restartedMain] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on zhouwenyangdeMacBook-Air.local with PID 14104 (/Users/zhouwenyang/java-idea/quxiangwu/target/classes started by zhouwenyang in /Users/zhouwenyang/java-idea/quxiangwu)
+10:40:15.987 [restartedMain] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,666] - The following profiles are active: druid
+10:40:20.191 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache' does not yet exist.  Creating now.
+10:40:20.195 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.WxOpenRealm.authorizationCache]
+10:40:22.282 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+10:40:23.249 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Initializing ProtocolHandler ["http-nio-8080"]
+10:40:23.266 [restartedMain] INFO  o.a.c.c.StandardService - [log,180] - Starting service [Tomcat]
+10:40:23.267 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,180] - Starting Servlet Engine: Apache Tomcat/8.5.32
+10:40:23.273 [localhost-startStop-1] INFO  o.a.c.c.AprLifecycleListener - [log,180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhouwenyang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+10:40:23.414 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring embedded WebApplicationContext
+10:40:24.044 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,930] - {dataSource-1} inited
+10:40:24.448 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+10:40:24.471 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:40:24.472 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+10:40:24.483 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'zhouwenyangdeMacBook-Air.local1566096024450'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+10:40:24.484 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+10:40:24.484 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+10:40:24.488 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@221bdb27
+10:40:26.248 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+10:40:26.249 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [com.ruoyi.framework.shiro.realm.UserRealm.authorizationCache.1]
+10:40:26.331 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:40:28.979 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,147] - Context refreshed
+10:40:29.028 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,150] - Found 1 custom documentation plugin(s)
+10:40:29.286 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+10:40:29.581 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,180] - Starting ProtocolHandler ["http-nio-8080"]
+10:40:29.659 [restartedMain] INFO  o.a.t.u.n.NioSelectorPool - [log,180] - Using a shared selector for servlet write/read
+10:40:29.738 [restartedMain] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 14.927 seconds (JVM running for 16.867)
+10:40:30.644 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566096024450 started.
+10:40:54.023 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:40:54.181 [http-nio-8080-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+10:40:54.190 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'shiro-activeSessionCache' does not yet exist.  Creating now.
+10:40:54.196 [http-nio-8080-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [shiro-activeSessionCache]
+10:40:55.189 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:40:55.315 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+10:50:55.219 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+10:50:55.252 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+11:00:55.233 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+11:00:55.265 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+11:10:55.255 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+11:10:55.287 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+11:20:55.295 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+11:20:55.338 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+11:30:55.306 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+11:30:55.325 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+11:40:55.336 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+11:40:55.367 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+11:50:55.366 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+11:50:55.405 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+19:40:34.489 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+19:40:34.545 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+21:38:25.707 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,86] - invalidation sessions...
+21:38:25.735 [pool-1-thread-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,145] - Finished invalidation session. No sessions were stopped.
+21:40:25.860 [Thread-42] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566096024450 paused.
+21:40:25.891 [Thread-42] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566096024450 shutting down.
+21:40:25.891 [Thread-42] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566096024450 paused.
+21:40:25.897 [Thread-42] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_zhouwenyangdeMacBook-Air.local1566096024450 shutdown complete.
+21:40:25.950 [Thread-42] INFO  c.a.d.p.DruidDataSource - [close,1825] - {dataSource-1} closed

@@ -25,6 +25,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (NOW(),NOW(),#{userId},#{thingId},#{status},#{placeId},#{payType},#{actualQuxiangMoney},#{beginTime},#{endTime},#{comment},#{score})
     </insert>
 
+    <select id="getById" parameterType="java.lang.Long">
+        SELECT
+        id,create_time,modify_time,user_id,thing_id,status,place_id,pay_type,actual_quxiang_money,begin_time,end_time,comment,score
+        FROM service_order
+        WHERE id=#{orderId}
+    </select>
+
     <update id="updateOrder">
         UPDATE service_order
         <set>
