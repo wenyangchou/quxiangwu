@@ -5,16 +5,22 @@ ruoyi:
   #版本
   version: 2.4.0
   #版权年份
-  copyrightYear: 2018
+  copyrightYear: 2019
   #头像上传路径
-  profile: D:/profile/
-  imagePath: D:/imagePath/
+  profile: /root/profile/
+  imagePath: /root/imagePath/
   # 获取ip地址开关
   addressEnabled: false
 #开发环境配置
 server:
   #服务端口
-  port: 8080
+  port: 443
+  ssl:
+    key-store: /root/quxiangwu.jks
+    key-alias: alias
+    enabled: true
+    key-store-password: 2iuj3u0Y
+    key-store-type: JKS
   servlet:
     # 项目contextPath
     context-path: /
@@ -122,5 +128,5 @@ gen:
   # 表前缀(类名不会包含表前缀)
   tablePrefix: sys_
 wechat:
-  appid: wxbf5b09018f692ded
-  secret: cafb5790fdaf248088f73994c83f43ad
+  appid: wxb601d51e348477c3
+  secret: c972bfc04a8cd5700b55e93f1a09705a
