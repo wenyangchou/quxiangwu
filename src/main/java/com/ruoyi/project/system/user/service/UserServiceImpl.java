@@ -6,6 +6,7 @@ import java.util.List;
 import com.alibaba.fastjson.JSON;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.mapper.UserFollowMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ import org.springframework.web.client.RestTemplate;
  * @author ruoyi
  */
 @Service
+@Slf4j
 public class UserServiceImpl implements IUserService
 {
     @Autowired
@@ -298,8 +300,12 @@ public class UserServiceImpl implements IUserService
     public WechatSession getWechatSessionByCode(String code) {
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid="+appId+"&secret="+secret+"&js_code="+code+"&grant_type=authorization_code";
         String result  = restTemplate.getForObject(url,String.class);
-        WechatSession wechatSession = JSON.parseObject(result,WechatSession.class);
-        return wechatSession;
+        log.info("请求appid:"+appId );
+        log.info("请求secret:"+secret);
+        log.info("请求code:"+code);
+        log.info("请求url:"+url);
+        log.info("回调结果:"+result);
+        return JSON.parseObject(result,WechatSession.class);
     }
 
     @Override

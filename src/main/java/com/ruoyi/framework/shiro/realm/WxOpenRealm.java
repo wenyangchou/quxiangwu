@@ -22,63 +22,40 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * author:zwy
- * Date:2019-06-30
- * Time:11:20
- */
+/** author:zwy Date:2019-06-30 Time:11:20 */
 @Slf4j
-public class WxOpenRealm extends AuthorizingRealm  {
+public class WxOpenRealm extends AuthorizingRealm {
 
-    @Autowired
-    private IMenuService menuService;
+  @Autowired private IMenuService menuService;
 
-    @Autowired
-    private IRoleService roleService;
+  @Autowired private IRoleService roleService;
 
-    @Autowired
-    private IUserService userService;
+  @Autowired private IUserService userService;
 
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        User user = ShiroUtils.getUser();
-        // 角色列表
-        Set<String> roles = new HashSet<String>();
-        // 功能列表
-        Set<String> menus = new HashSet<String>();
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        // 管理员拥有所有权限
-        if (user.isAdmin())
-        {
-            info.addRole("admin");
-            info.addStringPermission("*:*:*");
-        }
-        else
-        {
-            roles = roleService.selectRoleKeys(user.getUserId());
-            menus = menuService.selectPermsByUserId(user.getUserId());
-            // 角色加入AuthorizationInfo认证对象
-            info.setRoles(roles);
-            // 权限加入AuthorizationInfo认证对象
-            info.setStringPermissions(menus);
-        }
-        return info;
+  @Override
+  protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+    // 管理员拥有所有权限
+    info.addRole("admin");
+    info.addStringPermission("*:*:*");
+    return info;
+  }
+
+  @Override
+  protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
+      throws AuthenticationException {
+    WxOpenIdToken wxOpenIdToken = (WxOpenIdToken) authenticationToken;
+    String openid = wxOpenIdToken.getOpenId();
+    User user = userService.selectUserByOpenId(openid);
+    if (user != null) {
+    } else {
+      user = new User();
+      user.setOpenId(openid);
+      user.setLoginName(UUID.randomUUID().toString());
+      user.setUserName(user.getLoginName());
+      userService.insertWxUser(user);
     }
 
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        WxOpenIdToken wxOpenIdToken = (WxOpenIdToken)  authenticationToken;
-        String openid = wxOpenIdToken.getOpenId();
-        User user = userService.selectUserByOpenId(openid);
-        if (user!=null){
-        }else {
-            user = new User();
-            user.setOpenId(openid);
-            user.setLoginName(UUID.randomUUID().toString());
-            user.setUserName(user.getLoginName());
-            userService.insertWxUser(user);
-        }
-
-        return new SimpleAuthenticationInfo(openid,"ok",getName());
-    }
+    return new SimpleAuthenticationInfo(user, "ok", getName());
+  }
 }
