@@ -16,17 +16,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="getById" parameterType="java.lang.Long" resultMap="ImageResult">
         SELECT
          id,create_time,modify_time,image_url,img_path,thing_id 
-        FROM service_imgae WHERE id = #{id}
+        FROM service_image WHERE id = #{id}
     </select>
     
     <select id="getByThingId" parameterType="java.lang.Long" resultMap="ImageResult">
         SELECT
          id,create_time,modify_time,image_url,img_path,thing_id
-        FROM service_imgae WHERE thing_id = #{thingId}
+        FROM service_image WHERE thing_id = #{thingId}
     </select>
 
     <insert id="insertImage">
-        INSERT INTO service_imgae (create_time,modify_time,image_url,img_path,thing_id)
+        INSERT INTO service_image (create_time,modify_time,image_url,img_path,thing_id)
         VALUES (NOW(),NOW(),#{imageUrl},#{imgPath},#{thingId})
     </insert>
 </mapper>

@@ -83,8 +83,9 @@ public class LoginController extends BaseController
     }
 
     @GetMapping("/unauth")
+    @ResponseBody
     public String unauth()
     {
-        return "/error/unauth";
+        return "unauth，权限不足";
     }
 }

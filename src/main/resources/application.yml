@@ -84,7 +84,7 @@ pagehelper:
 shiro:
   user:
     # 登录地址
-    loginUrl: /login
+    loginUrl: /unauth
     # 权限认证失败地址
     unauthorizedUrl: /unauth
     # 首页地址
@@ -128,5 +128,5 @@ gen:
   # 表前缀(类名不会包含表前缀)
   tablePrefix: sys_
 wechat:
-  appid: wxb601d51e348477c3
-  secret: c972bfc04a8cd5700b55e93f1a09705a
+  appid: wxd143adf9bead318d
+  secret: 8fdc195bf1ccd41f7a5150b3fca6740b
