@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="description" property="description"/>
         <result column="status" property="status"/>
         <result column="trade_type" property="tradeType"/>
+        <result column="is_new" property="isNew"></result>
         <association property="topImage" resultMap="imageResult"/>
     </resultMap>
 
@@ -24,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <id column="image_id" property="id"/>
         <result column="image_create_time" property="createTime"/>
         <result column="image_modify_time" property="modifyTime"/>
-        <result column="img_url"  property="imgUrl"/>
+        <result column="img_url"  property="imageUrl"/>
         <result column="img_path" property="imgPath"/>
     </resultMap>
 
@@ -42,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         st.district_id,
         st.description,
         st.status,
+        st.is_new,
         si.id image_id,
         si.create_time image_create_time,
         si.modify_time image_modify_time,
@@ -69,6 +71,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             st.district_id,
             st.description,
             st.status,
+            st.is_new,
             si.id image_id,
             si.create_time image_create_time,
             si.modify_time image_modify_time,
@@ -97,6 +100,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         st.district_id,
         st.description,
         st.status,
+        st.is_new,
         si.id image_id,
         si.create_time image_create_time,
         si.modify_time image_modify_time,
@@ -126,6 +130,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         st.district_id,
         st.description,
         st.status,
+        st.is_new,
         si.id image_id,
         si.create_time image_create_time,
         si.modify_time image_modify_time,
@@ -145,14 +150,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             st.create_time ,
             st.modify_time ,
             st.top_img_id ,
-            st. NAME ,
+            st.NAME ,
             st.price ,
             st.price_type ,
             st.user_id ,
             st.type_id ,
             st.district_id ,
             st.description ,
-            st. STATUS ,
+            st.STATUS ,
+            st.is_new,
             si.id image_id ,
             si.create_time image_create_time ,
             si.modify_time image_modify_time ,
@@ -185,8 +191,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <insert id="insertThing">
         INSERT INTO service_thing
-        (create_time,modify_time,top_img_id,name,price,price_type,user_id,type_id,district_id,description,status,trade_type)
-        VALUES (NOW(),NOW(),#{topImgId},#{name},#{price},#{priceType},#{userId},#{typeId},#{districtId},#{description},#{status},#{tradeType})
+        (create_time,modify_time,top_img_id,name,price,price_type,user_id,type_id,district_id,description,status,trade_type,is_new)
+        VALUES (NOW(),NOW(),#{topImgId},#{name},#{price},#{priceType},#{userId},#{typeId},#{districtId},#{description},#{status},#{tradeType},#{isNew})
     </insert>
 
     <update id="updateThing">
@@ -224,6 +230,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             </if>
             <if test="tradeType!=null">
                 trade_type=#{tradeType},
+            </if>
+            <if test="isNew!=null">
+                is_new=#{isNew},
             </if>
         </set>
         <where>

@@ -39,4 +39,6 @@ public class Thing extends BaseEntity {
     private List<Image> images;
 
     private Integer tradeType;
+
+    private Integer isNew;
 }
