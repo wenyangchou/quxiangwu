@@ -5,3 +5,4 @@ target
 *.class
 *.log
 *.log
+~/ruoyi/logs/sys-info.log
