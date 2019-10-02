@@ -18,6 +18,8 @@ public interface QubaMapper {
 
     Quba getById(Long id);
 
+    int inserQuba(Quba quba);
+
     int insertQubaUser(@Param("userId") Long userId,@Param("qubaId") Long qubaId);
 
     int insertQubaSignIn(@Param("userId") Long userId,@Param("qubaId") Long qubaId);

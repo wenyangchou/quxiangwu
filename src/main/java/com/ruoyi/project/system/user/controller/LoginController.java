@@ -73,9 +73,10 @@ public class LoginController extends BaseController
         WechatSession wechatSession = userService.getWechatSessionByCode(code);
         if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
+//            WxOpenIdToken token = new WxOpenIdToken("oMmOL5dKz07PDYmPzoXust7hmzjw");
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
-            return success().put("userInfo", ShiroUtils.getUser());
+            return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
         }else {
             String msg = "请求非法";
             return error(msg);

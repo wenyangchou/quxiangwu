@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper">
+
+    <select id="getUserLikeByUserId" resultType="java.lang.Long" parameterType="java.lang.Long">
+        SELECT
+            count(1)
+        FROM
+            service_thing_user_like
+        WHERE
+            user_id = #{userId}
+        AND STATUS = 0
+    </select>
+
+    <insert id="insertUserLike">
+        INSERT INTO service_thing_user_like (create_time,modify_time,thing_id,user_id,status)
+        VALUES (NOW(),NOW(),#{thingId},#{userId},#{status})
+    </insert>
+
+    <delete id="deleteLikeByLikeId" parameterType="java.lang.Long">
+        DELETE FROM service_thing_user_like WHERE id = #{likeId}
+    </delete>
+
+    <delete id="deleteLikeByUserIdAndThingId">
+        DELETE FROM service_thing_user_like WHERE user_id=#{userId} AND thing_id=#{thingId}
+    </delete>
+</mapper>

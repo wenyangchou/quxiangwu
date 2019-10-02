@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.ruoyi.project.system.quba.domain.Quba;
+import com.ruoyi.project.system.quba.domain.QubaDTO;
+import com.ruoyi.project.system.quba.mapper.QubaMapper;
+import com.ruoyi.project.system.thing.service.IThingUserLikeService;
+import com.ruoyi.project.system.user.domain.UserDTO;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.mapper.UserFollowMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -48,6 +53,13 @@ public class UserServiceImpl implements IUserService
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private IThingUserLikeService thingUserLikeService;
+
+    @Autowired
+    private QubaMapper qubaMapper;
+
 
     @Value("${wechat.appid}")
     private String appId;
@@ -346,5 +358,53 @@ public class UserServiceImpl implements IUserService
     public List<User> getUserFans() {
         Long userId = ShiroUtils.getUserId();
         return userFollowMapper.getUserFans(userId);
+    }
+
+    @Override
+    public UserDTO getDTOByUserId(User user) {
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getUserId());
+        userDTO.setUserAvatar(user.getAvatar());
+        userDTO.setUserName(user.getUserName());
+
+        Integer isQualified = user.getIsQualified();
+        if (isQualified==null||isQualified.equals(0)){
+            userDTO.setIsQualified(false);
+        }else{
+            userDTO.setIsQualified(true);
+        }
+
+        String sex = user.getSex();
+        if (sex.equals("0")){
+            userDTO.setGender("男");
+        }else if (sex.equals("1")){
+            userDTO.setGender("女");
+        }else{
+            userDTO.setGender("未知");
+        }
+
+        userDTO.setCoinNumber(user.getXianquMoney());
+        Long collectedNumber = thingUserLikeService.getUserLikeByUserId(user.getUserId());
+        userDTO.setCollectedNumber(collectedNumber);
+        Long focusNumber = userFollowMapper.userFansNumber(user.getUserId());
+        userDTO.setFocusNumber(focusNumber);
+        userDTO.setMyBar(getUserQuba(user.getUserId()));
+
+        return userDTO;
+    }
+
+    private List<QubaDTO> getUserQuba(Long userId){
+        List<Quba> qubas = qubaMapper.getByUserId(userId);
+
+        List<QubaDTO> qubaDTOS = new ArrayList<>();
+        qubas.forEach(quba -> {
+            QubaDTO qubaDTO = new QubaDTO();
+            qubaDTO.setBarId(quba.getId());
+            qubaDTO.setBarLogo(quba.getLogo());
+            qubaDTO.setBarName(quba.getName());
+            qubaDTOS.add(qubaDTO);
+        });
+        return qubaDTOS;
     }
 }

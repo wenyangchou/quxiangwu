@@ -23,4 +23,6 @@ public interface UserFollowMapper {
     List<User> getUserFollower(Long userId);
 
     List<User> getUserFans(Long userId);
+
+    Long userFansNumber(Long userId);
 }

@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="modify_time" property="modifyTime"/>
 		<result column="name" property="name"/>
 		<result column="owner_id" property="ownerId"/>
+		<result column="logo" property="logo"/>
 	</resultMap>
 
 	<resultMap type="User" id="UserResult">
@@ -40,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 	<select id="getById" parameterType="java.lang.Long" resultMap="qubaResult">
-		SELECT id,create_time,modify_time,name,owner_id FROM service_quba WHERE id=#{id}
+		SELECT id,create_time,modify_time,name,owner_id,logo FROM service_quba WHERE id=#{id}
 	</select>
 
 	<select id="getQubaMemberByQubaId" parameterType="java.lang.Long" resultMap="UserResult">
@@ -74,17 +75,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getAll" resultMap="qubaResult">
 		SELECT
-		id,create_time,modify_time,name,owner_id
+		id,create_time,modify_time,name,owner_id,logo
 		FROM service_quba
 	</select>
 
 	<select id="getByUserId" parameterType="java.lang.Long" resultMap="qubaResult">
 		SELECT
-		sq.id,sq.create_time,sq.modify_time,sq.name,sq.owner_id
+		sq.id,sq.create_time,sq.modify_time,sq.name,sq.owner_id,sq.logo
 		FROM service_quba sq,service_quba_user squ WHERE sq.id = squ.quba_id
 		AND squ.user_id=#{userId}
 	</select>
 
+	<insert id="inserQuba">
+		INSERT INTO service_quba (create_time,modify_time,name,owner_id,logo)
+		VALUES (NOW(),NOW(),#{name},#{ownerId},#{logo})
+	</insert>
 
 
 	<insert id="insertQubaUser">

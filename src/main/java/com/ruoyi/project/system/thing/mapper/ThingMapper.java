@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.thing.mapper;
 
+import com.ruoyi.project.system.thing.domain.GoodsDTO;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,10 @@ public interface ThingMapper {
     List<Thing> getLatest();
 
     List<Thing> getLatestAndByTypeId(Long typeId);
+
+    List<GoodsDTO> getLetestGoodsByUserId(Long userId);
+
+    List<GoodsDTO> getLatestGoods();
 
     Thing getById(Long id);
 

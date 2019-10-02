@@ -15,6 +15,8 @@ public class Quba extends BaseEntity {
 
     private Long id;
 
+    private String logo;
+
     private Date createTime;
 
     private Date modifyTime;
