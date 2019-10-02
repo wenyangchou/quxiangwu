@@ -3,16 +3,19 @@ package com.ruoyi.project.system.thing.service;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
+import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.domain.ThingDTO;
 import com.ruoyi.project.system.thing.mapper.ImageMapper;
 import com.ruoyi.project.system.thing.mapper.ThingMapper;
 import com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper;
 import com.ruoyi.project.system.user.domain.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class ThingServiceImpl implements IThingService {
 
@@ -57,9 +60,10 @@ public class ThingServiceImpl implements IThingService {
 
     @Override
     public int uploadFile(String filePath,Long thingId) {
-        String file = "/profile/"+filePath;
+        String file = "/"+filePath;
         Image image = new Image();
         image.setImageUrl(file);
+        image.setImgPath("/profile");
         image.setThingId(thingId);
         return imageMapper.insertImage(image);
     }
@@ -87,5 +91,46 @@ public class ThingServiceImpl implements IThingService {
     public List<Thing> getUserBuy() {
         Long userId = ShiroUtils.getUserId();
         return thingMapper.getByUserFromOrder(userId);
+    }
+
+    @Override
+    public int addThing(ThingAddDTO thingAddDTO) {
+
+        List<String> imageUrls = thingAddDTO.getImgList();
+        Thing thing = new Thing();
+        thing.setTopImgId(0L);
+        thing.setName(thingAddDTO.getName());
+        thing.setPrice(thingAddDTO.getPrice());
+        thing.setPriceType(0);
+        thing.setUserId(ShiroUtils.getUserId());
+        thing.setTypeId(thingAddDTO.getTypeId());
+        thing.setDistrictId(thingAddDTO.getDistrictId());
+        thing.setDescription(thingAddDTO.getDesc());
+        thing.setStatus(0);
+        thing.setTradeType(thingAddDTO.getTradeType());
+        thing.setIsNew(thingAddDTO.getIfNew());
+        thingMapper.insertThing(thing);
+
+        if (imageUrls==null){
+            return 0;
+        }
+
+        log.info("thingId:{}",thing.getId());
+
+        for (int i = 0; i < imageUrls.size(); i++) {
+
+            String file ="/"+ imageUrls.get(i);
+            Image image = new Image();
+            image.setImageUrl(file);
+            image.setImgPath("/profile");
+            image.setThingId(thing.getId());
+            imageMapper.insertImage(image);
+
+            if (i==0){
+                thing.setTopImgId(image.getId());
+            }
+        }
+
+        return thingMapper.updateThing(thing);
     }
 }

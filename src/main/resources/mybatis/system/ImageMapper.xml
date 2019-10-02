@@ -8,25 +8,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <id column="id" property="id"/>
         <result column="create_time" property="createTime"/>
         <result column="modify_time" property="modifyTime"/>
-        <result column="image_url" property="imageUrl"/>
+        <result column="img_url" property="imageUrl"/>
         <result column="img_path" property="imgPath"/>
         <result column="thing_id" property="thingId"/>
     </resultMap>
 
     <select id="getById" parameterType="java.lang.Long" resultMap="ImageResult">
         SELECT
-         id,create_time,modify_time,image_url,img_path,thing_id 
+         id,create_time,modify_time,img_url,img_path,thing_id
         FROM service_image WHERE id = #{id}
     </select>
     
     <select id="getByThingId" parameterType="java.lang.Long" resultMap="ImageResult">
         SELECT
-         id,create_time,modify_time,image_url,img_path,thing_id
+         id,create_time,modify_time,img_url,img_path,thing_id
         FROM service_image WHERE thing_id = #{thingId}
     </select>
 
-    <insert id="insertImage">
-        INSERT INTO service_image (create_time,modify_time,image_url,img_path,thing_id)
+    <insert id="insertImage" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO service_image (create_time,modify_time,img_url,img_path,thing_id)
         VALUES (NOW(),NOW(),#{imageUrl},#{imgPath},#{thingId})
     </insert>
 </mapper>

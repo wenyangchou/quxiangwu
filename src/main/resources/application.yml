@@ -14,13 +14,13 @@ ruoyi:
 #开发环境配置
 server:
   #服务端口
-  port: 8080
-#  ssl:
-#    key-store: /root/quxiangwu.jks
-#    key-alias: alias
-#    enabled: true
-#    key-store-password: 2iuj3u0Y
-#    key-store-type: JKS
+  port: 443
+  ssl:
+    key-store: /root/quxiangwu.jks
+    key-alias: alias
+    enabled: true
+    key-store-password: 2iuj3u0Y
+    key-store-type: JKS
   servlet:
     # 项目contextPath
     context-path: /

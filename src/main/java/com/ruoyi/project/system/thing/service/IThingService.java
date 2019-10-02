@@ -1,6 +1,7 @@
 package com.ruoyi.project.system.thing.service;
 
 import com.ruoyi.project.system.thing.domain.Thing;
+import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.domain.ThingDTO;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public interface IThingService {
     int uploadFile(String filePath,Long thingId);
 
     int addThing(Thing thing);
+
+    int addThing(ThingAddDTO thingAddDTO);
 
     int updateThing(Long thingId,Long imageId);
 

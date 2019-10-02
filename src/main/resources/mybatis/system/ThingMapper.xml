@@ -220,7 +220,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             thing_id = #{thingId}
     </select>
 
-    <insert id="insertThing">
+    <insert id="insertThing" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO service_thing
         (create_time,modify_time,top_img_id,name,price,price_type,user_id,type_id,district_id,description,status,trade_type,is_new)
         VALUES (NOW(),NOW(),#{topImgId},#{name},#{price},#{priceType},#{userId},#{typeId},#{districtId},#{description},#{status},#{tradeType},#{isNew})
@@ -250,7 +250,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="typeId!=null">
                 type_id=#{typeId},
             </if>
-            <if test="district_id!=null">
+            <if test="districtId!=null">
                 district_id=#{districtId},
             </if>
             <if test="description!=null">

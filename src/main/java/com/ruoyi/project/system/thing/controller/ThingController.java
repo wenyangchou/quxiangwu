@@ -36,6 +36,8 @@ public class ThingController  extends BaseController {
     }
 
 
+
+
     @PostMapping("/updateThingIndexImage")
     public AjaxResult updateThingIndexImage(Long thingId,Long imageId){
         return toAjax(thingService.updateThing(thingId,imageId));
