@@ -3,6 +3,7 @@ package com.ruoyi.project.system.thing.mapper;
 import com.ruoyi.project.system.thing.domain.GoodsDTO;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
+import com.ruoyi.project.system.thing.domain.ThingDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,4 +30,6 @@ public interface ThingMapper {
     List<Thing> getByUserIdAndStatus(Long userId,Integer status);
 
     List<Thing> getByUserFromOrder(Long userId);
+
+    List<ThingDTO> getLatestThingDTO();
 }

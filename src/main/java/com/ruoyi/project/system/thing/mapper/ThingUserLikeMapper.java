@@ -18,4 +18,6 @@ public interface ThingUserLikeMapper {
     int deleteLikeByLikeId(Long likeId);
 
     int deleteLikeByUserIdAndThingId(@Param("userId") Long userId,@Param("thingId") Long thingId);
+
+    Long getUserLikeByUserIdAndThingId(@Param("userId") Long userId,@Param("thingId") Long thingId);
 }

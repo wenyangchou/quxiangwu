@@ -62,7 +62,7 @@ public class ThingController  extends BaseController {
     @GetMapping("/getLatestThing")
     public TableDataInfo getByLatest(){
         startPage();
-        return getDataTable(thingService.getLatest());
+        return getDataTable(thingService.getLatestThingDTO());
     }
 
     @GetMapping("/getLatestThingByTypeId")

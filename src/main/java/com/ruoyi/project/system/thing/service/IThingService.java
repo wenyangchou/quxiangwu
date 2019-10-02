@@ -1,12 +1,15 @@
 package com.ruoyi.project.system.thing.service;
 
 import com.ruoyi.project.system.thing.domain.Thing;
+import com.ruoyi.project.system.thing.domain.ThingDTO;
 
 import java.util.List;
 
 public interface IThingService {
 
     List<Thing> getLatest();
+
+    List<ThingDTO> getLatestThingDTO();
 
     List<Thing> getLatestByTypeId(Long typeId);
 

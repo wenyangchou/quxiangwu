@@ -1,5 +1,6 @@
 package com.ruoyi.system.user;
 
+import com.ruoyi.project.system.thing.service.IThingService;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.service.IUserService;
@@ -18,6 +19,9 @@ public class UserTest {
 
   @Autowired private IUserService userService;
 
+  @Autowired
+  private IThingService thingService;
+
   @Test
   public void wechatSessionTest() {
     WechatSession wechatSession =
@@ -29,5 +33,10 @@ public class UserTest {
   public void userTest() {
     List<User> userList = userService.selectUserList(new User());
     System.out.println(userList.size());
+  }
+
+  @Test
+  public void thingLikeTest(){
+    thingService.getLatestThingDTO().forEach(System.out::println);
   }
 }

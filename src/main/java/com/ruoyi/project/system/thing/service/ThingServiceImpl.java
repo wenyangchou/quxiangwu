@@ -3,8 +3,11 @@ package com.ruoyi.project.system.thing.service;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
+import com.ruoyi.project.system.thing.domain.ThingDTO;
 import com.ruoyi.project.system.thing.mapper.ImageMapper;
 import com.ruoyi.project.system.thing.mapper.ThingMapper;
+import com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper;
+import com.ruoyi.project.system.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +22,24 @@ public class ThingServiceImpl implements IThingService {
     @Autowired
     private ImageMapper imageMapper;
 
+    @Autowired
+    private ThingUserLikeMapper thingUserLikeMapper;
+
     @Override
     public List<Thing> getLatest() {
         return thingMapper.getLatest();
+    }
+
+
+    @Override
+    public List<ThingDTO> getLatestThingDTO() {
+        User user = ShiroUtils.getUser();
+        List<ThingDTO> thingDTOS = thingMapper.getLatestThingDTO();
+        thingDTOS.forEach(thingDTO -> {
+            Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(user.getUserId(),thingDTO.getId());
+            thingDTO.setIfCollect(likeId!=null);
+        });
+        return thingDTOS;
     }
 
     @Override
