@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.shiro.token.WxOpenIdToken;
+import com.ruoyi.project.system.invite.service.IInviteHistoryService;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.service.IUserService;
 import org.apache.shiro.SecurityUtils;
@@ -32,6 +33,9 @@ public class LoginController extends BaseController
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private IInviteHistoryService iInviteHistoryService;
 
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response)
@@ -69,19 +73,25 @@ public class LoginController extends BaseController
 
     @PostMapping("/wxLogin")
     @ResponseBody
-    public AjaxResult wxLoginOrRegister(String code){
+    public AjaxResult wxLoginOrRegister(String code,Long invitor){
         WechatSession wechatSession = userService.getWechatSessionByCode(code);
         if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
 //            WxOpenIdToken token = new WxOpenIdToken("oMmOL5dKz07PDYmPzoXust7hmzjw");
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
+
+            if (invitor!=null&& !invitor.toString().equals("0")){
+                iInviteHistoryService.addInviteHistory(invitor,ShiroUtils.getUserId());
+            }
+
             return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
         }else {
             String msg = "请求非法";
             return error(msg);
         }
     }
+
 
     @GetMapping("/unauth")
     @ResponseBody

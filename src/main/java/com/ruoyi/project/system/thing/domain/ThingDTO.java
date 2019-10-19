@@ -1,6 +1,5 @@
 package com.ruoyi.project.system.thing.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -14,6 +13,8 @@ import java.math.BigDecimal;
 public class ThingDTO {
 
     private String createBy;
+
+    private Long creatorID;
 
     private String creatorAvatar;
 

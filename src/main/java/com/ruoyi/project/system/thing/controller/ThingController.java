@@ -7,6 +7,7 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.thing.domain.Thing;
+import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.service.IThingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class ThingController  extends BaseController {
 
 
     @PostMapping("/addThing")
-    public AjaxResult releaseThing(@RequestBody Thing thing){
+    public AjaxResult releaseThing(@RequestBody ThingAddDTO thing){
        return toAjax(thingService.addThing(thing));
     }
 

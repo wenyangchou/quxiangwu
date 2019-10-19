@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** author:zwy Date:2019-06-30 Time:09:43 */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class UserTest {
 
-  @Autowired private IUserService userService;
+//  @Autowired private IUserService userService;
 
 //  @Autowired
 //  private IThingService thingService;
