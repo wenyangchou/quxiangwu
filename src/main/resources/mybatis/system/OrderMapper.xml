@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="score" column="score"/>
     </resultMap>
 
-    <insert id="insertOrder">
+    <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO service_order (create_time,modify_time,user_id,thing_id,status,place_id,pay_type,actual_quxiang_money,begin_time,end_time,comment,score)
         VALUES (NOW(),NOW(),#{userId},#{thingId},#{status},#{placeId},#{payType},#{actualQuxiangMoney},#{beginTime},#{endTime},#{comment},#{score})
     </insert>

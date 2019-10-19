@@ -14,6 +14,8 @@ public interface UserPlaceMapper {
 
     List<UserPlace> getUserPlace(Long userId);
 
+    UserPlace getByPlaceId(Long placeId);
+
     int updateIsMasterByUserId(Long userId);
 
     int updateById(Long id);

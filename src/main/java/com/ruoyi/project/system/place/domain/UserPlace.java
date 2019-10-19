@@ -26,4 +26,12 @@ public class UserPlace extends BaseEntity {
     private String detail;
 
     private Integer isMaster;
+
+    private String province;
+
+    private String city;
+
+    private String county;
+
+    private String consignee;
 }

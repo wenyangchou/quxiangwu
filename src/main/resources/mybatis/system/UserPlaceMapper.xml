@@ -13,12 +13,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="user_id" property="userId"/>
         <result column="detail" property="detail"/>
         <result column="is_master" property="isMaster"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="county" property="county"/>
+        <result column="consignee" property="consignee"/>
     </resultMap>
 
-    <insert id="insertUserPlace">
+    <insert id="insertUserPlace" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO service_user_place
-        (create_time,modify_time,place,cellphone,user_id,detail,is_master)
-        VALUES (NOW(),NOW(),#{place},#{cellphone},#{userId},#{detail},#{isMaster})
+        (create_time,modify_time,place,cellphone,user_id,detail,is_master,province,city,county,consignee)
+        VALUES (NOW(),NOW(),#{place},#{cellphone},#{userId},#{detail},#{isMaster},#{province},#{city},#{county},#{consignee})
     </insert>
 
     <select id="getMasterByUserId" resultMap="placeResult">
@@ -33,6 +37,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         id,create_time,modify_time,place,cellphone,user_id,detail,is_master
         FROM service_user_place
         WHERE user_id=#{userId}
+    </select>
+
+    <select id="getByPlaceId" resultMap="placeResult">
+        SELECT
+        id,create_time,modify_time,place,cellphone,user_id,detail,is_master,province,city,county
+        FROM service_user_place
+        WHERE id=#{placeId}
     </select>
 
     <update id="updateIsMasterByUserId">
