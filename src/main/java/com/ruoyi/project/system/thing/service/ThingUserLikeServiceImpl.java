@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.thing.service;
 
+import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,16 @@ public class ThingUserLikeServiceImpl implements IThingUserLikeService {
     @Override
     public Integer deleteUserLikeByUserIdAndThingId(Long userId, Long thingId) {
         return thingUserLikeMapper.deleteLikeByUserIdAndThingId(userId,thingId);
+    }
+
+    @Override
+    public Integer toggleCollection(Long skuId) {
+        Long userId = ShiroUtils.getUserId();
+        Long userLikeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(userId,skuId);
+        if (userLikeId == null){
+            return insertUserLike(userId,skuId);
+        }else{
+            return deleteUserLikeByUserIdAndThingId(userId,skuId);
+        }
     }
 }

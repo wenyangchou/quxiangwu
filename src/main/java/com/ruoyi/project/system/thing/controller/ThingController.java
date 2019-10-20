@@ -9,6 +9,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.service.IThingService;
+import com.ruoyi.project.system.thing.service.IThingUserLikeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,13 +31,14 @@ public class ThingController  extends BaseController {
     @Autowired
     private IThingService thingService;
 
+    @Autowired
+    private IThingUserLikeService thingUserLikeService;
+
 
     @PostMapping("/addThing")
     public AjaxResult releaseThing(@RequestBody ThingAddDTO thing){
        return toAjax(thingService.addThing(thing));
     }
-
-
 
 
     @PostMapping("/updateThingIndexImage")
@@ -84,6 +86,11 @@ public class ThingController  extends BaseController {
     public TableDataInfo getUserBuy(){
         startPage();
         return getDataTable(thingService.getUserBuy());
+    }
+
+    @PostMapping("/toggleCollection")
+    public AjaxResult toggleCollection(Long skuId){
+        return toAjax(thingUserLikeService.toggleCollection(skuId));
     }
 
 }

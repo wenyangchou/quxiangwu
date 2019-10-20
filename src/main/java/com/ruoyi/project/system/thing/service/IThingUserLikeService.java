@@ -14,4 +14,6 @@ public interface IThingUserLikeService {
     Integer deleteUserLike(Long likeId);
 
     Integer deleteUserLikeByUserIdAndThingId(Long userId,Long thingId);
+
+    Integer toggleCollection(Long skuId);
 }
