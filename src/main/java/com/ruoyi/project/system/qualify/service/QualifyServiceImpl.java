@@ -47,7 +47,7 @@ public class QualifyServiceImpl implements IQualifyService {
     @Override
     public int setConfirm(Integer type, String imagePath) {
         User user = ShiroUtils.getUser();
-        if (user.getIsQualified().equals(UserConstants.QUALIFIED)){
+        if (user.getIsQualified().equals(UserConstants.UNQUALIFIED)){
             Qualify qualify = new Qualify();
             qualify.setQualifyPositiveUrl(imagePath);
             qualify.setQualifyNegativeUrl(imagePath);

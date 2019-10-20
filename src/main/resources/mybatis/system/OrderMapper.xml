@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (NOW(),NOW(),#{userId},#{thingId},#{status},#{placeId},#{payType},#{actualQuxiangMoney},#{beginTime},#{endTime},#{comment},#{score})
     </insert>
 
-    <select id="getById" parameterType="java.lang.Long">
+    <select id="getById" parameterType="java.lang.Long" resultMap="orderResult">
         SELECT
         id,create_time,modify_time,user_id,thing_id,status,place_id,pay_type,actual_quxiang_money,begin_time,end_time,comment,score
         FROM service_order
@@ -38,13 +38,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="status!=null">
                 status=#{status},
             </if>
-            <if test="actual_quxiang_money!=null">
+            <if test="actualQuxiangMoney!=null">
                 actual_quxiang_money=#{actualQuxiangMoney},
             </if>
-            <if test="begin_time!=null">
+            <if test="beginTime!=null">
                 begin_time=#{beginTime},
             </if>
-            <if test="end_time!=null">
+            <if test="endTime!=null">
                 end_time=#{endTime},
             </if>
             <if test="comment!=null">
@@ -53,8 +53,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="score!=null">
                 score=#{score}
             </if>
-            WHERE id=#{id}
         </set>
+        WHERE id=#{id}
     </update>
 
 </mapper>

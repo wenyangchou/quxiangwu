@@ -74,10 +74,10 @@ public class LoginController extends BaseController
     @PostMapping("/wxLogin")
     @ResponseBody
     public AjaxResult wxLoginOrRegister(String code,Long invitor){
-        WechatSession wechatSession = userService.getWechatSessionByCode(code);
-        if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
-            WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
-//            WxOpenIdToken token = new WxOpenIdToken("oMmOL5dKz07PDYmPzoXust7hmzjw");
+//        WechatSession wechatSession = userService.getWechatSessionByCode(code);
+//        if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
+//            WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
+            WxOpenIdToken token = new WxOpenIdToken("oMmOL5dKz07PDYmPzoXust7hmzjw");
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
 
@@ -86,10 +86,10 @@ public class LoginController extends BaseController
             }
 
             return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
-        }else {
-            String msg = "请求非法";
-            return error(msg);
-        }
+//        }else {
+//            String msg = "请求非法";
+//            return error(msg);
+//        }
     }
 
 

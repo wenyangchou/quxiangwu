@@ -27,53 +27,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="getByUserIdOnce" resultMap="jobResult" parameterType="java.lang.Long">
         SELECT
-        sj.id,
-        sj.create_time,
-        sj.modify_time,
-        sj.name,
-        sj.quxiang_money,
-        sj.description,
-        sj.type,
-        sj.begin_time,
-        sj.end_time,
-        sjh.id history_id,
-        sjh.create_time history_create_time,
-        sjh.modify_time history_modify_time,
+        sj.id ,
+        sj.create_time ,
+        sj.modify_time ,
+        sj. NAME ,
+        sj.quxiang_money ,
+        sj.description ,
+        sj.type ,
+        sj.begin_time ,
+        sj.end_time ,
+        sjh.id history_id ,
+        sjh.create_time history_create_time ,
+        sjh.modify_time history_modify_time ,
         sjh.user_id
         FROM
         service_job sj
-        LEFT JOIN service_job_history sjh ON sj.id = sjh.job_id
+        LEFT JOIN(
+        SELECT
+        job_id ,
+        id ,
+        create_time ,
+        modify_time ,
+        user_id
+        FROM
+        service_job_history
+        WHERE
+        user_id = #{userId}
+        ) AS sjh ON sj.id = sjh.job_id
         WHERE
         sj.type = 0
-        AND sjh.user_id = #{userId}
         AND sj.begin_time &lt;= now()
         AND sj.end_time &gt;= now()
     </select>
 
     <select id="getByUserIdEveryDay" resultMap="jobResult" parameterType="java.lang.Long">
         SELECT
-        sj.id,
-        sj.create_time,
-        sj.modify_time,
-        sj.name,
-        sj.quxiang_money,
-        sj.description,
-        sj.type,
-        sj.begin_time,
-        sj.end_time,
-        sjh.id history_id,
-        sjh.create_time history_create_time,
-        sjh.modify_time history_modify_time,
+        sj.id ,
+        sj.create_time ,
+        sj.modify_time ,
+        sj. NAME ,
+        sj.quxiang_money ,
+        sj.description ,
+        sj.type ,
+        sj.begin_time ,
+        sj.end_time ,
+        sjh.id history_id ,
+        sjh.create_time history_create_time ,
+        sjh.modify_time history_modify_time ,
         sjh.user_id
         FROM
         service_job sj
-        LEFT JOIN service_job_history sjh ON sj.id = sjh.job_id
+        LEFT JOIN(
+        SELECT
+        job_id ,
+        id ,
+        create_time ,
+        modify_time ,
+        user_id
+        FROM
+        service_job_history
+        WHERE
+        user_id = #{userId}
+        ) AS sjh ON sj.id = sjh.job_id
         WHERE
         sj.type = 1
-        AND sjh.user_id = #{userId}
         AND sj.begin_time &lt;= now()
         AND sj.end_time &gt;= now()
-        AND TO_DAYS(sjh.create_time) = TO_DAYS(NOW())
     </select>
 
     <select id="getById" parameterType="java.lang.Long" resultMap="jobResult">

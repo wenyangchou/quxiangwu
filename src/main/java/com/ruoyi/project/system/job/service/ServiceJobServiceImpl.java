@@ -12,6 +12,7 @@ import com.ruoyi.project.system.money.domain.MoneyHistory;
 import com.ruoyi.project.system.money.mapper.MoneyHistoryMapper;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.mapper.UserMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ServiceJobServiceImpl implements IServiceJobService {
 
     @Autowired
@@ -65,12 +67,13 @@ public class ServiceJobServiceImpl implements IServiceJobService {
         List<ServiceJob> onceJobs = getOnceByUserId(userId);
         List<ServiceJob> everyDayJobs = getEveryDayByUserId(userId);
         onceJobs.addAll(everyDayJobs);
-        return everyDayJobs;
+        return onceJobs;
     }
 
     @Override
     public List<CoinDutyDTO> getCoinDuty() {
         List<ServiceJob> jobs = getJobByUserId(ShiroUtils.getUserId());
+
         List<CoinDutyDTO> coinDutyDTOS = new ArrayList<>();
         jobs.forEach(job->{
             CoinDutyDTO coinDutyDTO = new CoinDutyDTO();
