@@ -30,6 +30,12 @@ public class ServiceJobController extends BaseController {
         return getDataTable(jobService.getJobByUserId(userId));
     }
 
+    @GetMapping("/coinDuty")
+    public TableDataInfo coinDuty(){
+        startPage();
+        return getDataTable(jobService.getCoinDuty());
+    }
+
     @PostMapping("/signJob")
     public AjaxResult signJob(Long jobId,Integer jobType){
         return toAjax(jobService.signJob(jobId,jobType));

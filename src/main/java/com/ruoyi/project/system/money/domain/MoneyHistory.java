@@ -20,5 +20,5 @@ public class MoneyHistory {
 
     private String description;
 
-    private String type;
+    private Integer type;
 }

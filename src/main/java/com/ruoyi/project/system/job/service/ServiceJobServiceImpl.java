@@ -1,16 +1,21 @@
 package com.ruoyi.project.system.job.service;
 
-import com.ruoyi.common.constant.JobType;
+import com.ruoyi.common.constant.JobConstant;
+import com.ruoyi.common.constant.MoneyConstant;
 import com.ruoyi.common.utils.security.ShiroUtils;
+import com.ruoyi.project.monitor.job.domain.Job;
+import com.ruoyi.project.system.job.domain.CoinDutyDTO;
 import com.ruoyi.project.system.job.domain.ServiceJob;
 import com.ruoyi.project.system.job.mapper.ServiceJobHistoryMapper;
 import com.ruoyi.project.system.job.mapper.ServiceJobMapper;
+import com.ruoyi.project.system.money.domain.MoneyHistory;
+import com.ruoyi.project.system.money.mapper.MoneyHistoryMapper;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +29,9 @@ public class ServiceJobServiceImpl implements IServiceJobService {
     private ServiceJobHistoryMapper serviceJobHistoryMapper;
 
     @Autowired
+    private MoneyHistoryMapper moneyHistoryMapper;
+
+    @Autowired
     private UserMapper userMapper;
 
     @Override
@@ -31,9 +39,9 @@ public class ServiceJobServiceImpl implements IServiceJobService {
         List<ServiceJob> serviceJobs = serviceJobMapper.getByUserIdOnce(userId);
         serviceJobs.forEach(serviceJob -> {
             if (serviceJob.getJobHistory()!=null){
-                serviceJob.setStatus(0);
+                serviceJob.setStatus(JobConstant.STATUS_FINISH);
             }else{
-                serviceJob.setStatus(1);
+                serviceJob.setStatus(JobConstant.STATUS_UNFINISH);
             }
         });
         return serviceJobs;
@@ -44,9 +52,9 @@ public class ServiceJobServiceImpl implements IServiceJobService {
         List<ServiceJob> serviceJobs = serviceJobMapper.getByUserIdEveryDay(userId);
         serviceJobs.forEach(serviceJob -> {
             if (serviceJob.getJobHistory()!=null){
-                serviceJob.setStatus(0);
+                serviceJob.setStatus(JobConstant.STATUS_FINISH);
             }else{
-                serviceJob.setStatus(1);
+                serviceJob.setStatus(JobConstant.STATUS_UNFINISH);
             }
         });
         return serviceJobs;
@@ -61,12 +69,31 @@ public class ServiceJobServiceImpl implements IServiceJobService {
     }
 
     @Override
+    public List<CoinDutyDTO> getCoinDuty() {
+        List<ServiceJob> jobs = getJobByUserId(ShiroUtils.getUserId());
+        List<CoinDutyDTO> coinDutyDTOS = new ArrayList<>();
+        jobs.forEach(job->{
+            CoinDutyDTO coinDutyDTO = new CoinDutyDTO();
+            coinDutyDTO.setAmount(job.getQuxiangMoney());
+            if (job.getStatus().equals(JobConstant.STATUS_FINISH)){
+                coinDutyDTO.setIfComplete("完成");
+            }else{
+                coinDutyDTO.setIfComplete("未完成");
+            }
+            coinDutyDTO.setName(job.getName());
+            coinDutyDTOS.add(coinDutyDTO);
+        });
+
+        return coinDutyDTOS;
+    }
+
+    @Override
     public int signJob(Long jobId,Integer jobType) {
 
         Long userId = ShiroUtils.getUserId();
         Long getJobId;
 
-        if (jobType.equals(JobType.ONCE)){
+        if (jobType.equals(JobConstant.TIMES_ONCE)){
              getJobId = serviceJobHistoryMapper.getByUserIdAndJobId(userId,jobId);
             if (getJobId==null){
                 return 0;
@@ -84,6 +111,14 @@ public class ServiceJobServiceImpl implements IServiceJobService {
             ServiceJob serviceJob = serviceJobMapper.getById(jobId);
             User user = ShiroUtils.getUser();
             user.setXianquMoney(user.getXianquMoney().add(serviceJob.getQuxiangMoney()));
+
+            MoneyHistory moneyHistory = new MoneyHistory();
+            moneyHistory.setDescription(serviceJob.getDescription());
+            moneyHistory.setType(MoneyConstant.TYPE_INCOME);
+            moneyHistory.setUserId(userId);
+            moneyHistory.setXiangquMoney(serviceJob.getQuxiangMoney());
+            moneyHistoryMapper.addMoneyHistory(moneyHistory);
+
             userMapper.updateUser(user);
 
         }

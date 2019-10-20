@@ -29,4 +29,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             user_id =#{userId}
     </select>
 
+    <insert id="addMoneyHistory" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO service_money_history (user_id, xiangqu_money, description, type)
+        VALUES (#{userId},#{xiangquMoney},#{description},#{type})
+    </insert>
+
 </mapper>
