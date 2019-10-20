@@ -2,13 +2,11 @@ package com.ruoyi.project.system.qualify.controller;
 
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
+import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.qualify.domain.Qualify;
 import com.ruoyi.project.system.qualify.service.IQualifyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * author:zwy
@@ -30,5 +28,16 @@ public class QualifyController extends BaseController {
     @PostMapping("/updateQualify")
     public AjaxResult updateQualify(@RequestBody Qualify qualify){
         return toAjax(qualifyService.updateQualify(qualify));
+    }
+
+    @PostMapping("/setConfirm")
+    public AjaxResult setConfirm(Integer type,String img){
+        return toAjax(qualifyService.setConfirm(type,img));
+    }
+
+    @GetMapping("/getConfirmHistory")
+    public TableDataInfo getConfirmHistory(Integer type){
+        startPage();
+        return getDataTable(qualifyService.getConfirmHistory(type));
     }
 }

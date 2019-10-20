@@ -23,6 +23,10 @@ public class UserConstants
     /** 部门正常状态 */
     public static final String DEPT_NORMAL = "0";
 
+    public final static Integer QUALIFIED = 1;
+
+    public final static Integer UNQUALIFIED = 0;
+
     /**
      * 用户名长度限制
      */

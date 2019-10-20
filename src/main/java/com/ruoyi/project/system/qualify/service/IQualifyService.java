@@ -1,6 +1,9 @@
 package com.ruoyi.project.system.qualify.service;
 
+import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
 import com.ruoyi.project.system.qualify.domain.Qualify;
+
+import java.util.List;
 
 /**
  * author:zwy
@@ -12,4 +15,8 @@ public interface IQualifyService {
     int addQualify(Qualify qualify);
 
     int updateQualify(Qualify qualify);
+
+    int setConfirm(Integer type,String imagePath);
+
+    List<ConfirmHistoryDTO> getConfirmHistory(Integer type);
 }

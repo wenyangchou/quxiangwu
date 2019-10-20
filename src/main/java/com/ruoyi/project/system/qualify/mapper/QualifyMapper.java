@@ -1,7 +1,10 @@
 package com.ruoyi.project.system.qualify.mapper;
 
+import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
 import com.ruoyi.project.system.qualify.domain.Qualify;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * author:zwy
@@ -15,5 +18,6 @@ public interface QualifyMapper {
 
     int update(Qualify qualify);
 
+    List<ConfirmHistoryDTO> getConfirmHistory(Integer type);
 
 }
