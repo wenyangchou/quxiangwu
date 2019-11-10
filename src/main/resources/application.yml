@@ -34,7 +34,7 @@ server:
 #日志配置
 logging:
   level:
-    com.ruoyi: info
+    com.ruoyi: WARN
     org.springframework: WARN
     org.spring.springboot.dao: WARN
 #用户配置

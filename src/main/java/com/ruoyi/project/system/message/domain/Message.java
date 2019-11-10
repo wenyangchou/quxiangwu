@@ -24,6 +24,8 @@ public class Message extends BaseEntity {
 
     private Long parentId;
 
+    private Long receiverId;
+
     private List<Message> messages;
 
     private User user;

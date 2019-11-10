@@ -6,6 +6,7 @@ import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.system.thing.domain.SkuDetailDTO;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.service.IThingService;
@@ -93,4 +94,9 @@ public class ThingController  extends BaseController {
         return toAjax(thingUserLikeService.toggleCollection(skuId));
     }
 
+
+    @GetMapping("/getSkuDetail")
+    public SkuDetailDTO getSkuDetailById(Long skuId){
+        return thingService.getBySkuId(skuId);
+    }
 }

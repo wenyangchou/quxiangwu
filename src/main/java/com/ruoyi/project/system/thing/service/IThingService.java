@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.thing.service;
 
+import com.ruoyi.project.system.thing.domain.SkuDetailDTO;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.domain.ThingDTO;
@@ -15,6 +16,8 @@ public interface IThingService {
     List<Thing> getLatestByTypeId(Long typeId);
 
     Thing getById(Long id);
+
+    SkuDetailDTO getBySkuId(Long skuId);
 
     int uploadFile(String filePath,Long thingId);
 

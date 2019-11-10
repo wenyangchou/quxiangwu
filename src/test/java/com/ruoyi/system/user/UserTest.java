@@ -1,5 +1,6 @@
 package com.ruoyi.system.user;
 
+import com.ruoyi.project.system.job.service.IServiceJobService;
 import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.service.IThingService;
 import com.ruoyi.project.system.user.domain.User;
@@ -19,6 +20,14 @@ import java.util.List;
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
 public class UserTest {
+
+//    @Autowired
+//    private IServiceJobService jobService;
+//
+//    @Test
+//    public void jobTest(){
+//        jobService.getCoinDuty();
+//    }
 
 //  @Autowired private IUserService userService;
 

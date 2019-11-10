@@ -4,6 +4,7 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.message.domain.Message;
+import com.ruoyi.project.system.message.domain.MessageDTO;
 import com.ruoyi.project.system.message.service.IMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,16 @@ public class MessageController extends BaseController {
     @PostMapping("/addMessage")
     public AjaxResult addMessage(@RequestBody Message message){
         return toAjax(messageService.addMessage(message));
+    }
+
+    @PostMapping("/sendMessage")
+    public AjaxResult addMessageDTO(@RequestBody MessageDTO messageDTO){
+        return toAjax(messageService.addMessage(messageDTO));
+    }
+
+    @GetMapping("/getMessage")
+    public TableDataInfo getMessage(Long skuId){
+        startPage();
+        return getDataTable(messageService.getByThingId(skuId));
     }
 }

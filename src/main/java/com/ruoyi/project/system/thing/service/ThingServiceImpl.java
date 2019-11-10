@@ -1,10 +1,9 @@
 package com.ruoyi.project.system.thing.service;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.project.system.thing.domain.Image;
-import com.ruoyi.project.system.thing.domain.Thing;
-import com.ruoyi.project.system.thing.domain.ThingAddDTO;
-import com.ruoyi.project.system.thing.domain.ThingDTO;
+import com.ruoyi.project.system.district.domain.District;
+import com.ruoyi.project.system.district.mapper.DistrictMapper;
+import com.ruoyi.project.system.thing.domain.*;
 import com.ruoyi.project.system.thing.mapper.ImageMapper;
 import com.ruoyi.project.system.thing.mapper.ThingMapper;
 import com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper;
@@ -13,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -24,6 +24,9 @@ public class ThingServiceImpl implements IThingService {
 
     @Autowired
     private ImageMapper imageMapper;
+
+    @Autowired
+    private DistrictMapper districtMapper;
 
     @Autowired
     private ThingUserLikeMapper thingUserLikeMapper;
@@ -56,6 +59,31 @@ public class ThingServiceImpl implements IThingService {
         List<Image> images = thingMapper.getImagesByThingId(id);
         thing.setImages(images);
         return thing;
+    }
+
+    @Override
+    public SkuDetailDTO getBySkuId(Long skuId) {
+        Thing thing = thingMapper.getById(skuId);
+        List<Image> images = imageMapper.getByThingId(skuId);
+
+
+        List<String> imageUrls = new ArrayList<>();
+        images.forEach(image -> {
+            imageUrls.add(image.getImgPath()+image.getImageUrl());
+        });
+
+        Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(ShiroUtils.getUserId(),skuId);
+        District district = districtMapper.getByDistrictId(thing.getDistrictId());
+        SkuDetailDTO skuDetailDTO = new SkuDetailDTO();
+        skuDetailDTO.setName(thing.getName());
+        skuDetailDTO.setDesc(thing.getDescription());
+        skuDetailDTO.setPrice(thing.getPrice());
+        skuDetailDTO.setImg(imageUrls);
+        skuDetailDTO.setIfCollected(likeId!=null);
+        skuDetailDTO.setAvatar(ShiroUtils.getUser().getAvatar());
+        skuDetailDTO.setUserName(ShiroUtils.getUser().getUserName());
+        skuDetailDTO.setArea(district.getDistrictName());
+        return skuDetailDTO;
     }
 
     @Override

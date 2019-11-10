@@ -11,7 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="thing_id" property="thingId"/>
         <result column="user_id" property="userId"/>
         <result column="content" property="content"/>
-        <result column="parentId" property="parentId"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="receiver_id" property="receiverId"/>
         <association property="user" resultMap="userResult"/>
     </resultMap>
 
@@ -19,6 +20,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <id     property="userId"       column="user_id"      />
         <result property="userName"     column="user_name"    />
     </resultMap>
+    
+    <resultMap id="MessageDTOResult" type="com.ruoyi.project.system.message.domain.MessageResultDTO">
+        <result column="sender_name" property="senderName"/>
+        <result column="sender_avatar" property="senderAvatar"/>
+        <result column="receiver_name" property="receiverName"/>
+        <result column="receiver_avatar" property="receiverAvatar"/>
+        <result column="msg" property="msg"/>
+        <result column="time" property="time"/>
+    </resultMap>
+
+    <select id="getResultByThingId" resultMap="MessageDTOResult" parameterType="java.lang.Long">
+        SELECT
+            sender.user_name sender_name ,
+            sender.avatar sender_avatar ,
+            receiver.user_name receiver_name ,
+            receiver.avatar receiver_avatar ,
+            sm.content msg ,
+            sm.create_time time
+        FROM
+            service_message sm
+        JOIN sys_user sender ON sm.user_id = sender.user_id
+        LEFT JOIN sys_user receiver ON sm.receiver_id = receiver.user_id
+        WHERE
+            sm.thing_id = #{thingId}
+    </select>
 
     <select id="getByThingId" resultMap="messageResult" parameterType="java.lang.Long">
         SELECT
@@ -29,6 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             sm.user_id,
             sm.content,
             sm.parent_id,
+            sm.receiver_id,
             su.user_id,
             su.user_name
         FROM
@@ -46,6 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             sm.user_id,
             sm.content,
             sm.parent_id,
+            sm.receiver_id,
             su.user_id,
             su.user_name
         FROM
@@ -55,9 +83,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             sm.parent_id =#{messageId}
         ORDER BY sm.create_time DESC
     </select>
-
+    
     <insert id="insertMessage">
-        INSERT INTO service_message (create_time,modify_time,thing_id,user_id,content,parent_id) VALUES (now(),now(),#{thingId},#{userId},#{content},#{parentId})
+        INSERT INTO service_message (create_time,modify_time,thing_id,user_id,content,parent_id,receiver_id) VALUES (now(),now(),#{thingId},#{userId},#{content},#{parentId},#{receiverId})
     </insert>
 
 </mapper>
