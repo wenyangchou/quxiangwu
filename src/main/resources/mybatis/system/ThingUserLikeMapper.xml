@@ -30,4 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="getUserLikeByUserIdAndThingId" resultType="java.lang.Long">
         SELECT id FROM service_thing_user_like WHERE user_id=#{userId} AND thing_id=#{thingId}
     </select>
+
+    <select id="getCountByThingId" resultType="int" parameterType="java.lang.Long">
+        SELECT count(1) FROM service_thing_user_like WHERE thing_id=#{thingId}
+    </select>
 </mapper>

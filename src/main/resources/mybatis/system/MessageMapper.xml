@@ -88,4 +88,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         INSERT INTO service_message (create_time,modify_time,thing_id,user_id,content,parent_id,receiver_id) VALUES (now(),now(),#{thingId},#{userId},#{content},#{parentId},#{receiverId})
     </insert>
 
+    <select id="getCountByThingId" resultType="int" parameterType="java.lang.Long">
+        SELECT count(1) FROM service_message WHERE thing_id=#{thingId}
+    </select>
+
 </mapper>

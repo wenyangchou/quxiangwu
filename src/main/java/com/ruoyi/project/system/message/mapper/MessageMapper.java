@@ -16,4 +16,6 @@ public interface MessageMapper {
     List<MessageResultDTO> getResultByThingId(Long thingId);
 
     int insertMessage(Message message);
+
+    int getCountByThingId(Long thingId);
 }

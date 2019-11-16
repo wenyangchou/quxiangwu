@@ -3,6 +3,8 @@ package com.ruoyi.project.system.thing.service;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.district.domain.District;
 import com.ruoyi.project.system.district.mapper.DistrictMapper;
+import com.ruoyi.project.system.message.mapper.MessageMapper;
+import com.ruoyi.project.system.thing.constant.ThingConstant;
 import com.ruoyi.project.system.thing.domain.*;
 import com.ruoyi.project.system.thing.mapper.ImageMapper;
 import com.ruoyi.project.system.thing.mapper.ThingMapper;
@@ -30,6 +32,9 @@ public class ThingServiceImpl implements IThingService {
 
     @Autowired
     private ThingUserLikeMapper thingUserLikeMapper;
+
+    @Autowired
+    private MessageMapper messageMapper;
 
     @Override
     public List<Thing> getLatest() {
@@ -160,5 +165,24 @@ public class ThingServiceImpl implements IThingService {
         }
 
         return thingMapper.updateThing(thing);
+    }
+
+    @Override
+    public List<UserThingDTO> getUserOnSale() {
+
+        List<Thing> things = thingMapper.getByUserIdAndStatus(ShiroUtils.getUserId(), ThingConstant.ON_SALE);
+        List<UserThingDTO> userThingDTOS = new ArrayList<>();
+        things.forEach(thing -> {
+            UserThingDTO userThingDTO = new UserThingDTO();
+            userThingDTO.setSkuId(thing.getId());
+            userThingDTO.setPrice(thing.getPrice());
+            userThingDTO.setTime(thing.getCreateTime());
+            userThingDTO.setTypeId(thing.getTypeId());
+            userThingDTO.setCollectionAmount(thingUserLikeMapper.getCountByThingId(thing.getId()));
+            userThingDTO.setMessageAmount(messageMapper.getCountByThingId(thing.getId()));
+            userThingDTOS.add(userThingDTO);
+        });
+
+        return userThingDTOS;
     }
 }

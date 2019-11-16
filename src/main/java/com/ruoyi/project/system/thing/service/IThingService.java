@@ -1,9 +1,6 @@
 package com.ruoyi.project.system.thing.service;
 
-import com.ruoyi.project.system.thing.domain.SkuDetailDTO;
-import com.ruoyi.project.system.thing.domain.Thing;
-import com.ruoyi.project.system.thing.domain.ThingAddDTO;
-import com.ruoyi.project.system.thing.domain.ThingDTO;
+import com.ruoyi.project.system.thing.domain.*;
 
 import java.util.List;
 
@@ -30,4 +27,7 @@ public interface IThingService {
     List<Thing> getUserThingByStatus(Integer status);
 
     List<Thing> getUserBuy();
+
+    List<UserThingDTO> getUserOnSale();
+
 }

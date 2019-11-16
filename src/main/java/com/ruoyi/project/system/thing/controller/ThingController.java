@@ -1,13 +1,9 @@
 package com.ruoyi.project.system.thing.controller;
 
 import com.ruoyi.common.utils.file.FileUploadUtils;
-import com.ruoyi.framework.aspectj.lang.annotation.Log;
-import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
-import com.ruoyi.project.system.thing.domain.SkuDetailDTO;
-import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.service.IThingService;
 import com.ruoyi.project.system.thing.service.IThingUserLikeService;
@@ -96,7 +92,13 @@ public class ThingController  extends BaseController {
 
 
     @GetMapping("/getSkuDetail")
-    public SkuDetailDTO getSkuDetailById(Long skuId){
-        return thingService.getBySkuId(skuId);
+    public AjaxResult getSkuDetailById(Long skuId){
+        return AjaxResult.success().put("data",thingService.getBySkuId(skuId)) ;
     }
+
+    @GetMapping("/getMyPubOnsale")
+    public AjaxResult getMyPubOnsale(){
+        return AjaxResult.success().put("data",thingService.getUserOnSale());
+    }
+
 }
