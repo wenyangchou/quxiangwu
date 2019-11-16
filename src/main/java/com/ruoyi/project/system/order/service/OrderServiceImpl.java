@@ -1,11 +1,15 @@
 package com.ruoyi.project.system.order.service;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
+import com.ruoyi.project.system.order.constant.OrderConstant;
 import com.ruoyi.project.system.order.domain.ConfirmTipDTO;
 import com.ruoyi.project.system.order.domain.Order;
+import com.ruoyi.project.system.order.domain.UserBuyDTO;
+import com.ruoyi.project.system.order.domain.UserSellDTO;
 import com.ruoyi.project.system.order.mapper.OrderMapper;
 import com.ruoyi.project.system.place.domain.UserPlace;
 import com.ruoyi.project.system.place.mapper.UserPlaceMapper;
+import com.ruoyi.project.system.thing.constant.ThingConstant;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.mapper.ImageMapper;
@@ -14,8 +18,10 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements IOrderService {
@@ -32,6 +38,7 @@ public class OrderServiceImpl implements IOrderService {
     @Autowired
     private ImageMapper imageMapper;
 
+
     @Override
     public int addOrder(Long userId, Long thingId) {
 
@@ -41,14 +48,14 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setUserId(userId);
         order.setThingId(thingId);
-        order.setStatus(0);
+        order.setStatus(OrderConstant.NOT_PAY);
         order.setPlaceId(userPlace.getId());
-        order.setPayType(0);
+        order.setPayType(OrderConstant.ONLINE_PAYMENT);
         order.setActualQuxiangMoney(thing.getPrice());
         order.setBeginTime(new Date());
         order.setEndTime(new Date());
-        order.setComment("");
-        order.setScore(0);
+        order.setComment(OrderConstant.COMMENT_DEFAULT_MESSAGE);
+        order.setScore(OrderConstant.ORDER_DEFAULT_SCORE);
         return orderMapper.insertOrder(order);
     }
 
@@ -75,14 +82,14 @@ public class OrderServiceImpl implements IOrderService {
         Order order = new Order();
         order.setUserId(ShiroUtils.getUserId());
         order.setThingId(confirmTipDTO.getSkuId());
-        order.setStatus(0);
+        order.setStatus(OrderConstant.NOT_PAY);
         order.setPlaceId(userPlace.getId());
-        order.setPayType(0);
+        order.setPayType(OrderConstant.NOT_PAY);
         order.setActualQuxiangMoney(confirmTipDTO.getSkuFinalPrice());
         order.setBeginTime(new Date());
-        order.setEndTime(DateUtils.addDays(new Date(),7));
+        order.setEndTime(DateUtils.addDays(new Date(),OrderConstant.ORDER_DEFUALT_DURATION_DAYS));
         order.setComment(confirmTipDTO.getMsg());
-        order.setScore(0);
+        order.setScore(OrderConstant.ORDER_DEFAULT_SCORE);
         orderMapper.insertOrder(order);
 
         return order.getId();
@@ -102,7 +109,7 @@ public class OrderServiceImpl implements IOrderService {
         confirmTipDTO.setTel(userPlace.getCellphone());
         confirmTipDTO.setDetailInfo(userPlace.getDetail());
         confirmTipDTO.setSkuName(thing.getName());
-        confirmTipDTO.setSkuImg(image.getImgPath()+"/"+image.getImageUrl());
+        confirmTipDTO.setSkuImg(image.getImgPath()+ File.separator +image.getImageUrl());
         confirmTipDTO.setSkuPrice(thing.getPrice());
         confirmTipDTO.setSkuFinalPrice(order.getActualQuxiangMoney());
         confirmTipDTO.setPrice(thing.getPrice());
@@ -138,17 +145,8 @@ public class OrderServiceImpl implements IOrderService {
         order.setId(orderId);
         order.setStatus(status);
 
-        Thing thing = thingMapper.getById(orderMapper.getById(orderId).getThingId());
+        updateThingStatusBeforeUpdateOrderStatus(orderMapper.getById(orderId).getThingId(),status);
 
-        if (status.equals(2) || status.equals(3)){
-            thing.setStatus(2);
-        }else if(status.equals(1)||status.equals(0)){
-            thing.setStatus(0);
-        }else{
-            thing.setStatus(3);
-        }
-
-        thingMapper.updateThing(thing);
         return orderMapper.updateOrder(order);
     }
 
@@ -166,5 +164,42 @@ public class OrderServiceImpl implements IOrderService {
         order.setId(orderId);
         order.setScore(score);
         return orderMapper.updateOrder(order);
+    }
+
+    @Override
+    public List<UserSellDTO> getUserSelled() {
+        return orderMapper.getUserReleaseByStatus(ShiroUtils.getUserId(), OrderConstant.FINISHED);
+    }
+
+    @Override
+    public int deleteOrder(Long thingId) {
+        return orderMapper.deleteOrder(thingId);
+    }
+
+    @Override
+    public List<UserBuyDTO> getUserBuyed() {
+        return orderMapper.getUserBuyByStatus(ShiroUtils.getUserId(), OrderConstant.FINISHED);
+    }
+
+    @Override
+    public int updateStatusByThingId(Long thingId, Integer status) {
+        Order order = new Order();
+        order.setStatus(status);
+        order.setThingId(thingId);
+
+        updateThingStatusBeforeUpdateOrderStatus(thingId,status);
+        return orderMapper.updateOrderByThingId(order);
+    }
+
+    private void updateThingStatusBeforeUpdateOrderStatus(Long thingId,Integer orderStatus){
+        Thing thing = thingMapper.getById(thingId);
+        if (orderStatus.equals(OrderConstant.MEETED_BEFORE_SCAN_CODE) || orderStatus.equals(OrderConstant.SCANNED_BEFORE_COMMENT)){
+            thing.setStatus(ThingConstant.ON_LOCK);
+        }else if(orderStatus.equals(OrderConstant.PAYED_BEFORE_MEET)||orderStatus.equals(OrderConstant.NOT_PAY)){
+            thing.setStatus(ThingConstant.ON_SALE);
+        }else{
+            thing.setStatus(ThingConstant.DOWN_SHELF);
+        }
+        thingMapper.updateThing(thing);
     }
 }

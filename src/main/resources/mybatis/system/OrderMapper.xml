@@ -20,6 +20,93 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="score" column="score"/>
     </resultMap>
 
+    <resultMap id="userSellResult" type="com.ruoyi.project.system.order.domain.UserSellDTO">
+        <result property="buyerAvatar" column="buyer_avatar"/>
+        <result property="buyerName" column="buyer_name"/>
+        <result property="buyerId" column="buyer_id"/>
+        <result property="status" column="status"/>
+        <result property="skuId" column="sku_id"/>
+        <result property="skuImg" column="sku_img"/>
+        <result property="skuImagePrefix" column="sku_image_prefix"/>
+        <result property="skuName" column="sku_name"/>
+        <result property="price" column="price"/>
+        <result property="typeId" column="type_id"/>
+    </resultMap>
+
+    <resultMap id="userBuyResult" type="com.ruoyi.project.system.order.domain.UserBuyDTO">
+        <result property="sellerAvatar" column="seller_avatar"/>
+        <result property="sellerName" column="seller_name"/>
+        <result property="sellerId" column="seller_id"/>
+        <result property="status" column="status"/>
+        <result property="skuId" column="sku_id"/>
+        <result property="skuImg" column="sku_img"/>
+        <result property="skuImgPrefix" column="sku_img_prefix"/>
+        <result property="skuName" column="sku_name"/>
+        <result property="price" column="price"/>
+        <result property="typeId" column="type_id"/>
+    </resultMap>
+
+    <select id="getUserBuyByStatus" resultMap="userBuyResult">
+        SELECT
+            seller.avatar seller_avatar,
+            seller.user_name seller_name,
+            seller.user_id seller_id,
+            so. STATUS status,
+            st.id sku_id,
+            si.img_path sku_img,
+            si.img_url sku_img_prefix,
+            st. NAME sku_name,
+            so.actual_quxiang_money price,
+            st.type_id type_id
+        FROM
+            (
+                SELECT
+                    thing_id ,
+                    user_id ,
+                    STATUS ,
+                    actual_quxiang_money
+                FROM
+                    service_order
+                WHERE
+                    user_id = #{userId}
+                  AND `status` = #{status}
+            ) so
+                JOIN service_thing st ON st.id = so.thing_id
+                LEFT JOIN sys_user seller ON st.user_id = seller.user_id
+                LEFT JOIN service_image si ON st.top_img_id = si.id
+    </select>
+
+    <select id="getUserReleaseByStatus" resultMap="userSellResult" >
+        SELECT
+            buyer.avatar buyer_avatar,
+            buyer.user_name buyer_name,
+            buyer.user_id buyer_id,
+            so.STATUS status,
+            st.id sku_id,
+            si.img_url sku_img,
+            si.img_path sku_image_prefix,
+            st.name sku_name,
+            so.actual_quxiang_money price,
+            st.type_id type_id
+        FROM
+            (
+                SELECT
+                    id ,
+                    type_id ,
+                    top_img_id,
+                    name
+                FROM
+                    service_thing
+                WHERE
+                    user_id = #{userId}
+            ) st
+                JOIN service_order so ON st.id = so.thing_id
+                LEFT JOIN sys_user buyer ON so.user_id = buyer.user_id
+                LEFT JOIN service_image si ON st.top_img_id = si.id
+        where so.`status`=#{status}
+    </select>
+
+
     <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO service_order (create_time,modify_time,user_id,thing_id,status,place_id,pay_type,actual_quxiang_money,begin_time,end_time,comment,score)
         VALUES (NOW(),NOW(),#{userId},#{thingId},#{status},#{placeId},#{payType},#{actualQuxiangMoney},#{beginTime},#{endTime},#{comment},#{score})
@@ -56,5 +143,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </set>
         WHERE id=#{id}
     </update>
+
+    <update id="updateOrderByThingId">
+        UPDATE service_order
+        <set>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            <if test="actualQuxiangMoney!=null">
+                actual_quxiang_money=#{actualQuxiangMoney},
+            </if>
+            <if test="beginTime!=null">
+                begin_time=#{beginTime},
+            </if>
+            <if test="endTime!=null">
+                end_time=#{endTime},
+            </if>
+            <if test="comment!=null">
+                comment=#{comment},
+            </if>
+            <if test="score!=null">
+                score=#{score}
+            </if>
+        </set>
+        WHERE thing_id=#{thingId}
+    </update>
+
+    <delete id="deleteOrder" parameterType="java.lang.Long">
+        DELETE FROM service_order WHERE thing_id=#{thingId}
+    </delete>
+
+
 
 </mapper>

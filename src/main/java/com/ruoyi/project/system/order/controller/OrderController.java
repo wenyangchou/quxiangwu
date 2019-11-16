@@ -2,7 +2,8 @@ package com.ruoyi.project.system.order.controller;
 
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.project.system.order.constant.OrderStatusConstant;
+import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.system.order.constant.OrderConstant;
 import com.ruoyi.project.system.order.domain.ConfirmTipDTO;
 import com.ruoyi.project.system.order.domain.Order;
 import com.ruoyi.project.system.order.service.IOrderService;
@@ -42,7 +43,7 @@ public class OrderController extends BaseController {
     public AjaxResult closeTip(Long tipId){
         Order order = new Order();
         order.setId(tipId);
-        order.setStatus(OrderStatusConstant.FINISHED);
+        order.setStatus(OrderConstant.FINISHED);
         return toAjax(orderService.updateOrder(order));
     }
 
@@ -58,8 +59,30 @@ public class OrderController extends BaseController {
     public AjaxResult scanTip(Long tipId){
         Order order = new Order();
         order.setId(tipId);
-        order.setStatus(OrderStatusConstant.SCANNED_BEFORE_COMMENT);
+        order.setStatus(OrderConstant.SCANNED_BEFORE_COMMENT);
         return toAjax(orderService.updateOrder(order));
+    }
+
+    @GetMapping("/getMySellout")
+    public TableDataInfo getMySellout(){
+        startPage();
+        return getDataTable(orderService.getUserSelled());
+    }
+
+    @PostMapping({"/deleteMySellout","/deleteMypurchase"})
+    public AjaxResult deleteOrderByThingId(Long skuId){
+        return toAjax(orderService.deleteOrder(skuId));
+    }
+
+    @GetMapping("/getMyPurchase")
+    public TableDataInfo getMyPurchase(){
+        startPage();
+        return getDataTable(orderService.getUserBuyed());
+    }
+
+    @PostMapping("/confirmRecieved")
+    public AjaxResult confirmRecieved(Long skuId){
+        return toAjax(orderService.updateStatusByThingId(skuId,OrderConstant.FINISHED));
     }
 
     private String dealOrderId(Long orderId){

@@ -205,6 +205,7 @@ public class ThingServiceImpl implements IThingService {
             userThingDTO.setTime(thing.getModifyTime());
             userThingDTO.setTypeId(thing.getTypeId());
             userThingDTO.setPrice(thing.getPrice());
+            userThingDTOS.add(userThingDTO);
         });
         return userThingDTOS;
     }

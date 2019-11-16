@@ -5,7 +5,7 @@ package com.ruoyi.project.system.order.constant;
  * Date:2019-10-19
  * Time:20:06
  */
-public class OrderStatusConstant {
+public class OrderConstant {
 
     public final static Integer NOT_PAY = 0;
 
@@ -18,4 +18,14 @@ public class OrderStatusConstant {
     public final static Integer COMMENTED = 5;
 
     public final static Integer FINISHED = 6;
+
+    public final static Integer ONLINE_PAYMENT = 0;
+
+    public final static Integer OFFLINE_PAYMENT = 1;
+
+    public static final Integer ORDER_DEFAULT_SCORE = 0;
+
+    public static final String COMMENT_DEFAULT_MESSAGE = "";
+
+    public static final Integer ORDER_DEFUALT_DURATION_DAYS = 7;
 }
