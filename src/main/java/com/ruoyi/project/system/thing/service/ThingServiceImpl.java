@@ -185,4 +185,12 @@ public class ThingServiceImpl implements IThingService {
 
         return userThingDTOS;
     }
+
+    @Override
+    public int updateThingStatus(Long thingId, Integer status) {
+        Thing thing = new Thing();
+        thing.setId(thingId);
+        thing.setStatus(status);
+        return thingMapper.updateThing(thing);
+    }
 }

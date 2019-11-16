@@ -4,6 +4,7 @@ import com.ruoyi.common.utils.file.FileUploadUtils;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.system.thing.constant.ThingConstant;
 import com.ruoyi.project.system.thing.domain.ThingAddDTO;
 import com.ruoyi.project.system.thing.service.IThingService;
 import com.ruoyi.project.system.thing.service.IThingUserLikeService;
@@ -99,6 +100,11 @@ public class ThingController  extends BaseController {
     @GetMapping("/getMyPubOnsale")
     public AjaxResult getMyPubOnsale(){
         return AjaxResult.success().put("data",thingService.getUserOnSale());
+    }
+
+    @PostMapping("/pullOffShelf")
+    public AjaxResult pullOffShelf(Long skuId){
+        return toAjax(thingService.updateThingStatus(skuId, ThingConstant.DOWN_SHELF));
     }
 
 }
