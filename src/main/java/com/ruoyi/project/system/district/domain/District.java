@@ -14,9 +14,9 @@ public class District {
 
     private Long districtId;
 
-    private Date districtICreateTime;
+    private Date districtCreateTime;
 
-    private Date districtIModifyTime;
+    private Date districtModifyTime;
 
     private String districtName;
 
