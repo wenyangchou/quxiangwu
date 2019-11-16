@@ -98,13 +98,20 @@ public class ThingController  extends BaseController {
     }
 
     @GetMapping("/getMyPubOnsale")
-    public AjaxResult getMyPubOnsale(){
-        return AjaxResult.success().put("data",thingService.getUserOnSale());
+    public TableDataInfo getMyPubOnsale(){
+        startPage();
+        return getDataTable(thingService.getUserOnSale());
     }
 
     @PostMapping("/pullOffShelf")
     public AjaxResult pullOffShelf(Long skuId){
         return toAjax(thingService.updateThingStatus(skuId, ThingConstant.DOWN_SHELF));
+    }
+
+    @GetMapping("/getMyPubOffsale")
+    public TableDataInfo getMyPubOffsale(){
+        startPage();
+        return getDataTable(thingService.getUserDownSaleThing());
     }
 
 }

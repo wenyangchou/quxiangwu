@@ -31,4 +31,6 @@ public interface IThingService {
     List<UserThingDTO> getUserOnSale();
 
     int updateThingStatus(Long thingId,Integer status);
+
+    List<UserThingDTO> getUserDownSaleThing();
 }

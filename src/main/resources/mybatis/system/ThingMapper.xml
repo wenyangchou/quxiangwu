@@ -231,9 +231,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateThing">
         UPDATE service_thing
         <set>
-            <if test="modifyTime != null">
-                modify_time=NOW(),
-            </if>
             <if test="topImgId!=null">
                 top_img_id=#{topImgId},
             </if>
@@ -267,6 +264,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="isNew!=null">
                 is_new=#{isNew},
             </if>
+            modify_time=NOW()
         </set>
         <where>
             id=#{id}

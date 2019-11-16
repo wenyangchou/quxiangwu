@@ -176,7 +176,7 @@ public class ThingServiceImpl implements IThingService {
             UserThingDTO userThingDTO = new UserThingDTO();
             userThingDTO.setSkuId(thing.getId());
             userThingDTO.setPrice(thing.getPrice());
-            userThingDTO.setTime(thing.getCreateTime());
+            userThingDTO.setTime(thing.getModifyTime());
             userThingDTO.setTypeId(thing.getTypeId());
             userThingDTO.setCollectionAmount(thingUserLikeMapper.getCountByThingId(thing.getId()));
             userThingDTO.setMessageAmount(messageMapper.getCountByThingId(thing.getId()));
@@ -192,5 +192,20 @@ public class ThingServiceImpl implements IThingService {
         thing.setId(thingId);
         thing.setStatus(status);
         return thingMapper.updateThing(thing);
+    }
+
+    @Override
+    public List<UserThingDTO> getUserDownSaleThing() {
+        List<UserThingDTO> userThingDTOS = new ArrayList<>();
+        List<Thing> things = getUserThingByStatus(ThingConstant.DOWN_SHELF);
+        things.forEach(thing -> {
+            UserThingDTO userThingDTO = new UserThingDTO();
+            userThingDTO.setSkuId(thing.getId());
+            userThingDTO.setSkuName(thing.getName());
+            userThingDTO.setTime(thing.getModifyTime());
+            userThingDTO.setTypeId(thing.getTypeId());
+            userThingDTO.setPrice(thing.getPrice());
+        });
+        return userThingDTOS;
     }
 }
