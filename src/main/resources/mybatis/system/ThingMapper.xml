@@ -270,4 +270,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             id=#{id}
         </where>
     </update>
+
+    <delete id="deleteThing" parameterType="java.lang.Long">
+        DELETE FROM service_thing WHERE id = #{thingId}
+    </delete>
 </mapper>

@@ -33,4 +33,6 @@ public interface IThingService {
     int updateThingStatus(Long thingId,Integer status);
 
     List<UserThingDTO> getUserDownSaleThing();
+
+    int deleteThing(Long thingId);
 }

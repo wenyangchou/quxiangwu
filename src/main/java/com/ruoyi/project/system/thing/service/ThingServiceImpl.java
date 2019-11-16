@@ -208,4 +208,10 @@ public class ThingServiceImpl implements IThingService {
         });
         return userThingDTOS;
     }
+
+    @Override
+    public int deleteThing(Long thingId) {
+        //TODO 级联删除趣吧的数据
+        return thingMapper.deleteThing(thingId);
+    }
 }

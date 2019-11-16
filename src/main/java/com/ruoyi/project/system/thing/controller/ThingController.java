@@ -114,4 +114,14 @@ public class ThingController  extends BaseController {
         return getDataTable(thingService.getUserDownSaleThing());
     }
 
+    @PostMapping("/putOnShelf")
+    public AjaxResult putOnShelf(Long skuId){
+        return toAjax(thingService.updateThingStatus(skuId,ThingConstant.ON_SALE));
+    }
+
+    @PostMapping("/deleteMyPub")
+    public AjaxResult deleteMyPub(Long skuId){
+        return toAjax(thingService.deleteThing(skuId));
+    }
+
 }

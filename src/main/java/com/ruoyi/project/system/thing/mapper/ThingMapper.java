@@ -27,6 +27,8 @@ public interface ThingMapper {
 
     int updateThing(Thing thing);
 
+    int deleteThing(Long thingId);
+
     List<Thing> getByUserIdAndStatus(Long userId,Integer status);
 
     List<Thing> getByUserFromOrder(Long userId);
