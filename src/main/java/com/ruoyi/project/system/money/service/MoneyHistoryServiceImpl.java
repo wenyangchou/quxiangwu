@@ -1,6 +1,6 @@
 package com.ruoyi.project.system.money.service;
 
-import com.ruoyi.common.constant.MoneyConstant;
+import com.ruoyi.project.system.money.constant.MoneyConstant;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.money.domain.CoinChangeDTO;
 import com.ruoyi.project.system.money.domain.MoneyHistory;

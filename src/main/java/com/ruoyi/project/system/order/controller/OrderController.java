@@ -2,7 +2,7 @@ package com.ruoyi.project.system.order.controller;
 
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.common.constant.OrderStatusConstant;
+import com.ruoyi.project.system.order.constant.OrderStatusConstant;
 import com.ruoyi.project.system.order.domain.ConfirmTipDTO;
 import com.ruoyi.project.system.order.domain.Order;
 import com.ruoyi.project.system.order.service.IOrderService;

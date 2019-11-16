@@ -40,4 +40,9 @@ public class QualifyController extends BaseController {
         startPage();
         return getDataTable(qualifyService.getConfirmHistory(type));
     }
+
+    @GetMapping("/getResult")
+    public AjaxResult getConfirmResult(Integer type){
+        return AjaxResult.success().put("data",qualifyService.getStatus(type));
+    }
 }

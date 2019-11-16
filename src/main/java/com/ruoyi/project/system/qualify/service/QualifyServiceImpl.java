@@ -4,6 +4,7 @@ import com.ruoyi.common.constant.QualifyConstant;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
+import com.ruoyi.project.system.qualify.domain.ConfirmResultDTO;
 import com.ruoyi.project.system.qualify.domain.Qualify;
 import com.ruoyi.project.system.qualify.mapper.QualifyMapper;
 import com.ruoyi.project.system.user.domain.User;
@@ -40,7 +41,9 @@ public class QualifyServiceImpl implements IQualifyService {
         if (user.getIsQualified().equals(UserConstants.QUALIFIED)){
             return 0;
         }else{
-            return qualifyMapper.update(qualify);
+            int result = qualifyMapper.update(qualify);
+            //TODO 认证成功更改user的qualify状态
+            return result;
         }
     }
 
@@ -63,5 +66,10 @@ public class QualifyServiceImpl implements IQualifyService {
     @Override
     public List<ConfirmHistoryDTO> getConfirmHistory(Integer type) {
         return qualifyMapper.getConfirmHistory(type);
+    }
+
+    @Override
+    public ConfirmResultDTO getStatus(Integer type) {
+        return qualifyMapper.getLastQualifyStatus(ShiroUtils.getUserId(),type);
     }
 }

@@ -1,7 +1,9 @@
 package com.ruoyi.project.system.qualify.mapper;
 
 import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
+import com.ruoyi.project.system.qualify.domain.ConfirmResultDTO;
 import com.ruoyi.project.system.qualify.domain.Qualify;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,5 +21,7 @@ public interface QualifyMapper {
     int update(Qualify qualify);
 
     List<ConfirmHistoryDTO> getConfirmHistory(Integer type);
+
+    ConfirmResultDTO getLastQualifyStatus(@Param("userId") Long userId, @Param("type") Integer type);
 
 }

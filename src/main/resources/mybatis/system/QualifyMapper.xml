@@ -9,6 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="time" column="time"/>
     </resultMap>
 
+    <resultMap id="resultDTOResult" type="com.ruoyi.project.system.qualify.domain.ConfirmResultDTO">
+        <result property="status" column="status"/>
+        <result property="img" column="img"/>
+    </resultMap>
+
     <insert id="insert">
         INSERT INTO service_qualify
         (create_time,modify_time,user_id,qualify_positive_url,qualify_negative_url,qualify_status,qualify_type)
@@ -30,6 +35,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="getConfirmHistory" resultMap="confirmDTOResult" parameterType="java.lang.Integer">
         SELECT qualify_positive_url img,create_time time FROM service_qualify WHERE qualify_type=#{type}
+    </select>
+
+    <select id="getLastQualifyStatus"  resultMap="resultDTOResult" resultType="int">
+        SELECT qualify_status status,qualify_positive_url img FROM service_qualify WHERE user_id=#{userId} AND qualify_type=${type}
     </select>
 
 

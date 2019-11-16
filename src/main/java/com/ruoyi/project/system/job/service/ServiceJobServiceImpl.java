@@ -1,9 +1,8 @@
 package com.ruoyi.project.system.job.service;
 
-import com.ruoyi.common.constant.JobConstant;
-import com.ruoyi.common.constant.MoneyConstant;
+import com.ruoyi.project.system.job.constant.JobConstant;
+import com.ruoyi.project.system.money.constant.MoneyConstant;
 import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.project.monitor.job.domain.Job;
 import com.ruoyi.project.system.job.domain.CoinDutyDTO;
 import com.ruoyi.project.system.job.domain.ServiceJob;
 import com.ruoyi.project.system.job.mapper.ServiceJobHistoryMapper;

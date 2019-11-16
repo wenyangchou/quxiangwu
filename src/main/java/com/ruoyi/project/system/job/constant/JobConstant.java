@@ -1,4 +1,4 @@
-package com.ruoyi.common.constant;
+package com.ruoyi.project.system.job.constant;
 
 /**
  * author:zwy
