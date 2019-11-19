@@ -34,4 +34,6 @@ public class SkuDetailDTO {
     private String preTime;
 
     private String area;
+
+    private Long skuType;
 }

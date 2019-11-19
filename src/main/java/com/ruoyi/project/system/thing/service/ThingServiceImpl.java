@@ -88,6 +88,7 @@ public class ThingServiceImpl implements IThingService {
         skuDetailDTO.setAvatar(ShiroUtils.getUser().getAvatar());
         skuDetailDTO.setUserName(ShiroUtils.getUser().getUserName());
         skuDetailDTO.setArea(district.getDistrictName());
+        skuDetailDTO.setSkuType(thing.getTypeId());
         return skuDetailDTO;
     }
 

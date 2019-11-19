@@ -22,7 +22,7 @@ public class OrderController extends BaseController {
     @Autowired
     private IOrderService orderService;
 
-    @PostMapping("/addOrder")
+    @PostMapping({"/addOrder","/confirmTip"})
     @ResponseBody
     public String addOrder(@RequestBody ConfirmTipDTO confirmTipDTO){
         return dealOrderId(orderService.addOrder(confirmTipDTO));
