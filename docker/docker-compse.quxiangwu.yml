@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/mysql/data:/var/lib/mysql
+      - /var/mysql/conf:/etc/mysql/conf.d
+      - /var/mysql/logs:/logs
+    container_name: quxiangwu_mysql
+
+  quxiangwu:
+    image: wenyangchou/quxiangwu_release:v1
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /root/profile/:/root/profile/
+      - /root/imagePath/:/root/imagePath/
+    container_name: quxiangwu_core
+    depends_on:
+      - mysql

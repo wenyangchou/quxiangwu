@@ -26,4 +26,6 @@ public class UserThingDTO {
     private BigDecimal price;
 
     private Long typeId;
+
+    private String avatar;
 }

@@ -9,6 +9,7 @@ import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.project.system.invite.service.IInviteHistoryService;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.service.IUserService;
+import com.ruoyi.project.system.user.util.LoginUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -36,6 +37,10 @@ public class LoginController extends BaseController
 
     @Autowired
     private IInviteHistoryService iInviteHistoryService;
+
+    @Autowired
+    private LoginUtil loginUtil;
+
 
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response)
@@ -77,7 +82,6 @@ public class LoginController extends BaseController
         WechatSession wechatSession = userService.getWechatSessionByCode(code);
         if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
-//            WxOpenIdToken token = new WxOpenIdToken("oMmOL5dKz07PDYmPzoXust7hmzjw");
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
 
@@ -91,6 +95,27 @@ public class LoginController extends BaseController
             return error(msg);
         }
     }
+
+    @PostMapping("/alipayLogin")
+    @ResponseBody
+    public AjaxResult alipayLoginOrRegister(String code,Long invitor){
+        WxOpenIdToken alipayToken = loginUtil.getALiPayUserInfo(code);
+        if (alipayToken!=null){
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(alipayToken);
+            if (invitor!=null&& !invitor.toString().equals("0")){
+                iInviteHistoryService.addInviteHistory(invitor,ShiroUtils.getUserId());
+            }
+
+            return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
+        }else {
+            String msg = "请求非法";
+            return error(msg);
+        }
+
+    }
+
+
 
 
     @GetMapping("/unauth")

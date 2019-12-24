@@ -1,7 +1,6 @@
 package com.ruoyi.framework.shiro.realm;
 
-import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.framework.shiro.service.LoginService;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.shiro.token.WxOpenIdToken;
 import com.ruoyi.project.system.menu.service.IMenuService;
 import com.ruoyi.project.system.role.service.IRoleService;
@@ -18,8 +17,6 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 /** author:zwy Date:2019-06-30 Time:11:20 */
@@ -52,7 +49,29 @@ public class WxOpenRealm extends AuthorizingRealm {
       user = new User();
       user.setOpenId(openid);
       user.setLoginName(UUID.randomUUID().toString());
-      user.setUserName(user.getLoginName());
+
+      if (StringUtils.isNotEmpty(wxOpenIdToken.getNickName())){
+        user.setLoginName(wxOpenIdToken.getNickName());
+      }else{
+        user.setUserName(user.getLoginName());
+      }
+
+      if (StringUtils.isNotEmpty(wxOpenIdToken.getAvatar())){
+        user.setAvatar(wxOpenIdToken.getAvatar());
+      }
+
+      if (StringUtils.isNotEmpty(wxOpenIdToken.getCity())){
+        user.setCity(wxOpenIdToken.getCity());
+      }
+
+      if (StringUtils.isNotEmpty(wxOpenIdToken.getProvince())){
+        user.setProvince(wxOpenIdToken.getProvince());
+      }
+
+      if (StringUtils.isNotEmpty(wxOpenIdToken.getGender())){
+        user.setSex(wxOpenIdToken.getGender());
+      }
+
       userService.insertWxUser(user);
     }
 

@@ -1,5 +1,7 @@
 package com.ruoyi.framework.shiro.token;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
 import java.io.Serializable;
@@ -13,6 +15,26 @@ public class WxOpenIdToken extends UsernamePasswordToken implements Serializable
     private static final long serialVersionUID = 4322168875042315147L;
 
     private String openId;
+
+    @Getter
+    @Setter
+    private String avatar;
+
+    @Getter
+    @Setter
+    private String nickName;
+
+    @Getter
+    @Setter
+    private String province;
+
+    @Getter
+    @Setter
+    private String city;
+
+    @Getter
+    @Setter
+    private String gender;
 
     public String getOpenId() {
         return openId;

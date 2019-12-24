@@ -46,10 +46,13 @@ public class ThingServiceImpl implements IThingService {
     public List<ThingDTO> getLatestThingDTO() {
         User user = ShiroUtils.getUser();
         List<ThingDTO> thingDTOS = thingMapper.getLatestThingDTO();
-        thingDTOS.forEach(thingDTO -> {
-            Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(user.getUserId(),thingDTO.getId());
-            thingDTO.setIfCollect(likeId!=null);
-        });
+
+        if (user!=null&&user.getUserId()!=null){
+            thingDTOS.forEach(thingDTO -> {
+                Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(user.getUserId(),thingDTO.getId());
+                thingDTO.setIfCollect(likeId!=null);
+            });
+        }
         return thingDTOS;
     }
 
@@ -175,6 +178,7 @@ public class ThingServiceImpl implements IThingService {
         List<UserThingDTO> userThingDTOS = new ArrayList<>();
         things.forEach(thing -> {
             UserThingDTO userThingDTO = new UserThingDTO();
+            userThingDTO.setAvatar(ShiroUtils.getUser().getAvatar());
             userThingDTO.setSkuId(thing.getId());
             userThingDTO.setPrice(thing.getPrice());
             userThingDTO.setTime(thing.getModifyTime());
