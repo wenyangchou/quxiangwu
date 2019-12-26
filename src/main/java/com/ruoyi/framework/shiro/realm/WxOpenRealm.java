@@ -44,8 +44,7 @@ public class WxOpenRealm extends AuthorizingRealm {
     WxOpenIdToken wxOpenIdToken = (WxOpenIdToken) authenticationToken;
     String openid = wxOpenIdToken.getOpenId();
     User user = userService.selectUserByOpenId(openid);
-    if (user != null) {
-    } else {
+    if (user == null|| user.getUserId()==null){
       user = new User();
       user.setOpenId(openid);
       user.setLoginName(UUID.randomUUID().toString());

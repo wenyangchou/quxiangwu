@@ -204,12 +204,14 @@ public class ThingServiceImpl implements IThingService {
         List<UserThingDTO> userThingDTOS = new ArrayList<>();
         List<Thing> things = getUserThingByStatus(ThingConstant.DOWN_SHELF);
         things.forEach(thing -> {
+            Image image = imageMapper.getById(thing.getTopImgId());
             UserThingDTO userThingDTO = new UserThingDTO();
             userThingDTO.setSkuId(thing.getId());
             userThingDTO.setSkuName(thing.getName());
             userThingDTO.setTime(thing.getModifyTime());
             userThingDTO.setTypeId(thing.getTypeId());
             userThingDTO.setPrice(thing.getPrice());
+            userThingDTO.setImg(image.getImgPath()+image.getImageUrl());
             userThingDTOS.add(userThingDTO);
         });
         return userThingDTOS;

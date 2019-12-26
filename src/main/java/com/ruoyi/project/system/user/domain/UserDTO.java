@@ -24,6 +24,8 @@ public class UserDTO {
 
     private String gender;
 
+    private Boolean isFillContact;
+
     private BigDecimal coinNumber;
 
     private Long collectedNumber;

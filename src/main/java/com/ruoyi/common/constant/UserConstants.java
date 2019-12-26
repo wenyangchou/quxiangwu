@@ -27,6 +27,10 @@ public class UserConstants
 
     public final static Integer UNQUALIFIED = 0;
 
+    public final static Integer FILLED_CONTACT = 1;
+
+    public final static Integer NOT_FILL_CONTACT = 0;
+
     /**
      * 用户名长度限制
      */

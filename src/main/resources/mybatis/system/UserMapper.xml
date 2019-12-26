@@ -23,6 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateBy"     column="update_by"    />
 		<result property="updateTime"   column="update_time"  />
 		<result property="remark"       column="remark"       />
+		<result property="wechat" column="wechat"/>
+		<result property="qq" column="qq"/>
 		<result property="openId" column="open_id"/>
 		<result property="city" column="city"/>
 		<result property="country" column="country"/>
@@ -38,6 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="industry" column="industry"/>
 		<result property="jobTitle" column="job_title"/>
 		<result property="educationExperience" column="educational_experience"/>
+		<result property="isFillContact" column="is_fill_contact"/>
 		<collection  property="roles"   javaType="java.util.List"        resultMap="RoleResult" />
 	</resultMap>
 
@@ -52,14 +55,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<sql id="selectUserVo">
         select  u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience,
-       		    r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
+       		    r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status,u.wechat,u.qq,u.is_fill_contact
 		from sys_user u
 			 left join sys_user_role ur on u.user_id = ur.user_id
 			 left join sys_role r on r.role_id = ur.role_id
     </sql>
 	
 	<select id="selectUserList" parameterType="User" resultMap="UserResult">
-		select u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.password, u.sex, u.avatar, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience from sys_user u
+		select u.wechat,u.qq,u.is_fill_contact, u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.password, u.sex, u.avatar, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience from sys_user u
 		where u.del_flag = '0'
 		<if test="loginName != null and loginName != ''">
 			AND u.login_name like concat('%', #{loginName}, '%')
@@ -143,7 +146,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<update id="updateUser" parameterType="User">
  		update sys_user
  		<set>
- 			<if test="openId!=null and openId!=''">open_id=#{openId},</if>
  			<if test="city!=null and city!=''">city=#{city},</if>
  			<if test="country!=null and country!=''">country=#{country},</if>
  			<if test="language!=null and language!=''">language=#{language},</if>
@@ -161,7 +163,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="loginDate != null">login_date = #{loginDate},</if>
  			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
  			<if test="remark != null and remark != ''">remark = #{remark},</if>
- 			<if test="openId!=null and openId!=''">openId=#{openId},</if>
  			<if test="city!=null and city!=''">city=#{city},</if>
  			<if test="country!=null and country!=''">country=#{country},</if>
  			<if test="language!=null and language!=''">language=#{language},</if>
@@ -175,6 +176,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="usualResidence!=null and usualResidence!=''">usual_residence=#{usualResidence},</if>
  			<if test="industry!=null and industry!=''">industry=#{industry},</if>
  			<if test="jobTitle!=null and jobTitle!=''">job_title=#{jobTitle},</if>
+ 		    <if test="wechat!=null and wechat!=''">wechat=#{wechat},</if>
+ 		    <if test="qq!=null and qq!=''">qq=#{qq},</if>
+ 		    <if test="isFillContact!=null">is_fill_contact=#{isFillContact},</if>
  			<if test="educationExperience!=null and educationExperience!=''">educational_experience=#{educationExperience},</if>
  			update_time = sysdate()
  		</set>
@@ -213,6 +217,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="industry!=null and industry!=''">industry,</if>
 			<if test="jobTitle!=null and jobTitle!=''">job_title,</if>
 			<if test="educationExperience!=null and educationExperience!=''">educational_experience,</if>
+ 		    <if test="wechat!=null and wechat!=''">wechat,</if>
+ 		    <if test="qq!=null and qq!=''">qq,</if>
+			<if test="isFillContact!=null">is_fill_contact,</if>
  			create_time
  		)values(
 			<if test="openId!=null and openId!=''">#{openId},</if>
@@ -245,6 +252,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="industry!=null and industry!=''">#{industry},</if>
 			<if test="jobTitle!=null and jobTitle!=''">#{jobTitle},</if>
 			<if test="educationExperience!=null and educationExperience!=''">#{educationExperience},</if>
+			<if test="wechat!=null and wechat!=''">#{wechat},</if>
+			<if test="qq!=null and qq!=''">#{qq},</if>
+			<if test="isFillContact!=null">#{isFillContact},</if>
  			sysdate()
  		)
 	</insert>

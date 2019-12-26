@@ -82,6 +82,7 @@ public class LoginController extends BaseController
         WechatSession wechatSession = userService.getWechatSessionByCode(code);
         if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
+//            WxOpenIdToken token = new WxOpenIdToken("oMmOL5VeHSkdmncqtz_aVTkOsLfw");
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
 

@@ -1,31 +1,31 @@
 package com.ruoyi.project.system.user.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alibaba.fastjson.JSON;
-import com.ruoyi.project.system.quba.domain.Quba;
-import com.ruoyi.project.system.quba.domain.QubaDTO;
-import com.ruoyi.project.system.quba.mapper.QubaMapper;
-import com.ruoyi.project.system.thing.service.IThingUserLikeService;
-import com.ruoyi.project.system.user.domain.UserDTO;
-import com.ruoyi.project.system.user.domain.WechatSession;
-import com.ruoyi.project.system.user.mapper.UserFollowMapper;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.support.Convert;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.shiro.service.PasswordService;
+import com.ruoyi.project.system.quba.domain.Quba;
+import com.ruoyi.project.system.quba.domain.QubaDTO;
+import com.ruoyi.project.system.quba.mapper.QubaMapper;
 import com.ruoyi.project.system.role.mapper.RoleMapper;
+import com.ruoyi.project.system.thing.service.IThingUserLikeService;
 import com.ruoyi.project.system.user.domain.User;
+import com.ruoyi.project.system.user.domain.UserDTO;
 import com.ruoyi.project.system.user.domain.UserRole;
+import com.ruoyi.project.system.user.domain.WechatSession;
+import com.ruoyi.project.system.user.mapper.UserFollowMapper;
 import com.ruoyi.project.system.user.mapper.UserMapper;
 import com.ruoyi.project.system.user.mapper.UserRoleMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 用户 业务层处理
@@ -376,14 +376,15 @@ public class UserServiceImpl implements IUserService
         }
 
         String sex = user.getSex();
-        if (sex.equals("0")){
+        if (sex.equals("0")||sex.equals("男")){
             userDTO.setGender("男");
-        }else if (sex.equals("1")){
+        }else if (sex.equals("1")||sex.equals("女")){
             userDTO.setGender("女");
         }else{
             userDTO.setGender("未知");
         }
 
+        userDTO.setIsFillContact(user.getIsFillContact()!=null&&user.getIsFillContact().equals(UserConstants.FILLED_CONTACT));
         userDTO.setCoinNumber(user.getXianquMoney());
         Long collectedNumber = thingUserLikeService.getUserLikeByUserId(user.getUserId());
         userDTO.setCollectedNumber(collectedNumber);

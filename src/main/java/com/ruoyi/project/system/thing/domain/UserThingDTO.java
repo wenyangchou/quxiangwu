@@ -28,4 +28,6 @@ public class UserThingDTO {
     private Long typeId;
 
     private String avatar;
+
+    private String img;
 }

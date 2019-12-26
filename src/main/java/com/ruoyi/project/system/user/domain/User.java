@@ -1,14 +1,14 @@
 package com.ruoyi.project.system.user.domain;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-
-import lombok.Data;
-import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import com.ruoyi.framework.aspectj.lang.annotation.Excel;
 import com.ruoyi.framework.web.domain.BaseEntity;
 import com.ruoyi.project.system.role.domain.Role;
+import lombok.Data;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 用户对象 sys_user
@@ -25,6 +25,12 @@ public class User extends BaseEntity {
 
   /** 用户微信分配的id */
   private String openId;
+
+  private Integer isFillContact;
+
+  private String wechat;
+
+  private String qq;
 
   private String city;
 
