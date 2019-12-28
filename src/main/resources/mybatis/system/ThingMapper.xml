@@ -19,7 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="description" property="description"/>
         <result column="status" property="status"/>
         <result column="trade_type" property="tradeType"/>
-        <result column="is_new" property="isNew"></result>
+        <result column="is_new" property="isNew"/>
+        <result column="user_id" property="userId"/>
         <association property="topImage" resultMap="imageResult"/>
     </resultMap>
 
