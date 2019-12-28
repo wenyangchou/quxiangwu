@@ -133,6 +133,17 @@ public class ProfileController extends BaseController
         return AjaxResult.success().put("contactCard",contactCardDTO);
     }
 
+    @GetMapping("/getContactCardByUserId")
+    @ResponseBody
+    public AjaxResult getUserContactCard(Long userId){
+        User user = userService.selectUserById(userId);
+        ContactCardDTO contactCardDTO = new ContactCardDTO();
+        contactCardDTO.setPhone(user.getPhonenumber());
+        contactCardDTO.setWechat(user.getWechat());
+        contactCardDTO.setQq(user.getQq());
+        return AjaxResult.success().put("contactCard",contactCardDTO);
+    }
+
     @PostMapping("/fillContactCard")
     @ResponseBody
     public AjaxResult updateContactCard(String wechat,String qq,String phonenumber){
