@@ -13,7 +13,7 @@ public interface ThingMapper {
 
     List<Thing> getLatest();
 
-    List<Thing> getLatestAndByTypeId(Long typeId);
+
 
     List<GoodsDTO> getLetestGoodsByUserId(Long userId);
 
@@ -34,4 +34,6 @@ public interface ThingMapper {
     List<Thing> getByUserFromOrder(Long userId);
 
     List<ThingDTO> getLatestThingDTO();
+
+    List<ThingDTO> getLatestAndByTypeId(Long typeId);
 }

@@ -10,7 +10,7 @@ public interface IThingService {
 
     List<ThingDTO> getLatestThingDTO();
 
-    List<Thing> getLatestByTypeId(Long typeId);
+    List<ThingDTO> getLatestByTypeId(Long typeId);
 
     Thing getById(Long id);
 

@@ -57,8 +57,16 @@ public class ThingServiceImpl implements IThingService {
     }
 
     @Override
-    public List<Thing> getLatestByTypeId(Long typeId) {
-        return thingMapper.getLatestAndByTypeId(typeId);
+    public List<ThingDTO> getLatestByTypeId(Long typeId) {
+        List<ThingDTO> thingDTOS = thingMapper.getLatestAndByTypeId(typeId);
+        User user = ShiroUtils.getUser();
+        if (user!=null&&user.getUserId()!=null){
+            thingDTOS.forEach(thingDTO -> {
+                Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(user.getUserId(),thingDTO.getId());
+                thingDTO.setIfCollect(likeId!=null);
+            });
+        }
+        return thingDTOS;
     }
 
     @Override

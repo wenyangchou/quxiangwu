@@ -112,7 +112,7 @@ public class ProfileController extends BaseController
     @Log(title = "个人信息", businessType = BusinessType.UPDATE)
     @PostMapping("/update")
     @ResponseBody
-    public AjaxResult update(User user)
+    public AjaxResult update(@RequestBody User user)
     {
         if (userService.updateUserInfo(user) > 0)
         {
