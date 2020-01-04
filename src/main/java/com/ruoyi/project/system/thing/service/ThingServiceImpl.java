@@ -185,19 +185,14 @@ public class ThingServiceImpl implements IThingService {
 
         List<Thing> things = thingMapper.getByUserIdAndStatus(ShiroUtils.getUserId(), ThingConstant.ON_SALE);
         List<UserThingDTO> userThingDTOS = new ArrayList<>();
-        things.forEach(thing -> {
-            UserThingDTO userThingDTO = new UserThingDTO();
-            userThingDTO.setAvatar(ShiroUtils.getUser().getAvatar());
-            userThingDTO.setSkuId(thing.getId());
-            userThingDTO.setPrice(thing.getPrice());
-            userThingDTO.setTime(thing.getModifyTime());
-            userThingDTO.setTypeId(thing.getTypeId());
-            userThingDTO.setCollectionAmount(thingUserLikeMapper.getCountByThingId(thing.getId()));
-            userThingDTO.setMessageAmount(messageMapper.getCountByThingId(thing.getId()));
-            userThingDTOS.add(userThingDTO);
-        });
+        return getUserThingDTOS(things, userThingDTOS);
+    }
 
-        return userThingDTOS;
+    @Override
+    public List<UserThingDTO> getUserDownSaleThing() {
+        List<UserThingDTO> userThingDTOS = new ArrayList<>();
+        List<Thing> things = getUserThingByStatus(ThingConstant.DOWN_SHELF);
+        return getUserThingDTOS(things, userThingDTOS);
     }
 
     @Override
@@ -208,27 +203,29 @@ public class ThingServiceImpl implements IThingService {
         return thingMapper.updateThing(thing);
     }
 
-    @Override
-    public List<UserThingDTO> getUserDownSaleThing() {
-        List<UserThingDTO> userThingDTOS = new ArrayList<>();
-        List<Thing> things = getUserThingByStatus(ThingConstant.DOWN_SHELF);
-        things.forEach(thing -> {
-            Image image = imageMapper.getById(thing.getTopImgId());
-            UserThingDTO userThingDTO = new UserThingDTO();
-            userThingDTO.setSkuId(thing.getId());
-            userThingDTO.setSkuName(thing.getName());
-            userThingDTO.setTime(thing.getModifyTime());
-            userThingDTO.setTypeId(thing.getTypeId());
-            userThingDTO.setPrice(thing.getPrice());
-            userThingDTO.setImg(image.getImgPath()+image.getImageUrl());
-            userThingDTOS.add(userThingDTO);
-        });
-        return userThingDTOS;
-    }
 
     @Override
     public int deleteThing(Long thingId) {
         //TODO 级联删除趣吧的数据
         return thingMapper.deleteThing(thingId);
+    }
+
+    private List<UserThingDTO> getUserThingDTOS(List<Thing> things, List<UserThingDTO> userThingDTOS) {
+        things.forEach(thing -> {
+            Image image = imageMapper.getById(thing.getTopImgId());
+            UserThingDTO userThingDTO = new UserThingDTO();
+            userThingDTO.setAvatar(ShiroUtils.getUser().getAvatar());
+            userThingDTO.setSkuName(thing.getName());
+            userThingDTO.setSkuId(thing.getId());
+            userThingDTO.setPrice(thing.getPrice());
+            userThingDTO.setTime(thing.getModifyTime());
+            userThingDTO.setTypeId(thing.getTypeId());
+            userThingDTO.setCollectionAmount(thingUserLikeMapper.getCountByThingId(thing.getId()));
+            userThingDTO.setMessageAmount(messageMapper.getCountByThingId(thing.getId()));
+            userThingDTO.setImg(image.getImgPath()+image.getImageUrl());
+            userThingDTOS.add(userThingDTO);
+        });
+
+        return userThingDTOS;
     }
 }

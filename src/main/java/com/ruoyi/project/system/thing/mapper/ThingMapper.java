@@ -35,5 +35,7 @@ public interface ThingMapper {
 
     List<ThingDTO> getLatestThingDTO();
 
+    List<ThingDTO> getUserLikeThingDTO(Long userId);
+
     List<ThingDTO> getLatestAndByTypeId(Long typeId);
 }

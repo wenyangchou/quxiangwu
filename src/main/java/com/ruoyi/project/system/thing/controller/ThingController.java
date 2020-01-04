@@ -86,6 +86,12 @@ public class ThingController  extends BaseController {
         return getDataTable(thingService.getUserBuy());
     }
 
+    @GetMapping("/getUserCollection")
+    public TableDataInfo getUserLike(){
+        startPage();
+        return getDataTable(thingUserLikeService.getUserLikeThingDTO());
+    }
+
     @PostMapping("/toggleCollection")
     public AjaxResult toggleCollection(Long skuId){
         return toAjax(thingUserLikeService.toggleCollection(skuId));
@@ -98,20 +104,20 @@ public class ThingController  extends BaseController {
     }
 
     @GetMapping("/getMyPubOnsale")
-    public TableDataInfo getMyPubOnsale(){
+    public TableDataInfo getUserReleasedAndOnShelf(){
         startPage();
         return getDataTable(thingService.getUserOnSale());
     }
 
-    @PostMapping("/pullOffShelf")
-    public AjaxResult pullOffShelf(Long skuId){
-        return toAjax(thingService.updateThingStatus(skuId, ThingConstant.DOWN_SHELF));
-    }
-
     @GetMapping("/getMyPubOffsale")
-    public TableDataInfo getMyPubOffsale(){
+    public TableDataInfo getUserReleasedAndDownShelf(){
         startPage();
         return getDataTable(thingService.getUserDownSaleThing());
+    }
+
+    @PostMapping("/pullOffShelf")
+    public AjaxResult downShelf(Long skuId){
+        return toAjax(thingService.updateThingStatus(skuId, ThingConstant.DOWN_SHELF));
     }
 
     @PostMapping("/putOnShelf")

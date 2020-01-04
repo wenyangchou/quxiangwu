@@ -1,9 +1,13 @@
 package com.ruoyi.project.system.thing.service;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
+import com.ruoyi.project.system.thing.domain.ThingDTO;
+import com.ruoyi.project.system.thing.mapper.ThingMapper;
 import com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * author:zwy
@@ -15,6 +19,9 @@ public class ThingUserLikeServiceImpl implements IThingUserLikeService {
 
     @Autowired
     private ThingUserLikeMapper thingUserLikeMapper;
+
+    @Autowired
+    private ThingMapper thingMapper;
 
     @Override
     public Long getUserLikeByUserId(Long userId) {
@@ -46,5 +53,13 @@ public class ThingUserLikeServiceImpl implements IThingUserLikeService {
         }else{
             return deleteUserLikeByUserIdAndThingId(userId,skuId);
         }
+    }
+
+    @Override
+    public List<ThingDTO> getUserLikeThingDTO() {
+        Long userId = ShiroUtils.getUserId();
+        List<ThingDTO> thingDTOS = thingMapper.getUserLikeThingDTO(userId);
+        thingDTOS.forEach(thingDTO -> thingDTO.setIfCollect(true));
+        return thingDTOS;
     }
 }
