@@ -10,6 +10,7 @@ import com.ruoyi.project.system.thing.mapper.ImageMapper;
 import com.ruoyi.project.system.thing.mapper.ThingMapper;
 import com.ruoyi.project.system.thing.mapper.ThingUserLikeMapper;
 import com.ruoyi.project.system.user.domain.User;
+import com.ruoyi.project.system.user.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,9 @@ public class ThingServiceImpl implements IThingService {
 
     @Autowired
     private MessageMapper messageMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public List<Thing> getLatest() {
@@ -80,13 +84,13 @@ public class ThingServiceImpl implements IThingService {
     @Override
     public SkuDetailDTO getBySkuId(Long skuId) {
         Thing thing = thingMapper.getById(skuId);
+        User releaser = userMapper.selectUserById(thing.getUserId());
+
         List<Image> images = imageMapper.getByThingId(skuId);
 
 
         List<String> imageUrls = new ArrayList<>();
-        images.forEach(image -> {
-            imageUrls.add(image.getImgPath()+image.getImageUrl());
-        });
+        images.forEach(image -> imageUrls.add(image.getImgPath()+image.getImageUrl()));
 
         Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(ShiroUtils.getUserId(),skuId);
         District district = districtMapper.getByDistrictId(thing.getDistrictId());
@@ -97,8 +101,8 @@ public class ThingServiceImpl implements IThingService {
         skuDetailDTO.setUserId(thing.getUserId());
         skuDetailDTO.setImg(imageUrls);
         skuDetailDTO.setIfCollected(likeId!=null);
-        skuDetailDTO.setAvatar(ShiroUtils.getUser().getAvatar());
-        skuDetailDTO.setUserName(ShiroUtils.getUser().getUserName());
+        skuDetailDTO.setAvatar(releaser.getAvatar());
+        skuDetailDTO.setUserName(releaser.getLoginName());
         skuDetailDTO.setArea(district.getDistrictName());
         skuDetailDTO.setSkuType(thing.getTypeId());
         return skuDetailDTO;
