@@ -2,7 +2,7 @@ server:
   port: 8080
 logging:
   level:
-    com.ruoyi: WARN
+    com.ruoyi: DEBUG
     org.springframework: WARN
     org.spring.springboot.dao: DEBUG
     com.ruoyi.project.system.*.mapper: DEBUG

@@ -30,4 +30,6 @@ public class ThingDTO {
 
     private Boolean ifCollect;
 
+    private Integer status;
+
 }

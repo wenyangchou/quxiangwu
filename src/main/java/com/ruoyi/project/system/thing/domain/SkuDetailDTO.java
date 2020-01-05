@@ -36,4 +36,6 @@ public class SkuDetailDTO {
     private String area;
 
     private Long skuType;
+
+    private Integer status;
 }

@@ -1,9 +1,3 @@
-#日志配置
-logging:
-  level:
-    com.ruoyi: WARN
-    org.springframework: WARN
-    org.spring.springboot.dao: WARN
 #用户配置
 user:
   password:
@@ -44,7 +38,7 @@ mybatis:
 # PageHelper
 pagehelper: 
   helperDialect: mysql
-  reasonable: true
+  reasonable: false
   supportMethodsArguments: true
   params: count=countSql 
 # Shiro

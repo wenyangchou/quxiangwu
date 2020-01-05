@@ -30,4 +30,6 @@ public class UserThingDTO {
     private String avatar;
 
     private String img;
+
+    private Integer status;
 }

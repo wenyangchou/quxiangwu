@@ -96,6 +96,7 @@ public class ThingServiceImpl implements IThingService {
         District district = districtMapper.getByDistrictId(thing.getDistrictId());
         SkuDetailDTO skuDetailDTO = new SkuDetailDTO();
         skuDetailDTO.setName(thing.getName());
+        skuDetailDTO.setStatus(thing.getStatus());
         skuDetailDTO.setDesc(thing.getDescription());
         skuDetailDTO.setPrice(thing.getPrice());
         skuDetailDTO.setUserId(thing.getUserId());
@@ -224,6 +225,7 @@ public class ThingServiceImpl implements IThingService {
             userThingDTO.setPrice(thing.getPrice());
             userThingDTO.setTime(thing.getModifyTime());
             userThingDTO.setTypeId(thing.getTypeId());
+            userThingDTO.setStatus(thing.getStatus());
             userThingDTO.setCollectionAmount(thingUserLikeMapper.getCountByThingId(thing.getId()));
             userThingDTO.setMessageAmount(messageMapper.getCountByThingId(thing.getId()));
             userThingDTO.setImg(image.getImgPath()+image.getImageUrl());
