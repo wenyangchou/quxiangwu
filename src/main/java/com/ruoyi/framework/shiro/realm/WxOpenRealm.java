@@ -51,7 +51,6 @@ public class WxOpenRealm extends AuthorizingRealm {
 
       if (StringUtils.isNotEmpty(wxOpenIdToken.getNickName())){
         user.setLoginName(wxOpenIdToken.getNickName());
-        user.setUserName(wxOpenIdToken.getNickName());
       }else{
         user.setUserName(user.getLoginName());
       }
