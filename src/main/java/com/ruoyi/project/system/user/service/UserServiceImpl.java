@@ -215,6 +215,7 @@ public class UserServiceImpl implements IUserService
     @Override
     public int updateUserInfo(User user)
     {
+        user.setUserName(user.getLoginName());
         return userMapper.updateUser(user);
     }
 
