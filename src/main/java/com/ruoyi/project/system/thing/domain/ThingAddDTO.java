@@ -21,6 +21,8 @@ public class ThingAddDTO {
 
     private Long districtId;
 
+    private String area;
+
     private Integer ifNew;
 
     private BigDecimal price;

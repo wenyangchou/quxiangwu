@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="trade_type" property="tradeType"/>
         <result column="is_new" property="isNew"/>
         <result column="user_id" property="userId"/>
+        <result column="area" property="area"/>
         <association property="topImage" resultMap="imageResult"/>
     </resultMap>
 
@@ -49,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             su.user_name create_by ,
             su.user_id creator_id,
             su.avatar creator_avatar ,
-            sd.`name` creator_area ,
+            st.area creator_area ,
             st.id id ,
             CONCAT(si.img_path , '/' , si.img_url) surface_img ,
             st.`name` sku_name ,
@@ -58,7 +59,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         FROM
             service_thing st
         JOIN sys_user su ON st.user_id = su.user_id
-        JOIN service_district sd ON st.district_id = sd.id
         JOIN service_image si ON st.top_img_id = si.id
         WHERE st.status=0
         ORDER BY
@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             su.user_name create_by ,
             su.user_id creator_id,
             su.avatar creator_avatar ,
-            sd.`name` creator_area ,
+            st.area creator_area ,
             st.id id ,
             CONCAT(si.img_path , '/' , si.img_url) surface_img ,
             st.`name` sku_name ,
@@ -80,7 +80,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             service_thing st
         JOIN service_thing_user_like stul ON st.id=stul.thing_id
         JOIN sys_user su ON st.user_id = su.user_id
-        JOIN service_district sd ON st.district_id = sd.id
         JOIN service_image si ON st.top_img_id = si.id
         WHERE stul.user_id=#{userId}
         ORDER BY
@@ -92,7 +91,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             su.user_name create_by ,
             su.user_id creator_id,
             su.avatar creator_avatar ,
-            sd.`name` creator_area ,
+            st.area creator_area ,
             st.id id ,
             CONCAT(si.img_path , '/' , si.img_url) surface_img ,
             st.`name` sku_name ,
@@ -101,7 +100,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         FROM
             service_thing st
         JOIN sys_user su ON st.user_id = su.user_id
-        JOIN service_district sd ON st.district_id = sd.id
         LEFT JOIN service_image si on st.top_img_id = si.id
         WHERE
             st.type_id = #{typeId}
@@ -130,7 +128,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         si.modify_time image_modify_time,
         si.img_path,
         si.img_url,
-        st.trade_type
+        st.trade_type,
+        st.area
     FROM
         service_thing st LEFT JOIN
         service_image si on st.top_img_id = si.id
@@ -158,7 +157,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             si.modify_time image_modify_time,
             si.img_path,
             si.img_url,
-            st.trade_type
+            st.trade_type,
+            st.area
         FROM
             service_thing st LEFT JOIN
             service_image si on st.top_img_id = si.id
@@ -187,7 +187,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         si.modify_time image_modify_time,
         si.img_path,
         si.img_url,
-        st.trade_type
+        st.trade_type,
+        st.area
     FROM
         service_thing st LEFT JOIN
         service_image si on st.top_img_id = si.id
@@ -215,7 +216,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             si.modify_time image_modify_time ,
             si.img_path ,
             si.img_url ,
-            st.trade_type
+            st.trade_type,
+            st.area
         FROM
             service_thing st ,
             service_order so ,
@@ -242,8 +244,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <insert id="insertThing" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO service_thing
-        (create_time,modify_time,top_img_id,name,price,price_type,user_id,type_id,district_id,description,status,trade_type,is_new)
-        VALUES (NOW(),NOW(),#{topImgId},#{name},#{price},#{priceType},#{userId},#{typeId},#{districtId},#{description},#{status},#{tradeType},#{isNew})
+        (create_time,modify_time,top_img_id,name,price,price_type,user_id,type_id,district_id,description,status,trade_type,is_new,area)
+        VALUES (NOW(),NOW(),#{topImgId},#{name},#{price},#{priceType},#{userId},#{typeId},#{districtId},#{description},#{status},#{tradeType},#{isNew},#{area})
     </insert>
 
     <update id="updateThing">
@@ -281,6 +283,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             </if>
             <if test="isNew!=null">
                 is_new=#{isNew},
+            </if>
+            <if test="area!=null">
+                area=#{area},
             </if>
             modify_time=NOW()
         </set>

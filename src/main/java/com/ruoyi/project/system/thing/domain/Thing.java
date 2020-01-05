@@ -41,4 +41,6 @@ public class Thing extends BaseEntity {
     private Integer tradeType;
 
     private Integer isNew;
+
+    private String area;
 }

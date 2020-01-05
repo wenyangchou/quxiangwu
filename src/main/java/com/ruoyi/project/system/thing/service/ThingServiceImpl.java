@@ -160,6 +160,7 @@ public class ThingServiceImpl implements IThingService {
         thing.setStatus(0);
         thing.setTradeType(thingAddDTO.getTradeType());
         thing.setIsNew(thingAddDTO.getIfNew());
+        thing.setArea(thingAddDTO.getArea());
         thingMapper.insertThing(thing);
 
         if (imageUrls==null){
@@ -187,7 +188,6 @@ public class ThingServiceImpl implements IThingService {
 
     @Override
     public List<UserThingDTO> getUserOnSale() {
-
         List<Thing> things = thingMapper.getByUserIdAndStatus(ShiroUtils.getUserId(), ThingConstant.ON_SALE);
         List<UserThingDTO> userThingDTOS = new ArrayList<>();
         return getUserThingDTOS(things, userThingDTOS);

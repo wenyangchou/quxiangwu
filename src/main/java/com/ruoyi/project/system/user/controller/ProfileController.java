@@ -162,7 +162,7 @@ public class ProfileController extends BaseController
             return error();
         }
         ShiroUtils.setUser(user);
-        return success();
+        return success().put("user",user);
     }
 
     /**
