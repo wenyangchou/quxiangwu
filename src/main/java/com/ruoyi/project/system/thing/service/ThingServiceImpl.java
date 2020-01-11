@@ -1,7 +1,6 @@
 package com.ruoyi.project.system.thing.service;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.project.system.district.domain.District;
 import com.ruoyi.project.system.district.mapper.DistrictMapper;
 import com.ruoyi.project.system.message.mapper.MessageMapper;
 import com.ruoyi.project.system.thing.constant.ThingConstant;
@@ -93,7 +92,6 @@ public class ThingServiceImpl implements IThingService {
         images.forEach(image -> imageUrls.add(image.getImgPath()+image.getImageUrl()));
 
         Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(ShiroUtils.getUserId(),skuId);
-        District district = districtMapper.getByDistrictId(thing.getDistrictId());
         SkuDetailDTO skuDetailDTO = new SkuDetailDTO();
         skuDetailDTO.setName(thing.getName());
         skuDetailDTO.setStatus(thing.getStatus());
@@ -104,7 +102,7 @@ public class ThingServiceImpl implements IThingService {
         skuDetailDTO.setIfCollected(likeId!=null);
         skuDetailDTO.setAvatar(releaser.getAvatar());
         skuDetailDTO.setUserName(releaser.getLoginName());
-        skuDetailDTO.setArea(district.getDistrictName());
+        skuDetailDTO.setArea(thing.getArea());
         skuDetailDTO.setSkuType(thing.getTypeId());
         return skuDetailDTO;
     }
@@ -116,7 +114,32 @@ public class ThingServiceImpl implements IThingService {
         image.setImageUrl(file);
         image.setImgPath("/profile");
         image.setThingId(thingId);
-        return imageMapper.insertImage(image);
+        int imageId = imageMapper.insertImage(image);
+        Thing thing = thingMapper.getById(thingId);
+        if (thing.getTopImgId().equals(0L)){
+            thing.setTopImgId((long) imageId);
+            thingMapper.updateThing(thing);
+        }
+
+        return imageId;
+    }
+
+    @Override
+    public int addImage(String filePath, Long thingId) {
+        String file = "/"+filePath;
+        Image image = new Image();
+        image.setImageUrl(file);
+        image.setImgPath("/profile");
+        image.setThingId(thingId);
+        int imageId = imageMapper.insertImage(image);
+
+        Thing thing = thingMapper.getById(thingId);
+        if (thing.getTopImgId().equals(0L)){
+            thing.setTopImgId((long) imageId);
+            thingMapper.updateThing(thing);
+        }
+
+        return imageId;
     }
 
     @Override

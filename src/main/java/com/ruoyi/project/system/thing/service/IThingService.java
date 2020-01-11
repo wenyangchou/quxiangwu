@@ -18,6 +18,8 @@ public interface IThingService {
 
     int uploadFile(String filePath,Long thingId);
 
+    int addImage(String filePath,Long thingId);
+
     int addThing(Thing thing);
 
     int addThing(ThingAddDTO thingAddDTO);

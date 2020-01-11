@@ -38,7 +38,6 @@ public class ThingController  extends BaseController {
        return toAjax(thingService.addThing(thing));
     }
 
-
     @PostMapping("/updateThingIndexImage")
     public AjaxResult updateThingIndexImage(Long thingId,Long imageId){
         return toAjax(thingService.updateThing(thingId,imageId));
@@ -47,6 +46,19 @@ public class ThingController  extends BaseController {
     @PostMapping("/updateThingImage")
     public AjaxResult updateThingImage(String filePath,Long thingId){
         return toAjax(thingService.uploadFile(filePath,thingId));
+    }
+
+    @PostMapping("/uploadThingImage")
+    public AjaxResult uploadThingImage( @RequestParam("file") MultipartFile file,Long thingId){
+        try {
+            if (!file.isEmpty()){
+                String filePath = FileUploadUtils.upload(file);
+                return toAjax(thingService.uploadFile(filePath,thingId));
+            }
+            return AjaxResult.error("图片为空");
+        } catch (IOException e) {
+            return AjaxResult.error(e.getMessage());
+        }
     }
 
     @PostMapping("/uploadFile")
