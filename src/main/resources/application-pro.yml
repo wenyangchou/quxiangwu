@@ -33,7 +33,4 @@ server:
     min-spare-threads: 30
 #日志配置
 logging:
-  level:
-    com.ruoyi: WARN
-    org.springframework: WARN
-    org.spring.springboot.dao: WARN
+  config: classpath:logback-pro.xml
