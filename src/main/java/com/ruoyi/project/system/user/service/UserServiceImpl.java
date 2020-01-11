@@ -314,6 +314,7 @@ public class UserServiceImpl implements IUserService
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid="+appId+"&secret="+secret+"&js_code="+code+"&grant_type=authorization_code";
         String result  = restTemplate.getForObject(url,String.class);
         return JSON.parseObject(result,WechatSession.class);
+
     }
 
     @Override
@@ -372,7 +373,8 @@ public class UserServiceImpl implements IUserService
         }
 
         String sex = user.getSex();
-        if (sex.equals("0")||sex.equals("男")){
+        log.info("当前用户:{}",user);
+        if (sex==null||sex.equals("0")||sex.equals("男")){
             userDTO.setGender("男");
         }else if (sex.equals("1")||sex.equals("女")){
             userDTO.setGender("女");

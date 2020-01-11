@@ -139,19 +139,8 @@
         </filter>
     </appender>
 
-    <!--开发环境:打印控制台-->
-    <root level="info">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="DEBUG_FILE" />
-        <appender-ref ref="INFO_FILE" />
-        <appender-ref ref="WARN_FILE" />
-        <appender-ref ref="ERROR_FILE" />
-    </root>
-
-
-
     <!--生产环境:输出到文件-->
-    <root level="warn">
+    <root level="info">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="DEBUG_FILE" />
         <appender-ref ref="INFO_FILE" />

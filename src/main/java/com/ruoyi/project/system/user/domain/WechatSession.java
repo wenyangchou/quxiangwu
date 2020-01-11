@@ -21,5 +21,17 @@ public class WechatSession {
     private String errmsg;
 
     private WechatHint hints;
+
+    public WechatSession() {
+    }
+
+    public WechatSession(String session_key, String expires_in, String open_id, String errcode, String errmsg, WechatHint hints) {
+        this.session_key = session_key;
+        this.expires_in = expires_in;
+        this.open_id = open_id;
+        this.errcode = errcode;
+        this.errmsg = errmsg;
+        this.hints = hints;
+    }
 }
 

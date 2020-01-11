@@ -257,6 +257,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="isFillContact!=null">#{isFillContact},</if>
  			sysdate()
  		)
+
+		ON DUPLICATE KEY UPDATE create_time=sysdate()
 	</insert>
 	
 </mapper> 
