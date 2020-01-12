@@ -16,13 +16,13 @@ public interface IThingService {
 
     SkuDetailDTO getBySkuId(Long skuId);
 
-    int uploadFile(String filePath,Long thingId);
+    long uploadFile(String filePath,Long thingId);
 
     int addImage(String filePath,Long thingId);
 
     int addThing(Thing thing);
 
-    int addThing(ThingAddDTO thingAddDTO);
+    long addThing(ThingAddDTO thingAddDTO);
 
     int updateThing(Long thingId,Long imageId);
 

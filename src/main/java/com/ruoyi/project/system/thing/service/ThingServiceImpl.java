@@ -112,16 +112,19 @@ public class ThingServiceImpl implements IThingService {
     }
 
     @Override
-    public int uploadFile(String filePath,Long thingId) {
+    public long uploadFile(String filePath,Long thingId) {
         String file = "/"+filePath;
         Image image = new Image();
         image.setImageUrl(file);
         image.setImgPath("/profile");
         image.setThingId(thingId);
-        int imageId = imageMapper.insertImage(image);
+         imageMapper.insertImage(image);
+        long imageId = image.getId();
         Thing thing = thingMapper.getById(thingId);
-        if (thing.getTopImgId().equals(0L)){
-            thing.setTopImgId((long) imageId);
+        if (thing==null){
+            log.error("物品没有，物品id:{}",thingId);
+        }else if (thing.getTopImgId().equals(0L)){
+            thing.setTopImgId(imageId);
             thingMapper.updateThing(thing);
         }
 
@@ -172,7 +175,7 @@ public class ThingServiceImpl implements IThingService {
     }
 
     @Override
-    public int addThing(ThingAddDTO thingAddDTO) {
+    public long addThing(ThingAddDTO thingAddDTO) {
 
         List<String> imageUrls = thingAddDTO.getImgList();
         Thing thing = new Thing();
@@ -189,9 +192,10 @@ public class ThingServiceImpl implements IThingService {
         thing.setIsNew(thingAddDTO.getIfNew());
         thing.setArea(thingAddDTO.getArea());
 
-        int thingId = thingMapper.insertThing(thing);
+        thingMapper.insertThing(thing);
+        long thingId = thing.getId();
 
-        if (imageUrls==null){
+        if (imageUrls==null||imageUrls.size()==0){
             return thingId;
         }
 

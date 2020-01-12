@@ -45,7 +45,7 @@ public class ThingController  extends BaseController {
 
     @PostMapping("/updateThingImage")
     public AjaxResult updateThingImage(String filePath,Long thingId){
-        return toAjax(thingService.uploadFile(filePath,thingId));
+        return success().put("data",thingService.uploadFile(filePath,thingId));
     }
 
     @PostMapping("/uploadThingImage")
@@ -53,7 +53,7 @@ public class ThingController  extends BaseController {
         try {
             if (!file.isEmpty()){
                 String filePath = FileUploadUtils.upload(file);
-                return toAjax(thingService.uploadFile(filePath,thingId));
+                return success().put("data",thingService.uploadFile(filePath,thingId));
             }
             return AjaxResult.error("图片为空");
         } catch (IOException e) {
