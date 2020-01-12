@@ -19,6 +19,8 @@ import com.ruoyi.project.system.user.domain.User;
 public class ShiroUtils
 {
 
+    public final static Long NO_LOGIN_ID = 0L;
+
     public static Subject getSubjct()
     {
         return SecurityUtils.getSubject();
@@ -65,6 +67,10 @@ public class ShiroUtils
 
     public static Long getUserId()
     {
+        if (getUser()==null||getUser().getUserId()==null){
+            return NO_LOGIN_ID;
+        }
+
         return getUser().getUserId().longValue();
     }
 

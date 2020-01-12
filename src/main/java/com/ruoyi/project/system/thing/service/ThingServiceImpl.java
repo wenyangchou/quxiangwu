@@ -91,7 +91,11 @@ public class ThingServiceImpl implements IThingService {
         List<String> imageUrls = new ArrayList<>();
         images.forEach(image -> imageUrls.add(image.getImgPath()+image.getImageUrl()));
 
-        Long likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(ShiroUtils.getUserId(),skuId);
+        Long likeId = null;
+        if (!ShiroUtils.getUserId().equals(ShiroUtils.NO_LOGIN_ID)){
+            likeId = thingUserLikeMapper.getUserLikeByUserIdAndThingId(ShiroUtils.getUserId(),skuId);
+        }
+
         SkuDetailDTO skuDetailDTO = new SkuDetailDTO();
         skuDetailDTO.setName(thing.getName());
         skuDetailDTO.setStatus(thing.getStatus());
@@ -184,10 +188,11 @@ public class ThingServiceImpl implements IThingService {
         thing.setTradeType(thingAddDTO.getTradeType());
         thing.setIsNew(thingAddDTO.getIfNew());
         thing.setArea(thingAddDTO.getArea());
-        thingMapper.insertThing(thing);
+
+        int thingId = thingMapper.insertThing(thing);
 
         if (imageUrls==null){
-            return 0;
+            return thingId;
         }
 
         log.info("thingId:{}",thing.getId());
@@ -205,8 +210,9 @@ public class ThingServiceImpl implements IThingService {
                 thing.setTopImgId(image.getId());
             }
         }
+        thingMapper.updateThing(thing);
+        return thingId;
 
-        return thingMapper.updateThing(thing);
     }
 
     @Override
@@ -251,10 +257,13 @@ public class ThingServiceImpl implements IThingService {
             userThingDTO.setStatus(thing.getStatus());
             userThingDTO.setCollectionAmount(thingUserLikeMapper.getCountByThingId(thing.getId()));
             userThingDTO.setMessageAmount(messageMapper.getCountByThingId(thing.getId()));
-            userThingDTO.setImg(image.getImgPath()+image.getImageUrl());
+            if (image!=null&&image.getId()!=null){
+                userThingDTO.setImg(image.getImgPath()+image.getImageUrl());
+            }
             userThingDTOS.add(userThingDTO);
         });
 
         return userThingDTOS;
     }
+
 }
