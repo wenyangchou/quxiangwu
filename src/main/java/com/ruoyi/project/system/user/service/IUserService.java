@@ -1,9 +1,6 @@
 package com.ruoyi.project.system.user.service;
 
-import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.domain.UserDTO;
-import com.ruoyi.project.system.user.domain.UserInfoDTO;
-import com.ruoyi.project.system.user.domain.WechatSession;
+import com.ruoyi.project.system.user.domain.*;
 
 import java.util.List;
 
@@ -143,6 +140,10 @@ public interface IUserService
     List<User> getUserFollowers();
 
     List<User> getUserFans();
+
+    List<FansDTO> getMyFans();
+
+    List<FansDTO> getMyFolllow();
 
     UserDTO getDTOByUserId(User user);
 

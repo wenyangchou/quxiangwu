@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.user.mapper;
 
+import com.ruoyi.project.system.user.domain.FansDTO;
 import com.ruoyi.project.system.user.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -25,4 +26,8 @@ public interface UserFollowMapper {
     List<User> getUserFans(Long userId);
 
     Long userFansNumber(Long userId);
+
+    List<FansDTO> getUserFansDTO(Long userId);
+
+    List<FansDTO> getUserFollowDTO(Long userId);
 }

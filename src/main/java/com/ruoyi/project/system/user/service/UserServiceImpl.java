@@ -441,7 +441,21 @@ public class UserServiceImpl implements IUserService
         }
 
         return 0;
+    }
+
+    @Override
+    public List<FansDTO> getMyFans() {
+        List<FansDTO> fansDTOS = userFollowMapper.getUserFansDTO(ShiroUtils.getUserId());
+        fansDTOS.forEach(fansDTO -> {
+            boolean isFocus = userFollowMapper.getByUserIdAndFollowerId(ShiroUtils.getUserId(),fansDTO.getId())!=null;
+            fansDTO.setIfFocus(isFocus);
+        });
+        return fansDTOS;
+    }
 
 
+    @Override
+    public List<FansDTO> getMyFolllow() {
+        return userFollowMapper.getUserFollowDTO(ShiroUtils.getUserId());
     }
 }

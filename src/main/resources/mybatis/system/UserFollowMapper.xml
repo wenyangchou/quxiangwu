@@ -40,6 +40,63 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="educationExperience" column="educational_experience"/>
 	</resultMap>
 
+	<resultMap id="fanDTOResult" type="FansDTO">
+		<result property="id" column="id"/>
+		<result property="avatar" column="avatar"/>
+		<result property="gender" column="sex"/>
+		<result property="userName" column="user_name"/>
+		<result property="jobName" column="job_name"/>
+		<result property="fansNum" column="fans_num"/>
+	</resultMap>
+
+	<select id="getUserFollowDTO" parameterType="java.lang.Long" resultMap="fanDTOResult">
+		SELECT
+			su.user_id id ,
+			su.avatar avatar ,
+			su.sex sex ,
+			su.user_name user_name ,
+			su.job_title job_name ,
+			sff.fans_num fans_num
+		FROM
+			service_follow sf
+				LEFT JOIN sys_user su ON sf.followed_user_id = su.user_id
+				LEFT JOIN(
+				SELECT
+					count(1) fans_num ,
+					followed_user_id
+				FROM
+					service_follow
+				GROUP BY
+					followed_user_id
+			) sff ON sf.followed_user_id = sff.followed_user_id
+		WHERE
+			sf.followed_user_id = #{userId}
+	</select>
+
+	<select id="getUserFansDTO" parameterType="java.lang.Long" resultMap="fanDTOResult">
+		SELECT
+			su.user_id id,
+			su.avatar avatar,
+			su.sex sex,
+			su.user_name user_name,
+			su.job_title job_name,
+			sff.fans_num fans_num
+		FROM
+			service_follow sf
+				LEFT JOIN sys_user su ON sf.follow_user_id = su.user_id
+				LEFT JOIN(
+				SELECT
+					count(1) fans_num ,
+					followed_user_id
+				FROM
+					service_follow
+				GROUP BY
+					followed_user_id
+			) sff ON sf.follow_user_id = sff.followed_user_id
+		WHERE
+			sf.followed_user_id = #{userId}
+	</select>
+
 	<select id="getByUserIdAndFollowerId" resultType="java.lang.Long">
 		SELECT
 		id
@@ -58,24 +115,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getUserFollower" resultMap="UserResult" parameterType="java.lang.Long">
 		SELECT
-			u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience,
+			u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience
 		FROM
-			sys_user u ,
+			sys_user u JOIN
 			service_follow sf
-		WHERE
+		ON
 			u.user_id = sf.followed_user_id
-		AND sf.follow_user_id=#{userId}
+		WHERE
+		 	sf.follow_user_id=#{userId}
 	</select>
 
 	<select id="getUserFans" resultMap="UserResult" parameterType="java.lang.Long">
 		SELECT
-			u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience,
+			u.user_id,  u.login_name, u.user_name, u.email, u.phonenumber, u.sex, u.avatar, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,u.open_id,u.city,u.country,u.language,u.province,u.is_qualified,u.friend_value,u.qualify_positive_url,u.qualify_negative_url,u.xianqu_money,u.born_date,u.usual_residence,u.industry,u.job_title,u.educational_experience
 		FROM
-			sys_user u ,
+			sys_user u JOIN
 			service_follow sf
+		ON
+			u.user_id = sf.followed_user_id
 		WHERE
-			u.user_id = sf.follow_user_id
-		AND sf.followed_user_id=#{userId}
+			sf.followed_user_id=#{userId}
 	</select>
 
 	<select id="userFansNumber" parameterType="java.lang.Long" resultType="java.lang.Long">
