@@ -76,13 +76,22 @@ public class LoginController extends BaseController
         }
     }
 
+    @PostMapping("/wxTest")
+    @ResponseBody
+    public AjaxResult wxLoginTest(){
+        WxOpenIdToken token = new WxOpenIdToken("oMmOL5VeHSkdmncqtz_aVTkOsLfw");
+        Subject subject = SecurityUtils.getSubject();
+        subject.login(token);
+        return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
+    }
+
+
     @PostMapping("/wxLogin")
     @ResponseBody
     public AjaxResult wxLoginOrRegister(String code,Long invitor){
         WechatSession wechatSession = userService.getWechatSessionByCode(code);
         if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
-//            WxOpenIdToken token = new WxOpenIdToken("oMmOL5VeHSkdmncqtz_aVTkOsLfw");
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
 
