@@ -11,10 +11,7 @@ import com.ruoyi.project.system.quba.domain.QubaDTO;
 import com.ruoyi.project.system.quba.mapper.QubaMapper;
 import com.ruoyi.project.system.role.mapper.RoleMapper;
 import com.ruoyi.project.system.thing.service.IThingUserLikeService;
-import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.domain.UserDTO;
-import com.ruoyi.project.system.user.domain.UserRole;
-import com.ruoyi.project.system.user.domain.WechatSession;
+import com.ruoyi.project.system.user.domain.*;
 import com.ruoyi.project.system.user.mapper.UserFollowMapper;
 import com.ruoyi.project.system.user.mapper.UserMapper;
 import com.ruoyi.project.system.user.mapper.UserRoleMapper;
@@ -405,5 +402,46 @@ public class UserServiceImpl implements IUserService
             qubaDTOS.add(qubaDTO);
         });
         return qubaDTOS;
+    }
+
+    @Override
+    public UserInfoDTO getUserInfo() {
+        User user = ShiroUtils.getUser();
+        if (user!=null){
+            UserInfoDTO userInfoDTO = new UserInfoDTO();
+            userInfoDTO.setBirthday(user.getBornDate());
+            userInfoDTO.setEducation(user.getEducationExperience());
+            userInfoDTO.setIndustry(user.getIndustry());
+            userInfoDTO.setJobName(user.getJobTitle());
+            userInfoDTO.setPermanentAdd(user.getCity());
+            return userInfoDTO;
+        }
+
+        return null;
+    }
+
+    @Override
+    public int updateUserInfo(UserInfoDTO userInfoDTO) {
+        User user = ShiroUtils.getUser();
+        if (user==null){
+            return 0;
+        }
+
+        user.setBornDate(userInfoDTO.getBirthday());
+        user.setEducationExperience(userInfoDTO.getEducation());
+        user.setIndustry(userInfoDTO.getIndustry());
+        user.setJobTitle(userInfoDTO.getJobName());
+        user.setCity(userInfoDTO.getPermanentAdd());
+
+        int result = userMapper.updateUser(user);
+
+        if (result>0){
+            ShiroUtils.setUser(user);
+            return result;
+        }
+
+        return 0;
+
+
     }
 }
