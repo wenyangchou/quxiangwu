@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			sff.fans_num fans_num
 		FROM
 			service_follow sf
-				LEFT JOIN sys_user su ON sf.followed_user_id = su.user_id
+				LEFT JOIN sys_user su ON sf.follow_user_id = su.user_id
 				LEFT JOIN(
 				SELECT
 					count(1) fans_num ,
@@ -68,7 +68,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					service_follow
 				GROUP BY
 					followed_user_id
-			) sff ON sf.followed_user_id = sff.followed_user_id
+			) sff ON sf.follow_user_id = sff.followed_user_id
 		WHERE
 			sf.followed_user_id = #{userId}
 	</select>
