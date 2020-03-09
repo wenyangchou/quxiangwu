@@ -169,6 +169,11 @@ public class ThingServiceImpl implements IThingService {
     }
 
     @Override
+    public List<Thing> getUserThingByStatusAndUserId(Integer status, Long userId) {
+        return thingMapper.getByUserIdAndStatus(userId,status);
+    }
+
+    @Override
     public List<Thing> getUserBuy() {
         Long userId = ShiroUtils.getUserId();
         return thingMapper.getByUserFromOrder(userId);

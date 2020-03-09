@@ -8,6 +8,7 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.role.service.IRoleService;
+import com.ruoyi.project.system.user.domain.FollowDTO;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.domain.UserInfoDTO;
 import com.ruoyi.project.system.user.service.IUserService;
@@ -89,6 +90,14 @@ public class UserController extends BaseController
         UserInfoDTO userInfoDTO = userService.getUserInfo();
         return AjaxResult.success().put("userInfo",userInfoDTO);
     }
+
+    @GetMapping("/getUserInfo")
+    @ResponseBody
+    public AjaxResult getUserInfo(Long userId){
+        FollowDTO userInfoDTO = userService.getUserInfoById(userId);
+        return AjaxResult.success().put("userInfo",userInfoDTO);
+    }
+
 
     @PostMapping("/updateMyInfo")
     @ResponseBody

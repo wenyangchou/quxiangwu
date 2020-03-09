@@ -149,6 +149,8 @@ public interface IUserService
 
     UserInfoDTO getUserInfo();
 
+    FollowDTO getUserInfoById(Long id);
+
     int updateUserInfo(UserInfoDTO userInfoDTO);
 
 }

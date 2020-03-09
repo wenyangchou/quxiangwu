@@ -28,6 +28,8 @@ public interface IThingService {
 
     List<Thing> getUserThingByStatus(Integer status);
 
+    List<Thing> getUserThingByStatusAndUserId(Integer status,Long userId);
+
     List<Thing> getUserBuy();
 
     List<UserThingDTO> getUserOnSale();

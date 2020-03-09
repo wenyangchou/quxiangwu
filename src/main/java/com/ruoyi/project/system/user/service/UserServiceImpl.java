@@ -414,7 +414,29 @@ public class UserServiceImpl implements IUserService
             userInfoDTO.setIndustry(user.getIndustry());
             userInfoDTO.setJobName(user.getJobTitle());
             userInfoDTO.setPermanentAdd(user.getCity());
+            userInfoDTO.setGender(user.getSex());
             return userInfoDTO;
+        }
+
+        return null;
+    }
+
+
+    @Override
+    public FollowDTO getUserInfoById(Long id) {
+        User user = userMapper.selectUserById(id);
+        if (user!=null){
+            FollowDTO followDTO = new FollowDTO();
+            followDTO.setAvatar(user.getAvatar());
+            followDTO.setUserName(user.getUserName());
+            followDTO.setIfFocus(userFollowMapper.getByUserIdAndFollowerId(ShiroUtils.getUserId(),id)!=null);
+            followDTO.setIfConfirm(user.getIsQualified().equals(1));
+            followDTO.setPermanentAdd(user.getCity());
+            followDTO.setJobName(user.getJobTitle());
+            followDTO.setFansNum(userFollowMapper.userFansNumber(id));
+            followDTO.setFollowerNum(userFollowMapper.userFollowNumber(id));
+            followDTO.setGender(user.getSex());
+            return followDTO;
         }
 
         return null;

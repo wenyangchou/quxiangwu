@@ -27,6 +27,8 @@ public interface UserFollowMapper {
 
     Long userFansNumber(Long userId);
 
+    Long userFollowNumber(Long userId);
+
     List<FansDTO> getUserFansDTO(Long userId);
 
     List<FansDTO> getUserFollowDTO(Long userId);

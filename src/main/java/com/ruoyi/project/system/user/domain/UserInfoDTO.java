@@ -24,5 +24,7 @@ public class UserInfoDTO {
 
     private String education;
 
+    private String gender;
+
 
 }

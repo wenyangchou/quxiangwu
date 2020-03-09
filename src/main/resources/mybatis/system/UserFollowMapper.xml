@@ -141,4 +141,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(1) FROM service_follow WHERE followed_user_id = #{userId}
 	</select>
 
+	<select id="userFollowNumber" parameterType="java.lang.Long" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM service_follow WHERE follow_user_id = #{userId}
+	</select>
+
 </mapper> 
