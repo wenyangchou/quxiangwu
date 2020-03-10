@@ -2,9 +2,7 @@ package com.ruoyi.project.system.quba.service;
 
 import com.ruoyi.project.system.quba.domain.Quba;
 import com.ruoyi.project.system.user.domain.User;
-import org.apache.ibatis.annotations.Param;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +13,8 @@ import java.util.List;
 public interface IQubaService {
 
     List<Quba> getAll();
+
+    boolean isJoinedQuba();
 
     int insertQubaUser( Long userId, Long qubaId);
 
@@ -27,5 +27,7 @@ public interface IQubaService {
     List<Quba> getUserQuba();
 
     User getQubaOwner(Long qubaId);
+
+    List<Quba> getQubaByName(String name);
 
 }

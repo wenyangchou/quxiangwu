@@ -24,4 +24,6 @@ public class Quba extends BaseEntity {
     private String name;
 
     private Long ownerId;
+
+    private String description;
 }

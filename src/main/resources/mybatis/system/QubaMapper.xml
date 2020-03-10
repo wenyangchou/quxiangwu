@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="name" property="name"/>
 		<result column="owner_id" property="ownerId"/>
 		<result column="logo" property="logo"/>
+		<result column="description" property="description"/>
 	</resultMap>
 
 	<resultMap type="User" id="UserResult">
@@ -75,20 +76,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getAll" resultMap="qubaResult">
 		SELECT
-		id,create_time,modify_time,name,owner_id,logo
+		id,create_time,modify_time,name,owner_id,logo,description
 		FROM service_quba
+	</select>
+
+	<select id="getUserJoined" resultType="int">
+		select count(1) FROM service_quba_user WHERE user_id = #{userId}
 	</select>
 
 	<select id="getByUserId" parameterType="java.lang.Long" resultMap="qubaResult">
 		SELECT
-		sq.id,sq.create_time,sq.modify_time,sq.name,sq.owner_id,sq.logo
+		sq.id,sq.create_time,sq.modify_time,sq.name,sq.owner_id,sq.logo,sq.description
 		FROM service_quba sq,service_quba_user squ WHERE sq.id = squ.quba_id
 		AND squ.user_id=#{userId}
 	</select>
 
+	<select id="getByName" parameterType="java.lang.String" resultMap="qubaResult">
+		SELECT
+			id,create_time,modify_time,name,owner_id,logo,description
+		FROM service_quba
+		WHERE name LIKE #{name}
+	</select>
+
 	<insert id="inserQuba">
-		INSERT INTO service_quba (create_time,modify_time,name,owner_id,logo)
-		VALUES (NOW(),NOW(),#{name},#{ownerId},#{logo})
+		INSERT INTO service_quba (create_time,modify_time,name,owner_id,logo,description)
+		VALUES (NOW(),NOW(),#{name},#{ownerId},#{logo},#{description})
 	</insert>
 
 

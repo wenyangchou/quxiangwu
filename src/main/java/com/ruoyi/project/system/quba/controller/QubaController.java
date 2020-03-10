@@ -5,7 +5,6 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.quba.service.IQubaService;
-import com.ruoyi.project.system.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +34,19 @@ public class QubaController extends BaseController {
         startPage();
         return getDataTable(qubaService.getAll());
     }
+
+    @GetMapping("/getQubaByName")
+    public TableDataInfo getQubaByName(String name){
+        startPage();
+        return getDataTable(qubaService.getQubaByName(name));
+    }
+
+
+    @GetMapping("/hasJoinedQuba")
+    public AjaxResult hasJoinedQuba(){
+        return success().put("hasJoined",qubaService.isJoinedQuba());
+    }
+
 
     @PostMapping("/joinQuba")
     public AjaxResult joinQuba(Long qubaId){

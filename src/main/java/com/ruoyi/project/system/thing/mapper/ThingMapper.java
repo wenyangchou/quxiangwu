@@ -14,8 +14,6 @@ public interface ThingMapper {
 
     List<Thing> getLatest();
 
-
-
     List<GoodsDTO> getLetestGoodsByUserId(Long userId);
 
     List<GoodsDTO> getLatestGoods();

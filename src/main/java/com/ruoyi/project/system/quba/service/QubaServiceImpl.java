@@ -31,6 +31,11 @@ public class QubaServiceImpl implements IQubaService {
     }
 
     @Override
+    public boolean isJoinedQuba() {
+        return qubaMapper.getUserJoined(ShiroUtils.getUserId())>0;
+    }
+
+    @Override
     public int insertQubaUser(Long userId, Long qubaId) {
         return qubaMapper.insertQubaUser(userId,qubaId);
     }
@@ -59,5 +64,10 @@ public class QubaServiceImpl implements IQubaService {
     public User getQubaOwner(Long qubaId) {
         Quba quba = qubaMapper.getById(qubaId);
         return userMapper.selectUserById(quba.getOwnerId());
+    }
+
+    @Override
+    public List<Quba> getQubaByName(String name) {
+        return qubaMapper.getByName("%"+name+"%");
     }
 }
