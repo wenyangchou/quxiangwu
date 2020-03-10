@@ -4,6 +4,7 @@ import com.ruoyi.project.system.thing.domain.GoodsDTO;
 import com.ruoyi.project.system.thing.domain.Image;
 import com.ruoyi.project.system.thing.domain.Thing;
 import com.ruoyi.project.system.thing.domain.ThingDTO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,11 +30,13 @@ public interface ThingMapper {
 
     int deleteThing(Long thingId);
 
-    List<Thing> getByUserIdAndStatus(Long userId,Integer status);
+    List<Thing> getByUserIdAndStatus(@Param("userId") Long userId,@Param("status") Integer status);
 
     List<Thing> getByUserFromOrder(Long userId);
 
     List<ThingDTO> getLatestThingDTO();
+
+    List<ThingDTO> getThingDTOByUserIdAndStatus(@Param("userId") Long userId,@Param("status") Integer status);
 
     List<ThingDTO> getUserLikeThingDTO(Long userId);
 

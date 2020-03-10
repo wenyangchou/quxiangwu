@@ -26,6 +26,8 @@ public interface IThingService {
 
     int updateThing(Long thingId,Long imageId);
 
+    List<ThingDTO> getThingDTOByUserIdOnSale(Long userId);
+
     List<Thing> getUserThingByStatus(Integer status);
 
     List<Thing> getUserThingByStatusAndUserId(Integer status,Long userId);

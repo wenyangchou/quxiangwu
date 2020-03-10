@@ -92,6 +92,12 @@ public class ThingController  extends BaseController {
         return getDataTable(thingService.getUserThingByStatus(status));
     }
 
+    @GetMapping("/getUserThingDTO")
+    public TableDataInfo getThingDTO(Long userId){
+        startPage();
+        return getDataTable(thingService.getThingDTOByUserIdOnSale(userId));
+    }
+
     @GetMapping("/getThingByUserIdAndStatus")
     public TableDataInfo getUserGoods(Long userId,Integer status){
         startPage();
