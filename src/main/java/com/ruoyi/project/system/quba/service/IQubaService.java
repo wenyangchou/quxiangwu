@@ -1,6 +1,7 @@
 package com.ruoyi.project.system.quba.service;
 
 import com.ruoyi.project.system.quba.domain.Quba;
+import com.ruoyi.project.system.quba.domain.QubaMemberDTO;
 import com.ruoyi.project.system.user.domain.User;
 
 import java.util.List;
@@ -29,5 +30,7 @@ public interface IQubaService {
     User getQubaOwner(Long qubaId);
 
     List<Quba> getQubaByName(String name);
+
+    QubaMemberDTO getQubaById(Long qubaId);
 
 }

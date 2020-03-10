@@ -1,7 +1,9 @@
 package com.ruoyi.project.system.quba.service;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
+import com.ruoyi.project.system.quba.constant.QubaConstant;
 import com.ruoyi.project.system.quba.domain.Quba;
+import com.ruoyi.project.system.quba.domain.QubaMemberDTO;
 import com.ruoyi.project.system.quba.mapper.QubaMapper;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.mapper.UserMapper;
@@ -69,5 +71,29 @@ public class QubaServiceImpl implements IQubaService {
     @Override
     public List<Quba> getQubaByName(String name) {
         return qubaMapper.getByName("%"+name+"%");
+    }
+
+    @Override
+    public QubaMemberDTO getQubaById(Long qubaId) {
+        Quba quba = qubaMapper.getById(qubaId);
+        QubaMemberDTO qubaMemberDTO = new QubaMemberDTO();
+        qubaMemberDTO.setName(quba.getName());
+        qubaMemberDTO.setLogo(quba.getLogo());
+        qubaMemberDTO.setDesc(quba.getDescription());
+
+        int isJoined = qubaMapper.getByQubaIdAndUserId(qubaId,ShiroUtils.getUserId());
+        if (isJoined==0){
+            qubaMemberDTO.setStatus(QubaConstant.NOT_EXAMINE);
+        }else {
+            qubaMemberDTO.setStatus(QubaConstant.EXAMINED);
+        }
+
+        int count = qubaMapper.getQubaMemberCount(qubaId);
+        qubaMemberDTO.setMemberNum(count);
+
+        List<String> avatars = qubaMapper.getQubaUserAvatarTop3(qubaId);
+        qubaMemberDTO.setAvatarList(avatars);
+
+        return qubaMemberDTO;
     }
 }

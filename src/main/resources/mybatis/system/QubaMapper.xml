@@ -121,4 +121,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE quba_id=#{qubaId} AND user_id=#{userId} AND TO_DAYS(create_time) = TO_DAYS(#{date})
 	</select>
 
+	<select id="getByQubaIdAndUserId" resultType="int">
+		SELECT count(1) FROM service_quba_user WHERE user_id=#{userId} AND quba_id=#{qubaId}
+	</select>
+
+	<select id="getQubaMemberCount" resultType="int">
+		SELECT count(1) FROM service_quba_user WHERE quba_id=#{qubaId}
+	</select>
+
+	<select id="getQubaUserAvatarTop3" resultType="java.lang.String">
+		SELECT su.avatar FROM service_quba_user squ LEFT JOIN sys_user su
+		ON squ.user_id = su.user_id WHERE squ.quba_id=#{qubaId} LIMIT 3
+	</select>
+
 </mapper>
