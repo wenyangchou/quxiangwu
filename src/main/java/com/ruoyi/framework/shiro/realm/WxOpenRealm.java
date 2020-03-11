@@ -7,6 +7,7 @@ import com.ruoyi.project.system.role.service.IRoleService;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -75,5 +76,10 @@ public class WxOpenRealm extends AuthorizingRealm {
     }
 
     return new SimpleAuthenticationInfo(user, "ok", getName());
+  }
+
+  public void clearCachedAuthorizationInfo()
+  {
+    this.clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
   }
 }

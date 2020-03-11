@@ -1,17 +1,5 @@
 package com.ruoyi.project.system.menu.service;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.TreeUtils;
@@ -21,6 +9,11 @@ import com.ruoyi.project.system.menu.mapper.MenuMapper;
 import com.ruoyi.project.system.role.domain.Role;
 import com.ruoyi.project.system.role.mapper.RoleMenuMapper;
 import com.ruoyi.project.system.user.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.text.MessageFormat;
+import java.util.*;
 
 /**
  * 菜单 业务层处理
@@ -47,7 +40,7 @@ public class MenuServiceImpl implements IMenuService
     @Override
     public List<Menu> selectMenusByUser(User user)
     {
-        List<Menu> menus = new LinkedList<Menu>();
+        List<Menu> menus;
         // 管理员显示所有菜单信息
         if (user.isAdmin())
         {

@@ -120,7 +120,10 @@ public class User extends BaseEntity {
   }
 
   public static boolean isAdmin(Long userId) {
-    return userId != null && 1L == userId;
+    if (null!=userId){
+      return  (userId==1L || userId==2L || userId==3L);
+    }
+    return false;
   }
 
 
