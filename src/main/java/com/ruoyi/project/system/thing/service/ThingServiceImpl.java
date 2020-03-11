@@ -177,6 +177,11 @@ public class ThingServiceImpl implements IThingService {
     }
 
     @Override
+    public List<ThingDTO> getThingByQubaId(Long qubaId) {
+        return thingMapper.getThingDTOByQubaIdAndStatus(qubaId,ThingConstant.ON_SALE);
+    }
+
+    @Override
     public List<Thing> getUserThingByStatusAndUserId(Integer status, Long userId) {
         return thingMapper.getByUserIdAndStatus(userId,status);
     }
@@ -238,6 +243,7 @@ public class ThingServiceImpl implements IThingService {
         List<UserThingDTO> userThingDTOS = new ArrayList<>();
         return getUserThingDTOS(things, userThingDTOS);
     }
+
 
     @Override
     public List<UserThingDTO> getUserDownSaleThing() {

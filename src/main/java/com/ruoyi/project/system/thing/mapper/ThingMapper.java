@@ -36,6 +36,8 @@ public interface ThingMapper {
 
     List<ThingDTO> getThingDTOByUserIdAndStatus(@Param("userId") Long userId,@Param("status") Integer status);
 
+    List<ThingDTO> getThingDTOByQubaIdAndStatus(@Param("qubaId") Long qubaId,@Param("status") Integer status);
+
     List<ThingDTO> getUserLikeThingDTO(Long userId);
 
     List<ThingDTO> getLatestAndByTypeId(Long typeId);

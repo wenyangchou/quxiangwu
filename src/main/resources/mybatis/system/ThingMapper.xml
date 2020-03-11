@@ -85,6 +85,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             st.create_time DESC
     </select>
 
+    <select id="getThingDTOByQubaIdAndStatus" resultMap="thingDTOResult">
+        SELECT
+            su.user_name create_by ,
+            su.user_id creator_id,
+            su.avatar creator_avatar ,
+            st.area creator_area ,
+            st.id id ,
+            CONCAT(si.img_path , '/' , si.img_url) surface_img ,
+            st.`name` sku_name ,
+            st.price price,
+            st.status status
+        FROM
+            service_thing st
+                JOIN sys_user su ON st.user_id = su.user_id
+                JOIN service_image si ON st.top_img_id = si.id
+                JOIN service_quba_user squ ON su.user_id = squ.user_id
+        WHERE st.status=#{status} AND squ.quba_id=#{qubaId}
+        ORDER BY
+            st.create_time DESC
+    </select>
+
     <select id="getUserLikeThingDTO" resultMap="thingDTOResult" parameterType="java.lang.Long">
         SELECT
             su.user_name create_by ,

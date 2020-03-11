@@ -86,6 +86,12 @@ public class ThingController  extends BaseController {
         return getDataTable(thingService.getLatestByTypeId(typeId));
     }
 
+    @GetMapping("/getQubaThing")
+    public TableDataInfo getQubaThing(Long qubaId){
+        startPage();
+        return getDataTable(thingService.getThingByQubaId(qubaId));
+    }
+
     @GetMapping("/getUserThing")
     public TableDataInfo getUserThing(Integer status){
         startPage();

@@ -28,6 +28,8 @@ public interface IThingService {
 
     List<ThingDTO> getThingDTOByUserIdOnSale(Long userId);
 
+    List<ThingDTO> getThingByQubaId(Long qubaId);
+
     List<Thing> getUserThingByStatus(Integer status);
 
     List<Thing> getUserThingByStatusAndUserId(Integer status,Long userId);
@@ -35,6 +37,7 @@ public interface IThingService {
     List<Thing> getUserBuy();
 
     List<UserThingDTO> getUserOnSale();
+
 
     int updateThingStatus(Long thingId,Integer status);
 
