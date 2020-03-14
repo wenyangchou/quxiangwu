@@ -6,6 +6,7 @@ import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
 import com.ruoyi.project.system.qualify.domain.ConfirmResultDTO;
 import com.ruoyi.project.system.qualify.domain.Qualify;
+import com.ruoyi.project.system.qualify.domain.UserQualifyDTO;
 import com.ruoyi.project.system.qualify.mapper.QualifyMapper;
 import com.ruoyi.project.system.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,5 +72,15 @@ public class QualifyServiceImpl implements IQualifyService {
     @Override
     public ConfirmResultDTO getStatus(Integer type) {
         return qualifyMapper.getLastQualifyStatus(ShiroUtils.getUserId(),type);
+    }
+
+    @Override
+    public List<UserQualifyDTO> getWaitQualify() {
+        return qualifyMapper.getQualifyUserByStatus(QualifyConstant.STATUS_WAIT_QUALIFY);
+    }
+
+    @Override
+    public List<UserQualifyDTO> getAllQualify() {
+        return qualifyMapper.getQualifyUser();
     }
 }

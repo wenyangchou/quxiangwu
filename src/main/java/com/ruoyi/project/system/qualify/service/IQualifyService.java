@@ -3,6 +3,7 @@ package com.ruoyi.project.system.qualify.service;
 import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
 import com.ruoyi.project.system.qualify.domain.ConfirmResultDTO;
 import com.ruoyi.project.system.qualify.domain.Qualify;
+import com.ruoyi.project.system.qualify.domain.UserQualifyDTO;
 
 import java.util.List;
 
@@ -22,4 +23,9 @@ public interface IQualifyService {
     List<ConfirmHistoryDTO> getConfirmHistory(Integer type);
 
     ConfirmResultDTO getStatus(Integer type);
+
+    List<UserQualifyDTO> getWaitQualify();
+
+    List<UserQualifyDTO> getAllQualify();
+
 }

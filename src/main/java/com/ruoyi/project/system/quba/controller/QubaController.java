@@ -6,64 +6,81 @@ import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.system.quba.service.IQubaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * author:zwy
  * Date:2019-08-14
  * Time:22:52
  */
-@RestController
+@Controller
 @RequestMapping("/service/quba")
 public class QubaController extends BaseController {
+
+    private final static String PREFIX = "/service/quba";
+
+    @GetMapping()
+    public String user()
+    {
+        return PREFIX + "/quba";
+    }
 
     @Autowired
     private IQubaService qubaService;
 
     @GetMapping("/getMyQuba")
+    @ResponseBody
     public TableDataInfo getMyQuba(){
         startPage();
         return getDataTable(qubaService.getUserQuba());
     }
 
     @GetMapping("/getAllQuba")
+    @ResponseBody
     public TableDataInfo getAllQuba(){
         startPage();
         return getDataTable(qubaService.getAll());
     }
 
     @GetMapping("/getQubaByName")
+    @ResponseBody
     public TableDataInfo getQubaByName(String name){
         startPage();
         return getDataTable(qubaService.getQubaByName(name));
     }
 
     @GetMapping("/getQubaById")
+    @ResponseBody
     public AjaxResult getQubaById(Long qubaId){
         return success().put("quba",qubaService.getQubaById(qubaId));
     }
 
 
     @GetMapping("/hasJoinedQuba")
+    @ResponseBody
     public AjaxResult hasJoinedQuba(){
         return success().put("hasJoined",qubaService.isJoinedQuba());
     }
 
 
     @PostMapping("/joinQuba")
+    @ResponseBody
     public AjaxResult joinQuba(Long qubaId){
       return toAjax(qubaService.insertQubaUser(ShiroUtils.getUserId(),qubaId));
     }
 
     @GetMapping("/getIsSigninToday")
+    @ResponseBody
     public AjaxResult getIsSigninToday(Long qubaId){
         return toAjax(qubaService.getQubaSignInByUserId(ShiroUtils.getUserId(),qubaId));
     }
 
     @GetMapping("/signQuba")
+    @ResponseBody
     public AjaxResult signQuba(Long qubaId){
         int isSigninToday = qubaService.getQubaSignInByUserId(ShiroUtils.getUserId(),qubaId);
         if (isSigninToday>0){
@@ -74,12 +91,14 @@ public class QubaController extends BaseController {
     }
 
     @GetMapping("/getQubaMember")
+    @ResponseBody
     public TableDataInfo getQubaMember(Long qubaId)
     {   startPage();
         return getDataTable(qubaService.getQubaMemberByQubaId(qubaId));
     }
 
     @GetMapping("/getQubaOwner")
+    @ResponseBody
     public AjaxResult getQubaOwner(Long qubaId){
         return success().put("owner",qubaService.getQubaOwner(qubaId));
     }
