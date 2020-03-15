@@ -108,4 +108,24 @@ public class QubaController extends BaseController {
     public AjaxResult getQubaOwner(Long qubaId){
         return success().put("owner",qubaService.getQubaOwner(qubaId));
     }
+
+    @PostMapping("/getAllQubaUser")
+    @ResponseBody
+    public TableDataInfo getAllQubaUser(){
+        startPage();
+        return getDataTable(qubaService.getAllQubaUser());
+    }
+
+    @PostMapping("/getWaitExamine")
+    @ResponseBody
+    public TableDataInfo getAllWaitExamine(){
+        startPage();
+        return getDataTable(qubaService.getAllWaitExamine());
+    }
+
+    @PostMapping("/updateQubaUser")
+    @ResponseBody
+    public AjaxResult updateQubaUser(Long qubaUserId,Integer status){
+        return toAjax(qubaService.updateQubaUserStatus(status,qubaUserId));
+    }
 }

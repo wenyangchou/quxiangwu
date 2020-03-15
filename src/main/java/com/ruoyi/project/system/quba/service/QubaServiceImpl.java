@@ -4,6 +4,7 @@ import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.quba.constant.QubaConstant;
 import com.ruoyi.project.system.quba.domain.Quba;
 import com.ruoyi.project.system.quba.domain.QubaMemberDTO;
+import com.ruoyi.project.system.quba.domain.QubaUserDTO;
 import com.ruoyi.project.system.quba.mapper.QubaMapper;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.mapper.UserMapper;
@@ -106,4 +107,26 @@ public class QubaServiceImpl implements IQubaService {
 
         return qubaMemberDTO;
     }
+
+    @Override
+    public List<QubaUserDTO> getAllQubaUser() {
+        return qubaMapper.getAllQubaUser();
+    }
+
+    @Override
+    public List<QubaUserDTO> getAllWaitExamine() {
+        return qubaMapper.getWaitExamine();
+    }
+
+    @Override
+    public int updateQubaUserStatus(Integer status, Long qubaUserId) {
+
+        if (status== QubaConstant.EXAMINED){
+            Long userId = qubaMapper.getUserIdByQubaUserId(qubaUserId);
+            qubaMapper.updateQubaUserStatusByUserId(userId,status);
+        }
+
+        return qubaMapper.updateQubaUserStatusById(qubaUserId,status);
+    }
+
 }

@@ -41,6 +41,62 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="province" column="province"/>
 	</resultMap>
 
+	<resultMap id="qubaUserDTOResult" type="com.ruoyi.project.system.quba.domain.QubaUserDTO">
+		<result property="qubaUserId" column="quba_user_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="qubaId" column="quba_id"/>
+		<result property="userName" column="user_name"/>
+		<result property="qubaName" column="quba_name"/>
+		<result property="qubaStatus" column="quba_status"/>
+		<result property="userQualifyStatus" column="user_qualify_status"/>
+		<result property="createTime" column="quba_user_create_time"/>
+	</resultMap>
+
+	<select id="getUserIdByQubaUserId" resultType="java.lang.Long" parameterType="java.lang.Long">
+		SELECT user_id FROM service_quba_user WHERE id=#{qubaUserId}
+	</select>
+
+	<update id="updateQubaUserStatusById">
+		UPDATE service_quba_user SET status=#{status} WHERE id=#{qubaUserId}
+	</update>
+
+	<update id="updateQubaUserStatusByUserId">
+		UPDATE service_quba_user SET status=#{status} WHERE user_id=#{userId} AND status=2
+	</update>
+
+	<select id="getAllQubaUser" resultMap="qubaUserDTOResult">
+		SELECT
+		    squ.id quba_user_id,
+			su.user_id user_id,
+		    squ.quba_id quba_id,
+		    su.user_name user_name,
+		    sq.name quba_name,
+		    squ.status quba_status,
+		    su.is_qualified user_qualify_status,
+		    squ.create_time quba_user_create_time
+		FROM
+			sys_user su
+				JOIN service_quba_user squ ON su.user_id = squ.user_id
+				JOIN service_quba sq ON squ.quba_id = sq.id
+	</select>
+
+	<select id="getWaitExamine" resultMap="qubaUserDTOResult">
+		SELECT
+			squ.id quba_user_id,
+			su.user_id user_id,
+			squ.quba_id quba_id,
+			su.user_name user_name,
+			sq.name quba_name,
+			squ.status quba_status,
+			su.is_qualified user_qualify_status,
+			squ.create_time quba_user_create_time
+		FROM
+			sys_user su
+				JOIN service_quba_user squ ON su.user_id = squ.user_id
+				JOIN service_quba sq ON squ.quba_id = sq.id
+		WHERE squ.status=1
+	</select>
+
 	<select id="getById" parameterType="java.lang.Long" resultMap="qubaResult">
 		SELECT id,create_time,modify_time,name,owner_id,logo FROM service_quba WHERE id=#{id}
 	</select>

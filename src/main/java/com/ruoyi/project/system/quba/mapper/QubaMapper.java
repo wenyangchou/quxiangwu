@@ -1,6 +1,7 @@
 package com.ruoyi.project.system.quba.mapper;
 
 import com.ruoyi.project.system.quba.domain.Quba;
+import com.ruoyi.project.system.quba.domain.QubaUserDTO;
 import com.ruoyi.project.system.user.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -43,5 +44,15 @@ public interface QubaMapper {
     int getQubaMemberCount(Long userId);
 
     List<String> getQubaUserAvatarTop3(Long qubaId);
+
+    List<QubaUserDTO> getAllQubaUser();
+
+    List<QubaUserDTO> getWaitExamine();
+
+    int updateQubaUserStatusById(@Param("qubaUserId") Long qubaUserId,@Param("status") int status);
+
+    int updateQubaUserStatusByUserId(@Param("userId") Long userId,@Param("status") int status);
+
+    Long getUserIdByQubaUserId(Long qubaUserId);
 
 }
