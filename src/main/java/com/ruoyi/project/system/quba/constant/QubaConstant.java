@@ -10,4 +10,6 @@ public class QubaConstant {
     public final static int NOT_EXAMINE = 1;
 
     public final static int EXAMINED = 2;
+
+    public final static int FAIL_EXAMINE = 3;
 }

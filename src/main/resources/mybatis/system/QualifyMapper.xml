@@ -26,7 +26,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="qualifyNegativeUrl" column="qualify_negative_url"/>
         <result property="phone" column="phone"/>
         <result property="createTime" column="create_time"/>
+        <result property="qualifyId" column="qualify_id"/>
     </resultMap>
+
+    <resultMap id="qualifyResult" type="com.ruoyi.project.system.qualify.domain.Qualify">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="userId" column="user_id"/>
+        <result property="qualifyPositiveUrl" column="qualify_positive_url"/>
+        <result property="qualifyNegativeUrl" column="qualify_negative_url"/>
+        <result property="qualifyStatus" column="qualify_status"/>
+        <result property="qualifyType" column="qualify_type"/>
+    </resultMap>
+
+    <select id="getById" resultMap="qualifyResult" parameterType="java.lang.Long">
+        SELECT
+            id,create_time,modify_time,user_id,qualify_positive_url,qualify_negative_url,qualify_status,qualify_type
+        FROM service_qualify WHERE id=#{qualifyId}
+    </select>
 
     <select id="getQualifyUserByStatus" parameterType="java.lang.Integer" resultMap="userQualifyDTOResult">
         SELECT
@@ -40,7 +58,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             sq.qualify_negative_url,
             sq.qualify_status status,
             su.phonenumber phone,
-            sq.create_time create_time
+            sq.create_time create_time,
+            sq.id qualify_id
         FROM
             service_qualify sq
                 LEFT JOIN sys_user su ON sq.user_id = su.user_id
@@ -60,7 +79,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             sq.qualify_negative_url,
             sq.qualify_status status,
             su.phonenumber phone,
-            sq.create_time create_time
+            sq.create_time create_time,
+            sq.id qualify_id
         FROM
             service_qualify sq
                 LEFT JOIN sys_user su ON sq.user_id = su.user_id

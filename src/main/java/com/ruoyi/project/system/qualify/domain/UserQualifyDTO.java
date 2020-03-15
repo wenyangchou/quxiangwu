@@ -12,6 +12,8 @@ import java.util.Date;
 @Data
 public class UserQualifyDTO {
 
+    private Long qualifyId;
+
     private Long userId;
 
     private String openId;

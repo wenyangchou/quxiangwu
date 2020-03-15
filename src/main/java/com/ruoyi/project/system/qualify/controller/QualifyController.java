@@ -42,6 +42,12 @@ public class QualifyController extends BaseController {
         return getDataTable(qualifyService.getAllQualify());
     }
 
+    @PostMapping("/qualifyUser")
+    @ResponseBody
+    public AjaxResult updateQualifyStatus(Long qualifyId,int qualifyStatus){
+        return toAjax(qualifyService.qualify(qualifyId,qualifyStatus));
+    }
+
 
     @PostMapping("/addQualify")
     @ResponseBody

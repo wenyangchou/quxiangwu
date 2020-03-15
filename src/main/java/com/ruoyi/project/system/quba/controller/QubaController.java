@@ -46,6 +46,12 @@ public class QubaController extends BaseController {
         return getDataTable(qubaService.getAll());
     }
 
+    @GetMapping("/getUserJoinedQuba")
+    @ResponseBody
+    public AjaxResult getUserJoinedQuba(){
+        return success().put("data",qubaService.getHasJoinedQuba());
+    }
+
     @GetMapping("/getQubaByName")
     @ResponseBody
     public TableDataInfo getQubaByName(String name){

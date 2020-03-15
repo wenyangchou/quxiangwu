@@ -84,6 +84,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(1) FROM service_quba_user WHERE user_id = #{userId}
 	</select>
 
+	<select id="getUserJoinedQuba" resultType="java.lang.Long">
+		SELECT quba_id FROM service_quba_user WHERE user_id=#{userId} AND status = 2 LIMIT 1
+	</select>
+
 	<select id="getByUserId" parameterType="java.lang.Long" resultMap="qubaResult">
 		SELECT
 		sq.id,sq.create_time,sq.modify_time,sq.name,sq.owner_id,sq.logo,sq.description

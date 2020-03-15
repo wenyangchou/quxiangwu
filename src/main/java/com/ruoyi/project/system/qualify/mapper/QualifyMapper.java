@@ -29,4 +29,6 @@ public interface QualifyMapper {
 
     List<UserQualifyDTO> getQualifyUser();
 
+    Qualify getById(Long qualifyId);
+
 }

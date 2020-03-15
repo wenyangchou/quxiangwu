@@ -38,7 +38,17 @@ public class QubaServiceImpl implements IQubaService {
     }
 
     @Override
+    public Long getHasJoinedQuba() {
+        return qubaMapper.getUserJoinedQuba(ShiroUtils.getUserId());
+    }
+
+    @Override
     public int insertQubaUser(Long userId, Long qubaId) {
+
+        if (isJoinedQuba()){
+            return 0;
+        }
+
         return qubaMapper.insertQubaUser(userId,qubaId);
     }
 

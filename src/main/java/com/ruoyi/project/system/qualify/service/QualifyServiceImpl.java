@@ -9,6 +9,7 @@ import com.ruoyi.project.system.qualify.domain.Qualify;
 import com.ruoyi.project.system.qualify.domain.UserQualifyDTO;
 import com.ruoyi.project.system.qualify.mapper.QualifyMapper;
 import com.ruoyi.project.system.user.domain.User;
+import com.ruoyi.project.system.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class QualifyServiceImpl implements IQualifyService {
     @Autowired
     private QualifyMapper qualifyMapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public int addQualify(Qualify qualify) {
 
@@ -34,6 +38,21 @@ public class QualifyServiceImpl implements IQualifyService {
         }else{
             return qualifyMapper.insert(qualify);
         }
+    }
+
+    @Override
+    public int qualify(Long qualifyId, int qualifyStatus) {
+        Qualify qualify = qualifyMapper.getById(qualifyId);
+        qualify.setQualifyStatus(qualifyStatus);
+        int result = qualifyMapper.update(qualify);
+
+        if (qualify.getQualifyStatus()== com.ruoyi.project.system.qualify.constant.QualifyConstant.OK_QUALIFY){
+            User user = userMapper.selectUserById(qualify.getUserId());
+            user.setIsQualified(UserConstants.QUALIFIED);
+            userMapper.updateUser(user);
+        }
+
+        return result;
     }
 
     @Override

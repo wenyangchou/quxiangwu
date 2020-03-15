@@ -20,6 +20,8 @@ public interface IQualifyService {
 
     int setConfirm(Integer type,String imagePath);
 
+    int qualify(Long qualifyId,int qualifyStatus);
+
     List<ConfirmHistoryDTO> getConfirmHistory(Integer type);
 
     ConfirmResultDTO getStatus(Integer type);

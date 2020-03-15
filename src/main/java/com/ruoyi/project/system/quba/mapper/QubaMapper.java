@@ -34,6 +34,8 @@ public interface QubaMapper {
 
     int getUserJoined(Long userId);
 
+    Long getUserJoinedQuba(Long userId);
+
     List<Quba> getByName(String name);
 
     int getByQubaIdAndUserId(@Param("qubaId") Long qubaId,@Param("userId") Long userId);

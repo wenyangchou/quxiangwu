@@ -17,6 +17,8 @@ public interface IQubaService {
 
     boolean isJoinedQuba();
 
+    Long getHasJoinedQuba();
+
     int insertQubaUser( Long userId, Long qubaId);
 
     int insertQubaSignIn( Long userId,Long qubaId);
