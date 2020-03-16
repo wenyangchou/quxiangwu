@@ -21,7 +21,7 @@ public class QualifyController extends BaseController {
     @Autowired
     private IQualifyService qualifyService;
 
-    private final static String PREFIX = "/service/qualify";
+    private final static String PREFIX = "service/qualify";
 
     @GetMapping()
     public String qualify(){

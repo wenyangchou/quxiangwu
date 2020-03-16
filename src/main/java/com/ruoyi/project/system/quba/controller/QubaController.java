@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/service/quba")
 public class QubaController extends BaseController {
 
-    private final static String PREFIX = "/service/quba";
+    private final static String PREFIX = "service/quba";
 
     @GetMapping()
     public String user()
