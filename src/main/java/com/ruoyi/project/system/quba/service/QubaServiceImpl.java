@@ -34,8 +34,8 @@ public class QubaServiceImpl implements IQubaService {
     }
 
     @Override
-    public boolean isJoinedQuba() {
-        return qubaMapper.getUserJoined(ShiroUtils.getUserId())>0;
+    public Long isJoinedQuba() {
+        return qubaMapper.getUserJoined(ShiroUtils.getUserId());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class QubaServiceImpl implements IQubaService {
     @Override
     public int insertQubaUser(Long userId, Long qubaId) {
 
-        if (isJoinedQuba()){
+        if (isJoinedQuba()!=null){
             return 0;
         }
 

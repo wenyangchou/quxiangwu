@@ -16,7 +16,7 @@ public interface IQubaService {
 
     List<Quba> getAll();
 
-    boolean isJoinedQuba();
+    Long isJoinedQuba();
 
     Long getHasJoinedQuba();
 

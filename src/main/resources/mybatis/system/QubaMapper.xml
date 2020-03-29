@@ -136,8 +136,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM service_quba
 	</select>
 
-	<select id="getUserJoined" resultType="int">
-		select count(1) FROM service_quba_user WHERE user_id = #{userId}
+	<select id="getUserJoined" resultType="java.lang.Long">
+		select quba_id FROM service_quba_user WHERE user_id = #{userId} LIMIT 1
 	</select>
 
 	<select id="getUserJoinedQuba" resultType="java.lang.Long">

@@ -33,7 +33,7 @@ public interface QubaMapper {
 
     List<Quba> getByUserId(Long userId);
 
-    int getUserJoined(Long userId);
+    Long getUserJoined(Long userId);
 
     Long getUserJoinedQuba(Long userId);
 

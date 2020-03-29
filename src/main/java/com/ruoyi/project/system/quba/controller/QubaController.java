@@ -82,7 +82,8 @@ public class QubaController extends BaseController {
     @GetMapping("/hasJoinedQuba")
     @ResponseBody
     public AjaxResult hasJoinedQuba(){
-        return success().put("hasJoined",qubaService.isJoinedQuba());
+        Long qubaId = qubaService.isJoinedQuba();
+        return success().put("qubaId",qubaId).put("hasJoined",qubaId!=null);
     }
 
 
