@@ -194,4 +194,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ON squ.user_id = su.user_id WHERE squ.quba_id=#{qubaId} LIMIT 3
 	</select>
 
+	<delete id="removeQuba" parameterType="java.lang.Long">
+		DELETE FROM service_quba WHERE id=#{qubaId}
+	</delete>
+
+	<update id="updateQuba" parameterType="com.ruoyi.project.system.quba.domain.Quba" >
+		UPDATE service_quba SET name=#{name},logo=#{logo},description=#{description},modify_time=now()
+		WHERE id=#{id}
+	</update>
+
+	<insert id="insertQuba" parameterType="com.ruoyi.project.system.quba.domain.Quba">
+		INSERT INTO service_quba (name,owner_id,logo,description) VALUES (#{name},#{ownerId},#{logo},#{description})
+	</insert>
+
 </mapper>

@@ -55,4 +55,9 @@ public interface QubaMapper {
 
     Long getUserIdByQubaUserId(Long qubaUserId);
 
+    int removeQuba(Long qubaId);
+
+    int updateQuba(Quba quba);
+
+    int insertQuba(Quba quba);
 }

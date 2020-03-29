@@ -4,9 +4,11 @@ import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.system.quba.domain.Quba;
 import com.ruoyi.project.system.quba.service.IQubaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +25,21 @@ public class QubaController extends BaseController {
 
     private final static String PREFIX = "service/quba";
 
+    @GetMapping("/manage")
+    public String qubaManage(){
+        return PREFIX+"/manage";
+    }
+
     @GetMapping()
     public String user()
     {
         return PREFIX + "/quba";
+    }
+
+    @GetMapping("/add")
+    public String add(ModelMap mmap)
+    {
+        return PREFIX + "/add";
     }
 
     @Autowired
@@ -39,7 +52,7 @@ public class QubaController extends BaseController {
         return getDataTable(qubaService.getUserQuba());
     }
 
-    @GetMapping("/getAllQuba")
+    @RequestMapping("/getAllQuba")
     @ResponseBody
     public TableDataInfo getAllQuba(){
         startPage();
@@ -128,4 +141,23 @@ public class QubaController extends BaseController {
     public AjaxResult updateQubaUser(Long qubaUserId,Integer status){
         return toAjax(qubaService.updateQubaUserStatus(status,qubaUserId));
     }
+
+    @PostMapping("/removeQuba")
+    @ResponseBody
+    public AjaxResult removeQuba(Long qubaId){
+        return toAjax(qubaService.removeQuba(qubaId));
+    }
+
+    @PostMapping("/insertQuba")
+    @ResponseBody
+    public AjaxResult insertQuba(Quba quba){
+        return toAjax(qubaService.insertQuba(quba));
+    }
+
+    @PostMapping("/updateQuba")
+    @ResponseBody
+    public AjaxResult updateQuba(Quba quba){
+        return toAjax(qubaService.updateQuba(quba));
+    }
+
 }

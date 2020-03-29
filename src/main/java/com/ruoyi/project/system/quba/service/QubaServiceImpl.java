@@ -129,4 +129,18 @@ public class QubaServiceImpl implements IQubaService {
         return qubaMapper.updateQubaUserStatusById(qubaUserId,status);
     }
 
+    @Override
+    public int removeQuba(Long qubaId) {
+        return qubaMapper.removeQuba(qubaId);
+    }
+
+    @Override
+    public int updateQuba(Quba quba) {
+        return qubaMapper.updateQuba(quba);
+    }
+
+    @Override
+    public int insertQuba(Quba quba) {
+        return qubaMapper.insertQuba(quba);
+    }
 }
