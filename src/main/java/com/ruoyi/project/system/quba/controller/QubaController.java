@@ -1,6 +1,7 @@
 package com.ruoyi.project.system.quba.controller;
 
 import com.ruoyi.common.utils.security.ShiroUtils;
+import com.ruoyi.framework.config.RuoYiConfig;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
@@ -9,10 +10,11 @@ import com.ruoyi.project.system.quba.service.IQubaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * author:zwy
@@ -44,6 +46,22 @@ public class QubaController extends BaseController {
 
     @Autowired
     private IQubaService qubaService;
+
+    @PostMapping("/uploadFile")
+    @ResponseBody
+    public String uploadFile( @RequestParam("file") MultipartFile file,@RequestParam("previewId") String previewId) {
+        try {
+            if (!file.isEmpty()){
+                File tempFile = new File(RuoYiConfig.getProfile()+"/thumb-input-id-"+previewId);
+                file.transferTo(tempFile);
+                return "true";
+            }
+            return "false";
+        } catch (IOException e) {
+            return "false";
+        }
+    }
+
 
     @GetMapping("/getMyQuba")
     @ResponseBody
@@ -145,8 +163,8 @@ public class QubaController extends BaseController {
 
     @PostMapping("/removeQuba")
     @ResponseBody
-    public AjaxResult removeQuba(Long qubaId){
-        return toAjax(qubaService.removeQuba(qubaId));
+    public AjaxResult removeQuba(String ids){
+        return toAjax(qubaService.removeQuba(ids));
     }
 
     @PostMapping("/insertQuba")

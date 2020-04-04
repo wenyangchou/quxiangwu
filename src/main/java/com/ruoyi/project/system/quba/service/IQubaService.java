@@ -42,7 +42,7 @@ public interface IQubaService {
 
     int updateQubaUserStatus(Integer status,Long qubaUserId);
 
-    int removeQuba(Long qubaId);
+    int removeQuba(String ids);
 
     int updateQuba(Quba quba);
 

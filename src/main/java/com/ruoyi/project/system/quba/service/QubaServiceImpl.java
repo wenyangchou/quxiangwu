@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.quba.service;
 
+import com.ruoyi.common.support.Convert;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.quba.constant.QubaConstant;
 import com.ruoyi.project.system.quba.domain.Quba;
@@ -130,8 +131,17 @@ public class QubaServiceImpl implements IQubaService {
     }
 
     @Override
-    public int removeQuba(Long qubaId) {
-        return qubaMapper.removeQuba(qubaId);
+    public int removeQuba(String ids) {
+
+        int result = 0;
+
+        Long[] qubaIds = Convert.toLongArray(ids);
+        for (Long qubaId : qubaIds)
+        {
+            result += qubaMapper.removeQuba(qubaId);
+        }
+
+        return result;
     }
 
     @Override
@@ -141,6 +151,7 @@ public class QubaServiceImpl implements IQubaService {
 
     @Override
     public int insertQuba(Quba quba) {
+        quba.setOwnerId(2L);
         return qubaMapper.insertQuba(quba);
     }
 }

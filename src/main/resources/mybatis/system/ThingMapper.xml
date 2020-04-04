@@ -101,7 +101,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 JOIN sys_user su ON st.user_id = su.user_id
                 JOIN service_image si ON st.top_img_id = si.id
                 JOIN service_quba_user squ ON su.user_id = squ.user_id
-        WHERE st.status=#{status} AND squ.quba_id=#{qubaId}
+        WHERE st.status=#{status} AND squ.quba_id=#{qubaId} AND squ.status=2
         ORDER BY
             st.create_time DESC
     </select>

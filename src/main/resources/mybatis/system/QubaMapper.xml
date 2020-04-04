@@ -127,7 +127,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		su.province
 		FROM service_quba_user squ, sys_user su
 		WHERE squ.user_id = su.user_id
-		AND squ.quba_id = #{qubaId}
+		AND squ.quba_id = #{qubaId} AND squ.status=2
 	</select>
 
 	<select id="getAll" resultMap="qubaResult">
@@ -137,7 +137,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getUserJoined" resultType="java.lang.Long">
-		select quba_id FROM service_quba_user WHERE user_id = #{userId} LIMIT 1
+		select quba_id FROM service_quba_user WHERE user_id = #{userId} AND status=2 LIMIT 1
 	</select>
 
 	<select id="getUserJoinedQuba" resultType="java.lang.Long">
@@ -182,16 +182,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getByQubaIdAndUserId" resultType="int">
-		SELECT count(1) FROM service_quba_user WHERE user_id=#{userId} AND quba_id=#{qubaId}
+		SELECT count(1) FROM service_quba_user WHERE user_id=#{userId} AND quba_id=#{qubaId} AND status=2
 	</select>
 
 	<select id="getQubaMemberCount" resultType="int">
-		SELECT count(1) FROM service_quba_user WHERE quba_id=#{qubaId}
+		SELECT count(1) FROM service_quba_user WHERE quba_id=#{qubaId} AND status=2
 	</select>
 
 	<select id="getQubaUserAvatarTop3" resultType="java.lang.String">
 		SELECT su.avatar FROM service_quba_user squ LEFT JOIN sys_user su
-		ON squ.user_id = su.user_id WHERE squ.quba_id=#{qubaId} LIMIT 3
+		ON squ.user_id = su.user_id WHERE squ.quba_id=#{qubaId} AND squ.status=2 LIMIT 3
 	</select>
 
 	<delete id="removeQuba" parameterType="java.lang.Long">

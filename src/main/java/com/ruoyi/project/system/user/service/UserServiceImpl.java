@@ -310,6 +310,7 @@ public class UserServiceImpl implements IUserService
     public WechatSession getWechatSessionByCode(String code) {
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid="+appId+"&secret="+secret+"&js_code="+code+"&grant_type=authorization_code";
         String result  = restTemplate.getForObject(url,String.class);
+        System.out.println(result);
         return JSON.parseObject(result,WechatSession.class);
 
     }
