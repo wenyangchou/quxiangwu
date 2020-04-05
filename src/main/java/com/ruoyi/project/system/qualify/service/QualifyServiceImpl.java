@@ -2,6 +2,7 @@ package com.ruoyi.project.system.qualify.service;
 
 import com.ruoyi.common.constant.QualifyConstant;
 import com.ruoyi.common.constant.UserConstants;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.qualify.domain.ConfirmHistoryDTO;
 import com.ruoyi.project.system.qualify.domain.ConfirmResultDTO;
@@ -33,9 +34,14 @@ public class QualifyServiceImpl implements IQualifyService {
     public int addQualify(Qualify qualify) {
 
         User user = ShiroUtils.getUser();
-        if (user.getIsQualified().equals( UserConstants.QUALIFIED)){
+        if (user.getIsQualified().equals( UserConstants.EMPLOYEE_QUALIFIED)){
             return 0;
         }else{
+            qualify.setUserId(ShiroUtils.getUserId());
+            if (qualify.getQualifyType()==null){
+                qualify.setQualifyType(QualifyConstant.TYPE_NORMAL);
+            }
+            qualify.setQualifyStatus(QualifyConstant.STATUS_WAIT_QUALIFY);
             return qualifyMapper.insert(qualify);
         }
     }
@@ -46,9 +52,9 @@ public class QualifyServiceImpl implements IQualifyService {
         qualify.setQualifyStatus(qualifyStatus);
         int result = qualifyMapper.update(qualify);
 
-        if (qualify.getQualifyStatus()== com.ruoyi.project.system.qualify.constant.QualifyConstant.OK_QUALIFY){
+        if (qualify.getQualifyStatus().equals(com.ruoyi.project.system.qualify.constant.QualifyConstant.OK_QUALIFY) ){
             User user = userMapper.selectUserById(qualify.getUserId());
-            user.setIsQualified(UserConstants.QUALIFIED);
+            user.setIsQualified(UserConstants.EMPLOYEE_QUALIFIED);
             userMapper.updateUser(user);
         }
 
@@ -58,13 +64,19 @@ public class QualifyServiceImpl implements IQualifyService {
     @Override
     public int updateQualify(Qualify qualify) {
         User user = ShiroUtils.getUser();
-        if (user.getIsQualified().equals(UserConstants.QUALIFIED)){
-            return 0;
-        }else{
-            int result = qualifyMapper.update(qualify);
-            //TODO 认证成功更改user的qualify状态
-            return result;
+        if (user.getIsQualified().equals(UserConstants.EMPLOYEE_QUALIFIED)){
+            user.setIsQualified(UserConstants.UNQUALIFIED);
+            userMapper.updateUser(user);
         }
+        qualify.setUserId(ShiroUtils.getUserId());
+        if (StringUtils.isEmpty(qualify.getQualifyNegativeUrl()) ){
+            qualify.setQualifyNegativeUrl(qualify.getQualifyPositiveUrl());
+        }
+        if (qualify.getQualifyType()==null){
+            qualify.setQualifyType(QualifyConstant.TYPE_NORMAL);
+        }
+        qualify.setQualifyStatus(QualifyConstant.STATUS_WAIT_QUALIFY);
+        return qualifyMapper.insert(qualify);
     }
 
     @Override
@@ -85,7 +97,7 @@ public class QualifyServiceImpl implements IQualifyService {
 
     @Override
     public List<ConfirmHistoryDTO> getConfirmHistory(Integer type) {
-        return qualifyMapper.getConfirmHistory(type);
+        return qualifyMapper.getConfirmHistory(type,ShiroUtils.getUserId());
     }
 
     @Override

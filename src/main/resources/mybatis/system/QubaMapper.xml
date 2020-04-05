@@ -104,7 +104,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getQubaMemberByQubaId" parameterType="java.lang.Long" resultMap="UserResult">
 		SELECT
 		su.user_id,
-		su.dept_id,
 		su.login_name,
 		su.user_name,
 		su.email,

@@ -4,6 +4,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.framework.aspectj.lang.annotation.Log;
 import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
+import com.ruoyi.framework.shiro.token.WxOpenIdToken;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
@@ -12,13 +13,16 @@ import com.ruoyi.project.system.user.domain.FollowDTO;
 import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.domain.UserInfoDTO;
 import com.ruoyi.project.system.user.service.IUserService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -101,8 +105,18 @@ public class UserController extends BaseController
 
     @PostMapping("/updateMyInfo")
     @ResponseBody
-    public AjaxResult updateMyInfo(@RequestBody UserInfoDTO userInfoDTO){
-        return toAjax(userService.updateUserInfo(userInfoDTO));
+    public AjaxResult updateMyInfo(@RequestBody UserInfoDTO userInfoDTO, HttpSession session){
+        int result = userService.updateUserInfo(userInfoDTO);
+        if (result>0){
+            WxOpenIdToken wxOpenIdToken =(WxOpenIdToken) session.getAttribute("token");
+
+            System.out.println(wxOpenIdToken);
+
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(wxOpenIdToken);
+        }
+
+        return toAjax(result);
     }
 
     /**

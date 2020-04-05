@@ -455,6 +455,7 @@ public class UserServiceImpl implements IUserService
         user.setIndustry(userInfoDTO.getIndustry());
         user.setJobTitle(userInfoDTO.getJobName());
         user.setCity(userInfoDTO.getPermanentAdd());
+        user.setSex(userInfoDTO.getGender());
 
         int result = userMapper.updateUser(user);
 

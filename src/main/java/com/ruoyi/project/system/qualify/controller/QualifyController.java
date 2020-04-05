@@ -1,5 +1,7 @@
 package com.ruoyi.project.system.qualify.controller;
 
+import com.ruoyi.common.constant.QualifyConstant;
+import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
@@ -76,7 +78,7 @@ public class QualifyController extends BaseController {
 
     @GetMapping("/getResult")
     @ResponseBody
-    public AjaxResult getConfirmResult(Integer type){
-        return AjaxResult.success().put("data",qualifyService.getStatus(type));
+    public AjaxResult getConfirmResult(){
+        return AjaxResult.success().put("qualifyResult", ShiroUtils.getUser().getIsQualified().equals(QualifyConstant.STATUS_PASS));
     }
 }

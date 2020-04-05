@@ -6,6 +6,7 @@ import com.ruoyi.framework.shiro.token.WxOpenIdToken;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.project.system.invite.service.IInviteHistoryService;
+import com.ruoyi.project.system.user.domain.User;
 import com.ruoyi.project.system.user.domain.WechatSession;
 import com.ruoyi.project.system.user.service.IUserService;
 import com.ruoyi.project.system.user.util.LoginUtil;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 登录验证
@@ -72,8 +74,9 @@ public class LoginController extends BaseController
 
     @PostMapping("/wxTest")
     @ResponseBody
-    public AjaxResult wxLoginTest(){
+    public AjaxResult wxLoginTest(HttpSession session){
         WxOpenIdToken token = new WxOpenIdToken("oMmOL5VeHSkdmncqtz_aVTkOsLfw");
+        session.setAttribute("token",token);
         Subject subject = SecurityUtils.getSubject();
         subject.login(token);
         return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
@@ -94,18 +97,25 @@ public class LoginController extends BaseController
 
     @PostMapping("/wxLogin")
     @ResponseBody
-    public AjaxResult wxLoginOrRegister(String code,Long invitor){
+    public AjaxResult wxLoginOrRegister(String code, Long invitor, HttpSession session){
         WechatSession wechatSession = userService.getWechatSessionByCode(code);
         if (wechatSession!=null&&wechatSession.getOpen_id()!=null){
             WxOpenIdToken token = new WxOpenIdToken(wechatSession.getOpen_id());
-            Subject subject = SecurityUtils.getSubject();
-            subject.login(token);
+            session.setAttribute("token",token);
 
-            if (invitor!=null&& !invitor.toString().equals("0")){
-                iInviteHistoryService.addInviteHistory(invitor,ShiroUtils.getUserId());
+            User user = userService.selectUserByOpenId(token.getOpenId());
+            if (user!=null){
+                Subject subject = SecurityUtils.getSubject();
+                subject.login(token);
+                if (invitor!=null&& !invitor.toString().equals("0")){
+                    iInviteHistoryService.addInviteHistory(invitor,ShiroUtils.getUserId());
+                }
+                return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
+            }else {
+                return success();
             }
 
-            return success().put("data", userService.getDTOByUserId(ShiroUtils.getUser()));
+
         }else {
             String msg = "请求非法";
             return error(msg);

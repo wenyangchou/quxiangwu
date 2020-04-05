@@ -36,4 +36,6 @@ public class UserQualifyDTO {
 
     private Date createTime;
 
+    private Integer qualifyType;
+
 }

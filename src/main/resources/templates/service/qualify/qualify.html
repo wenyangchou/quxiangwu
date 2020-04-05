@@ -89,6 +89,16 @@
 				formatter: function(value, row, index) {
 					return '<img width="100px" src="https://www.quxiangwu.com/' + '/profile/' + value + '">';
 				}
+			},{
+				field:'qualifyType',
+				title:'认证类型',
+				formatter: function(value, row, index) {
+					if (value=='0'){
+						return '企业员工认证';
+					} else {
+						return '在校学生认证';
+					}
+				}
 			},
 			{
 				field: 'status',

@@ -21,7 +21,7 @@ public interface QualifyMapper {
 
     int update(Qualify qualify);
 
-    List<ConfirmHistoryDTO> getConfirmHistory(Integer type);
+    List<ConfirmHistoryDTO> getConfirmHistory(@Param("type") Integer type,@Param("userId") Long userId);
 
     ConfirmResultDTO getLastQualifyStatus(@Param("userId") Long userId, @Param("type") Integer type);
 

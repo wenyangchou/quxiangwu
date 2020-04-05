@@ -27,6 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="phone" column="phone"/>
         <result property="createTime" column="create_time"/>
         <result property="qualifyId" column="qualify_id"/>
+        <result property="qualifyType" column="qualify_type"/>
     </resultMap>
 
     <resultMap id="qualifyResult" type="com.ruoyi.project.system.qualify.domain.Qualify">
@@ -59,7 +60,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             sq.qualify_status status,
             su.phonenumber phone,
             sq.create_time create_time,
-            sq.id qualify_id
+            sq.id qualify_id,
+            sq.qualify_type qualify_type
         FROM
             service_qualify sq
                 LEFT JOIN sys_user su ON sq.user_id = su.user_id
@@ -105,12 +107,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE id=#{id}
     </update>
 
-    <select id="getConfirmHistory" resultMap="confirmDTOResult" parameterType="java.lang.Integer">
-        SELECT qualify_positive_url img,create_time time FROM service_qualify WHERE qualify_type=#{type}
+    <select id="getConfirmHistory" resultMap="confirmDTOResult" >
+        SELECT qualify_positive_url img,create_time time FROM service_qualify WHERE qualify_type=#{type} AND user_id=#{userId}
     </select>
 
     <select id="getLastQualifyStatus"  resultMap="resultDTOResult" resultType="int">
-        SELECT qualify_status status,qualify_positive_url img FROM service_qualify WHERE user_id=#{userId} AND qualify_type=${type}
+        SELECT qualify_status status,qualify_positive_url img FROM service_qualify WHERE user_id=#{userId} AND qualify_type=${type} ORDER BY create_time DESC limit 1
     </select>
 
 
